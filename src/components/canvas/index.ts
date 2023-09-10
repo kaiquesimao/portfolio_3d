@@ -1,6 +1,6 @@
-import EarthCanvas from './Earth.tsx'
-import BallCanvas from './Ball.tsx'
-import ComputersCanvas from './Computers.tsx'
-import StarsCanvas from './Stars.tsx'
+import EarthCanvas from './Earth'
+import BallCanvas from './Ball'
+import ComputersCanvas from './Computers'
+import StarsCanvas from './Stars'
 
 export { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas }
