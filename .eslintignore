@@ -540,3 +540,15 @@ sketch
 
 # Android studio 3.1+ serialized cache file
 
+# Logs
+pnpm-debug.log*
+dist-ssr
+*.local
+
+# Editor directories and files
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
