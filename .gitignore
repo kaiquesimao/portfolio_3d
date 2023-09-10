@@ -79,7 +79,7 @@ fabric.properties
 # AWS User-specific
 
 # Generated files
-
+/dist
 # Sensitive or high-churn files
 
 # Gradle
