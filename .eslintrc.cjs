@@ -15,19 +15,24 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: {
-            "jsx": true
+            jsx: true,
         },
         sourceType: 'module',
         project: ['tsconfig.json', 'tsconfig.node.json'],
         tsconfigRootDir: __dirname,
     },
-    plugins: ['react-refresh', 'react' ],
+    plugins: ['react-refresh', 'react'],
     rules: {
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
+        'react/jsx-uses-react': 'error',
+        'react/jsx-uses-vars': 'error',
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
         ],
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
 }
