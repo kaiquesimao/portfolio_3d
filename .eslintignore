@@ -552,3 +552,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#project specific
+tailwind.config.js
+postcss.config.js
+vite.config.ts
