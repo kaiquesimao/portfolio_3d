@@ -6,7 +6,7 @@ import { logo, menu, close } from '../assets';
 
 const Navbar = () => {
     const [active, setActive] = useState('');
-    const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(true);
     return (
         <nav
             className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
@@ -34,7 +34,7 @@ const Navbar = () => {
                             'text-white text-[18px] font-bold cursor-pointer flex'
                         }
                     >
-                        Kaique&nbsp;
+                        Kaique{' '}
                         <span className={'sm:block hidden'}>| Portfolio</span>
                     </p>
                 </Link>
