@@ -34,8 +34,8 @@ const Navbar = () => {
                             'text-white text-[18px] font-bold cursor-pointer flex'
                         }
                     >
-                        Kaique{' '}
-                        <span className={'sm:block hidden'}>| Portfolio</span>
+                        Kaique&nbsp;
+                        <span className={'sm:block hidden'}> | Portfolio</span>
                     </p>
                 </Link>
                 <ul className={'list-none hidden sm:flex flex-row gap-10'}>
