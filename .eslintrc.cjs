@@ -23,6 +23,7 @@ module.exports = {
     },
     plugins: ['react-refresh', 'react'],
     rules: {
+        'react/no-unknown-property': 0,
         'react/jsx-uses-react': 'error',
         'react/jsx-uses-vars': 'error',
         'react-refresh/only-export-components': [
@@ -35,4 +36,4 @@ module.exports = {
             version: 'detect',
         },
     },
-}
+};
