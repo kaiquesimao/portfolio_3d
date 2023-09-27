@@ -1,3 +1,4 @@
 # Portfólio em construção...
 
-![image](https://github.com/kaiquesimao/portfolio_3d/assets/66140734/33e397ec-5394-433d-b9e7-38fd0ac63c9a)
+![image](https://github.com/kaiquesimao/portfolio_3d/assets/66140734/f54efbe7-a428-4417-9172-8cd3e7294dca)
+
