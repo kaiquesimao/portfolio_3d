@@ -1,5 +1,5 @@
 const Ball = () => {
-    return <div>Ball</div>
-}
+  return <div>Ball</div>;
+};
 
-export default Ball
+export default Ball;
