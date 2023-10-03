@@ -42,15 +42,15 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Desenvolvedor Web",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Desenvolvedor Mobile",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "Desenvolvedor Backend",
     icon: backend,
   },
   {
