@@ -27,7 +27,7 @@ const Hero = () => {
       </div>
       <div
         className={
-          "absolute bottom-32 flex w-full items-center justify-center xs:-bottom-16"
+          "absolute bottom-0 flex w-full items-center justify-center xs:-bottom-16"
         }
       >
         <a href={"#about"}>
