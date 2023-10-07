@@ -59,7 +59,7 @@ export const About = () => {
         Me formei em ADS e mergulhei de cabeça em várias áreas da programação,
         incluindo Frontend, Backend e Mobile. No Frontend, trabalho com&nbsp;
         <span style={{ color: "yellow" }}>JavaScript</span>,&nbsp;
-        <span style={{ color: "DodgerBlue" }}>TypeScript </span>,&nbsp;
+        <span style={{ color: "DodgerBlue" }}>TypeScript</span>,&nbsp;
         <span style={{ color: "red" }}>Angular</span>,&nbsp;
         <span style={{ color: "DeepSkyBlue" }}>React</span> e&nbsp;
         <span style={{ color: "MediumAquaMarine" }}>Vue</span>. <br /> No
