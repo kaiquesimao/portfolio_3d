@@ -1,59 +1,56 @@
-import { motion } from 'framer-motion';
-import { styles } from '../styles.ts';
-import { ComputersCanvas } from './canvas';
+import { motion } from "framer-motion";
+import { styles } from "../styles.ts";
+import { ComputersCanvas } from "./canvas";
+import { SectionWrapper } from "../hoc";
 
-const Hero = () => {
-    return (
-        <section className={'relative w-full h-screen mx-auto'}>
-            <div
-                className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
-            >
-                <div
-                    className={'flex flex-col justify-center items-center mt-5'}
-                >
-                    <div className={'w-5 h-5 rounded-full bg-[#915EFF]'} />
-                    <div className={'w-1 sm:h-80 h-40 violet-gradient'} />
-                </div>
-                <div>
-                    <h1 className={`${styles.heroHeadText}`}>
-                        Olá, eu sou o <br className={'sm:block hidden'} />
-                        <span className={'text-[#915EFF]'}>Kaique Simão</span>
-                    </h1>
-                    <p className={`${styles.heroSubText} mt-2 text-white`}>
-                        Desenvolvedor de Software especializado em{' '}
-                        <span className={'text-[#61DBFB]'}>React</span>,{' '}
-                        <span className={'text-[#C3002F]'}>Angular</span> e{' '}
-                        <span className={'text-[#42b883]'}>Vue</span> para o
-                        front-end, e Java com Spring para o back-end
-                    </p>
-                </div>
-            </div>
-            <ComputersCanvas />
-            <div
-                className={
-                    'absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'
-                }
-            >
-                <a href={'#about'}>
-                    <div
-                        className={
-                            'w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'
-                        }
-                    >
-                        <motion.div
-                            animate={{ y: [0, 24, 0] }}
-                            transition={{
-                                duration: 1.5,
-                                repeat: Infinity,
-                                repeatType: 'loop',
-                            }}
-                            className={'w-3 h-3 rounded-full bg-secondary mb-1'}
-                        />
-                    </div>
-                </a>
-            </div>
-        </section>
-    );
+export const Hero = () => {
+  return (
+    <section className={"relative mx-auto w-full"}>
+      <div
+        className={`${styles.paddingX} relative inset-0 top-28 mx-auto flex max-w-7xl flex-row items-start gap-5`}
+      >
+        <div className={"flex flex-col items-center justify-center"}>
+          <div className={"h-5 w-5 rounded-full bg-[#915EFF]"} />
+          <div className={"violet-gradient h-40 w-1 sm:h-60"} />
+        </div>
+        <div>
+          <h1 className={`${styles.heroHeadText}`}>
+            Olá, eu sou o <br className={"hidden sm:block"} />
+            <span className={"text-[#915EFF]"}>Kaique Simão</span>
+          </h1>
+          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+            Desenvolvedor de aplicações web
+          </p>
+        </div>
+      </div>
+      <div className={"h-96 w-full"}>
+        <ComputersCanvas />
+      </div>
+      <div
+        className={
+          "absolute bottom-0 flex w-full items-center justify-center xs:-bottom-16"
+        }
+      >
+        <a href={"#about"}>
+          <div
+            className={
+              "flex h-16 w-9 items-start justify-center rounded-3xl border-4 border-secondary p-2"
+            }
+          >
+            <motion.div
+              animate={{ y: [0, 24, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className={"mb-1 h-3 w-3 rounded-full bg-secondary"}
+            />
+          </div>
+        </a>
+      </div>
+    </section>
+  );
 };
 
-export default Hero;
+export default SectionWrapper(Hero, "/");

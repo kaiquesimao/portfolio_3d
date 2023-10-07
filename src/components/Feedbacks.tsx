@@ -1,5 +1,5 @@
 const Feedbacks = () => {
-    return <div>Feedbacks</div>
-}
+  return <div>Feedbacks</div>;
+};
 
-export default Feedbacks
+export default Feedbacks;
