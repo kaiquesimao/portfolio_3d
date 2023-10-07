@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion.ts";
 import { styles } from "../styles";
 import { services } from "../constants";
-import Tilt from "react-parallax-tilt";
+import { SectionWrapper } from "../hoc";
+import ReactParallaxTilt from "react-parallax-tilt";
 
 interface Service {
   title: string;
@@ -11,12 +12,14 @@ interface Service {
 }
 const ServiceCard = ({ title, index, icon }: Service) => {
   return (
-    <Tilt className={"w-full xs:w-64"}>
+    <ReactParallaxTilt className={"w-full xs:w-64"}>
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
         className={"green-pink-gradient w-full rounded-3xl p-px shadow-card"}
       >
         <div
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
           options={{
             max: 45,
             scale: 1,
@@ -32,10 +35,10 @@ const ServiceCard = ({ title, index, icon }: Service) => {
           </h3>
         </div>
       </motion.div>
-    </Tilt>
+    </ReactParallaxTilt>
   );
 };
-const About = () => {
+export const About = () => {
   return (
     <>
       <motion.div
@@ -44,19 +47,28 @@ const About = () => {
         exit="exit"
         variants={textVariant()}
       >
-        <p className={styles.sectionSubText}>introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <p className={styles.sectionSubText}>Introdução</p>
+        <h2 className={styles.sectionHeadText}>visão geral</h2>
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className={"mt-4 max-w-3xl text-base leading-8 text-[] text-secondary"}
+        className={"mt-4 max-w-3xl text-base leading-8 text-secondary"}
       >
-        I&apos;m a software engineer with a passion for building web
-        applications. I&apos;m currently working on a project called &quot;The
-        Cake Shop&quot; that aims to provide a platform for cake enthusiasts to
-        share and discover new recipes. I&apos;m also a member of the Cake Shop
-        Discord server and am actively seeking new opportunities to grow my
-        skills and knowledge.
+        E aí, pessoal! Sou o Kaique, um desenvolvedor de software Full Stack!👨‍💻
+        <br />
+        Me formei em ADS e mergulhei de cabeça em várias áreas da programação,
+        incluindo Frontend, Backend e Mobile. No Frontend, trabalho com&nbsp;
+        <span style={{ color: "yellow" }}>JavaScript</span>,&nbsp;
+        <span style={{ color: "DodgerBlue" }}>TypeScript </span>,&nbsp;
+        <span style={{ color: "red" }}>Angular</span>,&nbsp;
+        <span style={{ color: "DeepSkyBlue" }}>React</span> e&nbsp;
+        <span style={{ color: "MediumAquaMarine" }}>Vue</span>. <br /> No
+        Backend, me viro muito bem com Java ☕ usando o Spring Framework e
+        Kotlin. Quando o assunto é desenvolvimento mobile 📱, sou fã número um
+        de Kotlin. Além disso, tenho conhecimentos em bancos de dados
+        relacionais como SQL Server e Postgre SQL. E não para por aí! Também me
+        viro tranquilamente nos sistemas operacionais, seja no Windows (com o
+        WSL) ou no Linux/Ubuntu. 🖥️
       </motion.p>
       <div className={"mt-20 flex flex-wrap gap-10"}>
         {services.map((service, index) => (
@@ -67,4 +79,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default SectionWrapper(About, "about");

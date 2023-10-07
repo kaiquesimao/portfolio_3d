@@ -83,14 +83,33 @@ export const zoomIn = (delay: number, duration: number) => {
 
 export const slideIn = (
   direction: string,
-  type: never,
-  delay: never,
-  duration: never,
+  type: string,
+  delay: number,
+  duration: number,
 ) => {
+  let x = "0";
+  let y = "0";
+
+  switch (direction) {
+    case "left":
+      x = "-100%";
+      break;
+    case "right":
+      x = "100%";
+      break;
+    case "up":
+      y = "100%";
+      break;
+    case "down":
+      y = "100%";
+      break;
+    default:
+      break;
+  }
   return {
     hidden: {
-      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
-      y: direction === "up" ? "100%" : direction === "down" ? "100%" : 0,
+      x: x,
+      y: y,
     },
     show: {
       x: 0,
@@ -106,15 +125,15 @@ export const slideIn = (
 };
 
 export const staggerContainer = (
-  staggerChildren: never,
-  delayChildren: never,
+  staggerChildren?: never,
+  delayChildren?: never,
 ) => {
   return {
     hidden: {},
     show: {
       transition: {
         staggerChildren: staggerChildren,
-        delayChildren: delayChildren || 0,
+        delayChildren: delayChildren ?? 0,
       },
     },
   };
