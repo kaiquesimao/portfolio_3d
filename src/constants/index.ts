@@ -1,7 +1,6 @@
 import {
   backend,
   carrent,
-  creator,
   css,
   docker,
   figma,
@@ -42,7 +41,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Desenvolvedor Web",
+    title: "Desenvolvedor Web Frontend",
     icon: web,
   },
   {
@@ -50,12 +49,8 @@ const services = [
     icon: mobile,
   },
   {
-    title: "Desenvolvedor Backend",
+    title: "Desenvolvedor Web Backend",
     icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
   },
 ];
 
