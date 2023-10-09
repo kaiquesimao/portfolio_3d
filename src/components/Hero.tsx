@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { styles } from "../styles.ts";
+import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 
-export const Hero = () => {
+const HeroSection = () => {
   return (
     <section className={"relative mx-auto w-full"}>
       <div
@@ -53,4 +53,5 @@ export const Hero = () => {
   );
 };
 
-export default SectionWrapper(Hero, "/");
+const Hero = SectionWrapper(HeroSection, "/");
+export default Hero;
