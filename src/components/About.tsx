@@ -29,8 +29,8 @@ const AboutSection = () => {
         <span style={{ color: "DodgerBlue" }}>TypeScript</span>,&nbsp;
         <span style={{ color: "red" }}>Angular</span>,&nbsp;
         <span style={{ color: "DeepSkyBlue" }}>React</span> e&nbsp;
-        <span style={{ color: "MediumAquaMarine" }}>Vue</span>. <br /> No
-        Backend, me viro muito bem com Java ☕ & Kotlin usando o Spring
+        <span style={{ color: "MediumAquaMarine" }}>Vue</span>.<br />
+        No Backend, me viro muito bem com Java ☕ & Kotlin usando o Spring
         Framework. Quando o assunto é desenvolvimento mobile 📱 sou fã número um
         de Kotlin. Além disso, tenho conhecimentos em bancos de dados
         relacionais como SQL Server e Postgre. E não para por aí! Também me viro
