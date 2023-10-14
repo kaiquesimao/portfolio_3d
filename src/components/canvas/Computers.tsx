@@ -3,10 +3,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 
-interface ComputersProps {
-  isMobile: boolean;
-}
-const Computers = ({ isMobile }: ComputersProps) => {
+const Computers = ({ isMobile }: { isMobile: boolean }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   return (
     <mesh>
