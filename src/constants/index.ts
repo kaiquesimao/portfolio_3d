@@ -37,7 +37,7 @@ export const navLinks = [
   },
 ];
 
-const services = [
+const devStacks = [
   {
     title: "Desenvolvedor Web Frontend",
     icon: web,
@@ -232,4 +232,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { devStacks, technologies, experiences, testimonials, projects };

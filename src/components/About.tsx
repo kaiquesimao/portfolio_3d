@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
-import { services } from "../constants";
+import { devStacks } from "../constants";
 import { SectionWrapper } from "../hoc";
-import ServiceCard from "./ServiceCard";
+import DevCard from "./DevCard.tsx";
 const Description = () => {
   return (
     <motion.p
@@ -42,8 +42,8 @@ const AboutSection = () => {
       </motion.div>
       <Description />
       <div className={"mt-20 flex flex-wrap gap-10"}>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+        {devStacks.map((service, index) => (
+          <DevCard key={service.title} index={index} {...service} />
         ))}
       </div>
     </>
