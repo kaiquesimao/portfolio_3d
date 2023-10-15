@@ -42,8 +42,8 @@ const AboutSection = () => {
       </motion.div>
       <Description />
       <div className={"mt-20 flex flex-wrap gap-10"}>
-        {devStacks.map((service, index) => (
-          <DevCard key={service.title} index={index} {...service} />
+        {devStacks.map((stack, index) => (
+          <DevCard key={stack.title} index={index} {...stack} />
         ))}
       </div>
     </>
