@@ -52,6 +52,7 @@ const devStacks = [
   },
 ];
 
+// TODO: change a few icons
 const technologies = [
   {
     name: "HTML 5",
