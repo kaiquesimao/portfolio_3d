@@ -25,15 +25,15 @@ import {
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "Sobre mim",
   },
   {
     id: "work",
-    title: "Work",
+    title: "trabalho",
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "Contato",
   },
 ];
 
