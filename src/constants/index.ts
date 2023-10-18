@@ -1,45 +1,43 @@
 import {
+  android,
+  angular,
   backend,
   carrent,
-  css,
   docker,
-  figma,
-  git,
-  html,
+  innomotics,
+  java,
   javascript,
   jobit,
-  meta,
+  kotlin,
   mobile,
-  mongodb,
-  nodejs,
+  postgre,
   reactjs,
-  redux,
-  shopify,
-  starbucks,
+  siemens,
+  spring,
   tailwind,
-  tesla,
   threejs,
   tripguide,
   typescript,
+  vue,
   web,
 } from "../assets";
 
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "Sobre mim",
   },
   {
     id: "work",
-    title: "Work",
+    title: "trabalho",
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "Contato",
   },
 ];
 
-const services = [
+const devStacks = [
   {
     title: "Desenvolvedor Web Frontend",
     icon: web,
@@ -56,14 +54,6 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
     name: "JavaScript",
     icon: javascript,
   },
@@ -72,36 +62,44 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "React JS",
+    name: "React",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "Angular",
+    icon: angular,
+  },
+  {
+    name: "Vue",
+    icon: vue,
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
   },
   {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
     name: "Three JS",
     icon: threejs,
   },
   {
-    name: "git",
-    icon: git,
+    name: "Java",
+    icon: java,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "Spring Framework",
+    icon: spring,
+  },
+  {
+    name: "Kotlin",
+    icon: kotlin,
+  },
+  {
+    name: "Android",
+    icon: android,
+  },
+  {
+    name: "Postgre",
+    icon: postgre,
   },
   {
     name: "docker",
@@ -111,55 +109,32 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    id: 1,
+    title: "Desenvolvedor Full Stack",
+    company_name: "Siemens",
+    icon: siemens,
+    iconBg: "#009999",
+    date: "Mai 2022 - Fev 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Desenvolver e manter aplicações Web utilizando React, Angular e Java com Spring Framework.",
+      "Implementar tradução em sistemas utilizando tecnologias como i18n",
+      "Implementar comunicação com banco de dados, bem como novas colunas e/ou tabelas",
+      "Colaborar com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócio, testadores e outros programadores para criar softwares de alta qualidade.",
+      "Participar em revisões de código e fornecer feedback construtivo a outros programadores.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    id: 2,
+    title: "Desenvolvedor Full Stack",
+    company_name: "Innomotics",
+    icon: innomotics,
+    iconBg: "#E1F000",
+    date: "Fev 2023 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Desenvolver e manter aplicações web de ponta, utilizando uma variedade de tecnologias, como React com Styled Components, Angular com Material-UI, Vue, Java 11 e 17 com o Spring Framework.",
+      "Implementar sistemas de tradução (i18n) para garantir que nossos produtos sejam acessíveis globalmente e em diferentes idiomas.",
+      "Gerenciar a comunicação com bancos de dados, realizando a adição de novas colunas e tabelas conforme necessário para atender às demandas dos projetos.",
+      "Colaborar ativamente com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócios, testadores e outros programadores, para criar software de alta qualidade que atenda às necessidades dos nossos clientes.",
     ],
   },
 ];
@@ -257,4 +232,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { devStacks, technologies, experiences, testimonials, projects };

@@ -2,12 +2,12 @@ import ReactParallaxTilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 
-interface Service {
+interface devStacksType {
   title: string;
   icon: string;
   index: number;
 }
-const ServiceCard = ({ title, index, icon }: Service) => {
+const DevCard = ({ title, index, icon }: devStacksType) => {
   return (
     <ReactParallaxTilt className={"w-full xs:w-64"}>
       <motion.div
@@ -36,4 +36,4 @@ const ServiceCard = ({ title, index, icon }: Service) => {
   );
 };
 
-export default ServiceCard;
+export default DevCard;
