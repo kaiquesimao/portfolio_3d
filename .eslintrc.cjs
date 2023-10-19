@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
@@ -21,8 +22,9 @@ module.exports = {
     project: ["tsconfig.json", "tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh", "react"],
+  plugins: ["react-refresh", "react", "prettier", "tailwindcss"],
   rules: {
+    "prettier/prettier": "error",
     "react/no-unknown-property": 0,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
