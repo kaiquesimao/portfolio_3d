@@ -1,7 +1,6 @@
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 
 interface ExperienceType {
-  id: number;
   title: string;
   company_name: string;
   icon: string;
@@ -38,7 +37,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
       <ul className={"ml-5 mt-5 list-disc space-y-2"}>
         {experience.points.map((point) => (
           <li
-            key={`experience-point-${experience.id}`}
+            key={point}
             className={"pl-1 text-sm tracking-wider text-white-100"}
           >
             {point}

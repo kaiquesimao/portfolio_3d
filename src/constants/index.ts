@@ -109,7 +109,6 @@ const technologies = [
 
 const experiences = [
   {
-    id: 1,
     title: "Desenvolvedor Full Stack",
     company_name: "Siemens",
     icon: siemens,
@@ -124,7 +123,6 @@ const experiences = [
     ],
   },
   {
-    id: 2,
     title: "Desenvolvedor Full Stack",
     company_name: "Innomotics",
     icon: innomotics,
