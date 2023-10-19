@@ -4,8 +4,7 @@ const Loader = () => {
   const { progress } = useProgress();
   return (
     <Html>
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <div className={"canvas-load"}>
+      <div className={"canvas-loader"}>
         <p
           style={{
             fontSize: 14,
