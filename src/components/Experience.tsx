@@ -17,7 +17,10 @@ const ExperienceSection = () => {
       <div className={"mt-20 flex flex-col"}>
         <VerticalTimeline>
           {experiences.map((experience) => (
-            <ExperienceCard key={experience.id} experience={experience} />
+            <ExperienceCard
+              key={`experience${experience.company_name}`}
+              experience={experience}
+            />
           ))}
         </VerticalTimeline>
       </div>
