@@ -12,7 +12,7 @@ import javascript from "./tech/javascript.png";
 import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import threejs from "./tech/Three.js.png";
 import angular from "./tech/angular.png";
 import vue from "./tech/vuejs.png";
 import java from "./tech/java.png";

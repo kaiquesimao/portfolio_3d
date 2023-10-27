@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: ["react-refresh", "react", "prettier", "tailwindcss"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/recommended": "error",
     "react/no-unknown-property": 0,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
