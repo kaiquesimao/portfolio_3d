@@ -110,19 +110,6 @@ const technologies = [
 const experiences = [
   {
     title: "Desenvolvedor Full Stack",
-    company_name: "Innomotics",
-    icon: innomotics,
-    iconBg: "#E1F000",
-    date: "Fev 2023 - Present",
-    points: [
-      "Desenvolver e manter aplicações web de ponta, utilizando uma variedade de tecnologias, como React com Styled Components, Angular com Material-UI, Vue, Java 11 e 17 com o Spring Framework.",
-      "Implementar sistemas de tradução (i18n) para garantir que nossos produtos sejam acessíveis globalmente e em diferentes idiomas.",
-      "Gerenciar a comunicação com bancos de dados, realizando a adição de novas colunas e tabelas conforme necessário para atender às demandas dos projetos.",
-      "Colaborar ativamente com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócios, testadores e outros programadores, para criar software de alta qualidade que atenda às necessidades dos nossos clientes.",
-    ],
-  },
-  {
-    title: "Desenvolvedor Full Stack",
     company_name: "Siemens",
     icon: siemens,
     iconBg: "#009999",
@@ -133,6 +120,19 @@ const experiences = [
       "Implementar comunicação com banco de dados, bem como novas colunas e/ou tabelas",
       "Colaborar com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócio, testadores e outros programadores para criar softwares de alta qualidade.",
       "Participar em revisões de código e fornecer feedback construtivo a outros programadores.",
+    ],
+  },
+  {
+    title: "Desenvolvedor Full Stack",
+    company_name: "Innomotics",
+    icon: innomotics,
+    iconBg: "#E1F000",
+    date: "Fev 2023 - Present",
+    points: [
+      "Desenvolver e manter aplicações web de ponta, utilizando uma variedade de tecnologias, como React com Styled Components, Angular com Material-UI, Vue, Java 11 e 17 com o Spring Framework.",
+      "Implementar sistemas de tradução (i18n) para garantir que nossos produtos sejam acessíveis globalmente e em diferentes idiomas.",
+      "Gerenciar a comunicação com bancos de dados, realizando a adição de novas colunas e tabelas conforme necessário para atender às demandas dos projetos.",
+      "Colaborar ativamente com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócios, testadores e outros programadores, para criar software de alta qualidade que atenda às necessidades dos nossos clientes.",
     ],
   },
 ];
