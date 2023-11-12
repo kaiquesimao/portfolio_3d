@@ -6,21 +6,26 @@ import ReactParallaxTilt from "react-parallax-tilt";
 import { SectionWrapper } from "../hoc";
 import { github } from "../assets";
 
-const ProjectCard = ({
-  index,
-  name,
-  description,
-  tags,
-  image,
-  source_code_link,
-}: {
+interface IProjectCard {
   index: number;
   name: string;
   description: string;
   tags: { name: string; color: string }[];
   image: string;
   source_code_link: string;
-}) => {
+  demo_link: string;
+  webImg: string;
+}
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  tags,
+  image,
+  webImg,
+  source_code_link,
+  demo_link,
+}: IProjectCard) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <ReactParallaxTilt
@@ -37,23 +42,37 @@ const ProjectCard = ({
           />
           <div
             /* eslint-disable-next-line tailwindcss/no-custom-classname */
-            className={"card-img_hover absolute inset-0 m-3 flex justify-end"}
+            className={
+              "card-img_hover absolute inset-0 m-3 flex justify-end gap-1"
+            }
           >
             <div
-              onClick={() => window.open(source_code_link, "_blank")}
               className={
-                "black-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
+                "black-gradient flex h-10 w-10 items-center justify-center rounded-full"
               }
             >
               <img
+                onClick={() => window.open(source_code_link, "_blank")}
                 src={github}
                 alt={"github"}
-                className={"h-1/2 w-1/2 object-contain"}
+                className={"h-full w-full cursor-pointer object-contain"}
+              />
+            </div>
+            <div
+              className={
+                "flex h-10 w-10 items-center justify-center rounded-full"
+              }
+            >
+              <img
+                onClick={() => window.open(demo_link, "_blank")}
+                src={webImg}
+                alt={name}
+                className={"h-full w-full cursor-pointer object-contain"}
               />
             </div>
           </div>
         </div>
-        <div className={"mt-5 "}>
+        <div className={"mt-5"}>
           <h3 className={"text-2xl font-bold text-white"}>{name}</h3>
           <p className={"mt-2 text-sm text-secondary"}>{description}</p>
         </div>
