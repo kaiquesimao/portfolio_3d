@@ -12,7 +12,7 @@ import javascript from "./tech/javascript.png";
 import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import threejs from "./tech/Three.js.png";
 import angular from "./tech/angular.png";
 import vue from "./tech/vuejs.png";
 import java from "./tech/java.png";
@@ -27,9 +27,13 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import siemens from "./company/siemens.png";
 import innomotics from "./company/innomotics.png";
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import dio from "./dioProject.png";
+import portfolio3d from "./portfolio3d.png";
+import lanternaApp from "./lanternaApp.png";
+import pokedex from "./pokedex.png";
+import internet from "./internet.png";
+import alura from "./alura.png";
+import freeway from "./freeway.png";
 
 export {
   logo,
@@ -52,9 +56,9 @@ export {
   tesla,
   siemens,
   innomotics,
-  carrent,
-  jobit,
-  tripguide,
+  portfolio3d,
+  dio,
+  lanternaApp,
   angular,
   vue,
   java,
@@ -62,4 +66,8 @@ export {
   kotlin,
   android,
   postgre,
+  pokedex,
+  internet,
+  alura,
+  freeway,
 };

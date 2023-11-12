@@ -17,39 +17,28 @@ const Description = () => {
       <br />
       Me formei em ADS e mergulhei de cabeça em várias áreas da programação,
       incluindo Frontend, Backend e Mobile.
-      <br /> No Frontend, trabalho com&nbsp;
-      <span style={{ color: "yellow" }}>JavaScript</span>&nbsp;
-      <i className={"devicon-javascript-plain colored"} />
-      ,&nbsp;
-      <span style={{ color: "DodgerBlue" }}>TypeScript</span>&nbsp;
-      <i className={"devicon-typescript-plain colored"} />
-      ,&nbsp;
-      <span style={{ color: "red" }}>Angular</span>&nbsp;
-      <i className="devicon-angularjs-plain colored" />
-      ,&nbsp;
-      <span style={{ color: "DeepSkyBlue" }}>React</span>&nbsp;
-      <i className="devicon-react-plain colored" />
-      &nbsp;e&nbsp;
-      <span style={{ color: "MediumAquaMarine" }}>Vue</span>&nbsp;
+      <br /> No Frontend, trabalho com{" "}
+      <span style={{ color: "yellow" }}>JavaScript</span>{" "}
+      <i className={"devicon-javascript-plain colored"} />,{" "}
+      <span style={{ color: "DodgerBlue" }}>TypeScript</span>{" "}
+      <i className={"devicon-typescript-plain colored"} />,{" "}
+      <span style={{ color: "red" }}>Angular</span>{" "}
+      <i className="devicon-angularjs-plain colored" />,{" "}
+      <span style={{ color: "DeepSkyBlue" }}>React</span>{" "}
+      <i className="devicon-react-plain colored" /> e{" "}
+      <span style={{ color: "MediumAquaMarine" }}>Vue</span>{" "}
       <i className="devicon-vuejs-plain colored" />.<br />
-      No Backend, me viro muito bem com Java&nbsp;
-      <i className={"devicon-java-plain colored"} />
-      &nbsp;usando o Spring Framework&nbsp;
+      No Backend, me viro muito bem com Java{" "}
+      <i className={"devicon-java-plain colored"} /> usando o Spring Framework{" "}
       <i className={"devicon-spring-plain colored"} />.<br />
-      Quando o assunto é desenvolvimento Mobile 📱 sou fã número um de
-      Kotlin&nbsp;
-      <i className={"devicon-kotlin-plain colored"} />
-      &nbsp;para android&nbsp;
+      Quando o assunto é desenvolvimento Mobile 📱 sou fã número um de Kotlin{" "}
+      <i className={"devicon-kotlin-plain colored"} /> para android{" "}
       <i className={"devicon-android-plain colored"} />.<br />
       Tenho conhecimentos em bancos de dados relacionais como SQL Server e
-      Postgre&nbsp;
-      <i className={"devicon-postgresql-plain colored"} />.<br />E por fim,
-      também me viro tranquilamente nos sistemas operacionais, seja no
-      Windows&nbsp;
-      <i className={"devicon-windows8-original colored"} />
-      &nbsp;(com o WSL) ou no Linux&nbsp;
-      <i className={"devicon-linux-plain"} />
-      &nbsp;com a distro Ubuntu&nbsp;
+      Postgre <i className={"devicon-postgresql-plain colored"} />.<br />E por
+      fim, também me viro tranquilamente nos sistemas operacionais, seja no
+      Windows <i className={"devicon-windows8-original colored"} /> (com o WSL)
+      ou no Linux <i className={"devicon-linux-plain"} /> com a distro Ubuntu{" "}
       <i className={"devicon-ubuntu-plain colored"} />.
     </motion.p>
   );

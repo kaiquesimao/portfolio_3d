@@ -1,35 +1,43 @@
 import {
+  alura,
   android,
   angular,
   backend,
-  carrent,
+  dio,
   docker,
+  freeway,
   innomotics,
+  internet,
   java,
   javascript,
-  jobit,
   kotlin,
+  lanternaApp,
   mobile,
+  pokedex,
+  portfolio3d,
   postgre,
   reactjs,
   siemens,
   spring,
   tailwind,
   threejs,
-  tripguide,
   typescript,
   vue,
   web,
 } from "../assets";
 
-export const navLinks = [
+const navLinks = [
   {
     id: "about",
     title: "Sobre mim",
   },
   {
     id: "work",
-    title: "trabalho",
+    title: "Trabalho",
+  },
+  {
+    id: "projects",
+    title: "Projetos",
   },
   {
     id: "contact",
@@ -166,68 +174,159 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Portfolio 3D",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Aplicação web em 3D de portfólio que apresenta meus projetos, trajetória profissional e habilidades técnicas de forma interativa e envolvente.",
     tags: [
       {
-        name: "react",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "Typescript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "ThreeJs",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: portfolio3d,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/portfolio_3d",
+    demo_link: "https://portfolio-3d-pi.vercel.app",
   },
   {
-    name: "Job IT",
+    name: "App Lanterna",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Aplicativo Android desenvolvido em Kotlin, com função de ligar e desligar a lanterna/flash do smartphone. O intuito deste projeto foi entender a comunicação com o hardware do dispositivo.",
     tags: [
       {
-        name: "react",
-        color: "blue-text-gradient",
+        name: "Kotlin",
+        color: "blue_yellow-text-gradient",
       },
       {
-        name: "restapi",
+        name: "AndroidStudio",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "Gradle",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: lanternaApp,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/projetoLanterna",
+    demo_link:
+      "https://github.com/kaiquesimao/projetoLanterna/releases/download/v2.0/app-release-2.0.apk",
   },
   {
-    name: "Trip Guide",
+    name: "interface DIO",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Aplicação Web criada como desafio do bootcamp de React do banco Inter. Recriação das páginas Home, Login e Feed da plataforma Digital Innovation One.",
     tags: [
       {
-        name: "nextjs",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "StyledComponents",
         color: "green-text-gradient",
       },
       {
-        name: "css",
-        color: "pink-text-gradient",
+        name: "Javascript",
+        color: "yellow-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: dio,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/DioProjectReact",
+    demo_link: "https://dio-project-react.vercel.app/",
+  },
+  {
+    name: "Pokedéx",
+    description:
+      "Aplicação Web criada como desafio do bootcamp do banco Inter. É uma Pokedex criada puramente com o trio HTML, CSS e Javascript.",
+    tags: [
+      {
+        name: "HTML",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "CSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Javascript",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: pokedex,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/InterPokedexProject",
+    demo_link: "https://kaiquesimao.github.io/InterPokedexProject/",
+  },
+  {
+    name: "Barbearia Alura",
+    description:
+      "Aplicação Web criada como desafio da trilha de desenvolvimento web da Alura. Uma barbearia com as páginas Home, Serviços e Contato.",
+    tags: [
+      {
+        name: "HTML",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "CSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Javascript",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: alura,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/Alura-Project",
+    demo_link: "https://kaiquesimao.github.io/Alura-Project",
+  },
+  {
+    name: "FreeWay Game",
+    description:
+      "Aplicação/jogo Web criado como desafio da trilha de desenvolvimento web da Alura. O jogo consiste em tentar atravessar a vaquinha na rodovia.",
+    tags: [
+      {
+        name: "HTML",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "CSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Javascript",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "P5Js",
+        color: "blue_yellow-text-gradient",
+      },
+    ],
+    image: freeway,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/FreeWay_Classic-Game",
+    demo_link: "https://kaiquesimao.github.io/FreeWay_Classic-Game",
   },
 ];
 
-export { devStacks, technologies, experiences, testimonials, projects };
+export {
+  devStacks,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  navLinks,
+};
