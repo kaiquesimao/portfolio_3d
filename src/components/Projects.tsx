@@ -94,7 +94,6 @@ const ProjectsSection = () => {
         <p className={styles.sectionSubText}>O QUE EU FIZ ATÉ AGORA</p>
         <h2 className={styles.sectionHeadText}>Projetos</h2>
       </motion.div>
-
       <div className={"flex w-full"}>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
