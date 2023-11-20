@@ -148,26 +148,26 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+      "Eu não achei que seria possível fazer um site 3D tão bonito, mas o Kaique provou que eu estava errada.",
     name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+    designation: "Gerente de projetos",
+    company: "Siemens",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
+      "Nunca vi um desenvolvedor que se preocupa tanto com qualidade como o Kaique.",
     name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
+    designation: "Analista de requisitos",
+    company: "Innomotics",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "Kaique é um cara que sempre está disposto a ajudar os outros.",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    designation: "Desenvolvedora Full Stack",
+    company: "Innomotics",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
