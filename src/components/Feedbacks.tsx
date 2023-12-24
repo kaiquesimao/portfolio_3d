@@ -23,7 +23,7 @@ const FeedbackCard = ({
 }: IFeedbackCard) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className={"w-full rounded-3xl bg-black-200 p-10 xs:w-[320px]"}
+    className={"w-full rounded-3xl bg-black-200 p-10 xs:w-80"}
   >
     <p className={"text-5xl font-black text-white"}>&quot;</p>
     <div className={"mt-1"}>
@@ -49,9 +49,7 @@ const FeedbackCard = ({
 const Feedbacks = () => {
   return (
     <div className={"mt-12 rounded-3xl bg-black-100"}>
-      <div
-        className={`${styles.padding} min-h-[300px] rounded-2xl bg-tertiary`}
-      >
+      <div className={`${styles.padding} min-h-80 rounded-2xl bg-tertiary`}>
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>O QUE DIZEM SOBRE MIM</p>
           <h2 className={styles.sectionHeadText}>DEPOIMENTOS</h2>
