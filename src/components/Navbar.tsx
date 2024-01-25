@@ -22,7 +22,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt={"logo"} className={"h-9 w-9 object-contain"} />
+          <img src={logo} alt={"logo"} className={"size-9 object-contain"} />
           <p className={"flex cursor-pointer text-lg font-bold text-white"}>
             Kaique | Portfolio
           </p>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <img
             src={toggle ? menu : close}
             alt={"menu"}
-            className={"h-[28px] w-[28px] cursor-pointer object-contain"}
+            className={"size-[28px] cursor-pointer object-contain"}
             onClick={() => setToggle(!toggle)}
           />
           <div

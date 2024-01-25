@@ -38,7 +38,7 @@ const ProjectCard = ({
           <img
             src={image}
             alt={name}
-            className={"h-full w-full rounded-2xl object-cover"}
+            className={"size-full rounded-2xl object-cover"}
           />
           <div
             /* eslint-disable-next-line tailwindcss/no-custom-classname */
@@ -48,26 +48,26 @@ const ProjectCard = ({
           >
             <div
               className={
-                "black-gradient flex h-10 w-10 items-center justify-center rounded-full"
+                "black-gradient flex size-10 items-center justify-center rounded-full"
               }
             >
               <img
                 onClick={() => window.open(source_code_link, "_blank")}
                 src={github}
                 alt={"github"}
-                className={"h-full w-full cursor-pointer object-contain"}
+                className={"size-full cursor-pointer object-contain"}
               />
             </div>
             <div
               className={
-                "flex h-10 w-10 items-center justify-center rounded-full"
+                "flex size-10 items-center justify-center rounded-full"
               }
             >
               <img
                 onClick={() => window.open(demo_link, "_blank")}
                 src={webImg}
                 alt={name}
-                className={"h-full w-full cursor-pointer object-contain"}
+                className={"size-full cursor-pointer object-contain"}
               />
             </div>
           </div>
