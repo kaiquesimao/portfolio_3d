@@ -10,7 +10,7 @@ const HeroSection = () => {
         className={`${styles.paddingX} relative inset-0 top-28 mx-auto flex max-w-7xl flex-row items-start gap-5`}
       >
         <div className={"flex flex-col items-center justify-center"}>
-          <div className={"h-5 w-5 rounded-full bg-[#915EFF]"} />
+          <div className={"size-5 rounded-full bg-[#915EFF]"} />
           <div className={"violet-gradient h-40 w-1 sm:h-60"} />
         </div>
         <div>
@@ -44,7 +44,7 @@ const HeroSection = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className={"mb-1 h-3 w-3 rounded-full bg-secondary"}
+              className={"mb-1 size-3 rounded-full bg-secondary"}
             />
           </div>
         </a>
