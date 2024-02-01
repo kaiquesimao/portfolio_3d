@@ -29,54 +29,43 @@ const ProjectCard = ({
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <ReactParallaxTilt
-        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-        // @ts-ignore
+        // @ts-expect-error options is a valid property
         options={{ max: 45, scale: 1, speed: 450 }}
-        className={"w-full rounded-2xl bg-tertiary p-5 sm:w-[360px]"}
+        className="w-full rounded-2xl bg-tertiary p-5 sm:w-[360px]"
       >
-        <div className={"relative h-56 w-full"}>
+        <div className="relative h-56 w-full">
           <img
             src={image}
             alt={name}
-            className={"size-full rounded-2xl object-cover"}
+            className="size-full rounded-2xl object-cover"
           />
-          <div
-            /* eslint-disable-next-line tailwindcss/no-custom-classname */
-            className={
-              "card-img_hover absolute inset-0 m-3 flex justify-end gap-1"
-            }
-          >
-            <div
-              className={
-                "black-gradient flex size-10 items-center justify-center rounded-full"
-              }
-            >
-              <img
-                onClick={() => window.open(source_code_link, "_blank")}
-                src={github}
-                alt={"github"}
-                className={"size-full cursor-pointer object-contain"}
-              />
+          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+          <div className="card-img_hover absolute inset-0 m-3 flex justify-end gap-1">
+            <div className="black-gradient flex size-10 items-center justify-center rounded-full">
+              <a href={source_code_link} target="_blank" rel="noreferrer">
+                <img
+                  src={github}
+                  alt="github"
+                  className="size-full cursor-pointer object-contain"
+                />
+              </a>
             </div>
-            <div
-              className={
-                "flex size-10 items-center justify-center rounded-full"
-              }
-            >
-              <img
-                onClick={() => window.open(demo_link, "_blank")}
-                src={webImg}
-                alt={name}
-                className={"size-full cursor-pointer object-contain"}
-              />
+            <div className="flex size-10 items-center justify-center rounded-full">
+              <a href={demo_link} target="_blank" rel="noreferrer">
+                <img
+                  src={webImg}
+                  alt={name}
+                  className="size-full cursor-pointer object-contain"
+                />
+              </a>
             </div>
           </div>
         </div>
-        <div className={"mt-5"}>
-          <h3 className={"text-2xl font-bold text-white"}>{name}</h3>
-          <p className={"mt-2 text-sm text-secondary"}>{description}</p>
+        <div className="mt-5">
+          <h3 className="text-2xl font-bold text-white">{name}</h3>
+          <p className="mt-2 text-sm text-secondary">{description}</p>
         </div>
-        <div className={"mt-4 flex flex-wrap gap-2"}>
+        <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <p key={tag.name} className={`text-sm ${tag.color}`}>
               #{tag.name}

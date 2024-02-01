@@ -34,7 +34,7 @@ const Navbar = () => {
               className={`${
                 active === link.title ? "text-white" : "text-secondary"
               } cursor-pointer text-lg font-medium hover:text-white`}
-              onClick={() => setActive(link.title)}
+              onClickCapture={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
             src={toggle ? menu : close}
             alt={"menu"}
             className={"size-[28px] cursor-pointer object-contain"}
-            onClick={() => setToggle(!toggle)}
+            onClickCapture={() => setToggle(!toggle)}
           />
           <div
             className={`${
@@ -64,7 +64,7 @@ const Navbar = () => {
                   className={`${
                     active === link.title ? "text-white" : "text-secondary"
                   } font-poppins cursor-pointer text-[16px] font-medium`}
-                  onClick={() => {
+                  onClickCapture={() => {
                     setToggle(!toggle);
                     setActive(link.title);
                   }}
