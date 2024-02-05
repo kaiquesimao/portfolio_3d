@@ -1,13 +1,12 @@
-import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
+import ComputerSection from "./ComputerSection";
 
 const HeroSection = () => {
   return (
-    <section className={"relative mx-auto w-full"}>
+    <section className={"relative mx-auto mt-12 w-full"}>
       <div
-        className={`${styles.paddingX} relative inset-0 top-28 mx-auto flex max-w-7xl flex-row items-start gap-5`}
+        className={`${styles.paddingX} inset-0 top-28 mx-auto flex max-w-7xl flex-row items-start gap-5`}
       >
         <div className={"flex flex-col items-center justify-center"}>
           <div className={"size-5 rounded-full bg-[#915EFF]"} />
@@ -23,32 +22,7 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className={"h-96 w-full"}>
-        <ComputersCanvas />
-      </div>
-      <div
-        className={
-          "absolute bottom-0 flex w-full items-center justify-center xs:-bottom-16"
-        }
-      >
-        <a href={"#about"}>
-          <div
-            className={
-              "flex h-16 w-9 items-start justify-center rounded-3xl border-4 border-secondary p-2"
-            }
-          >
-            <motion.div
-              animate={{ y: [0, 24, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className={"mb-1 size-3 rounded-full bg-secondary"}
-            />
-          </div>
-        </a>
-      </div>
+      <ComputerSection />
     </section>
   );
 };
