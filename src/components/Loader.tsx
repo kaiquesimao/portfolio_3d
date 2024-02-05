@@ -10,7 +10,6 @@ const Loader = () => {
             fontSize: 14,
             color: "white",
             fontWeight: 800,
-            marginTop: 40,
           }}
         >
           Loading 3D model...{progress.toFixed(2)}%
