@@ -44,13 +44,13 @@ const Navbar = () => {
           <img
             src={toggle ? menu : close}
             alt={"menu"}
-            className={"size-[28px] cursor-pointer object-contain"}
+            className={"size-7 cursor-pointer object-contain"}
             onClickCapture={() => setToggle(!toggle)}
           />
           <div
             className={`${
               toggle ? "hidden" : "flex"
-            } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
+            } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-36 rounded-xl p-6`}
           >
             <ul
               className={
@@ -63,7 +63,7 @@ const Navbar = () => {
                   /* eslint-disable-next-line tailwindcss/no-custom-classname */
                   className={`${
                     active === link.title ? "text-white" : "text-secondary"
-                  } font-poppins cursor-pointer text-[16px] font-medium`}
+                  } font-poppins cursor-pointer text-base font-medium`}
                   onClickCapture={() => {
                     setToggle(!toggle);
                     setActive(link.title);
