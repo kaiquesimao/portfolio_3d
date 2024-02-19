@@ -7,12 +7,10 @@ import { devStacks } from "../constants";
 import { SectionWrapper } from "../hoc";
 import DevCard from "./DevCard.tsx";
 import "devicon";
-const Description = () => {
+
+const AboutMe = () => {
   return (
-    <motion.p
-      variants={fadeIn("", "", 0.1, 1)}
-      className={"mt-4 max-w-4xl text-base leading-8 text-secondary"}
-    >
+    <span>
       E aí, pessoal! Sou o Kaique, um desenvolvedor de software Full Stack!👨‍💻
       <br />
       Me formei em ADS e mergulhei de cabeça em várias áreas da programação,
@@ -40,6 +38,17 @@ const Description = () => {
       Windows <i className={"devicon-windows8-original colored"} /> (com o WSL)
       ou no Linux <i className={"devicon-linux-plain"} /> com a distro Ubuntu{" "}
       <i className={"devicon-ubuntu-plain colored"} />.
+    </span>
+  );
+};
+
+const Description = () => {
+  return (
+    <motion.p
+      variants={fadeIn("", "", 0.1, 1)}
+      className={"mt-4 max-w-4xl text-base leading-8 text-secondary"}
+    >
+      <AboutMe />
     </motion.p>
   );
 };

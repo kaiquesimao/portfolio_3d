@@ -31,7 +31,7 @@ const ProjectCard = ({
       <ReactParallaxTilt
         // @ts-expect-error options is a valid property
         options={{ max: 45, scale: 1, speed: 450 }}
-        className="w-full rounded-2xl bg-tertiary p-5 sm:w-[360px]"
+        className="w-full rounded-2xl bg-tertiary p-5 sm:w-[22.5rem]"
       >
         <div className="relative h-56 w-full">
           <img

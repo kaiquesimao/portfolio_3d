@@ -15,15 +15,14 @@ const DevCard = ({ title, index, icon }: DevStacksType) => {
         className={"green-pink-gradient w-full rounded-3xl p-px shadow-card"}
       >
         <div
-          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-          // @ts-ignore
+          // @ts-expect-error options is a valid property
           options={{
             max: 45,
             scale: 1,
             speed: 450,
           }}
           className={
-            "flex min-h-[17.5em] flex-col items-center justify-evenly rounded-3xl bg-tertiary px-12 py-5"
+            "flex min-h-72 flex-col items-center justify-evenly rounded-3xl bg-tertiary px-12 py-5"
           }
         >
           <img src={icon} alt={title} className={"size-16 object-contain"} />
