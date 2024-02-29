@@ -47,11 +47,11 @@ const navLinks = [
 
 const devStacks = [
   {
-    title: "Desenvolvedor Web Frontend",
+    title: "Desenvolvedor Frontend",
     icon: web,
   },
   {
-    title: "Desenvolvedor Web Backend",
+    title: "Desenvolvedor Backend",
     icon: backend,
   },
   {
