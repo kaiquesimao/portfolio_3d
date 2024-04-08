@@ -11,25 +11,25 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "@react-three/drei": "^9.102.6",
-    "@react-three/fiber": "^8.16.0",
-    "@types/three": "^0.162.0",
+    "@react-three/drei": "^9.105.2",
+    "@react-three/fiber": "^8.16.1",
+    "@types/three": "^0.163.0",
     "devicon": "^2.16.0",
-    "framer-motion": "^11.0.20",
+    "framer-motion": "^11.0.25",
     "maath": "^0.10.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-parallax-tilt": "^1.7.217",
+    "react-parallax-tilt": "^1.7.220",
     "react-router-dom": "^6.22.3",
     "react-vertical-timeline-component": "^3.6.0",
-    "three": "^0.162.0"
+    "three": "^0.163.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.70",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.24",
     "@types/react-vertical-timeline-component": "^3.3.6",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
@@ -41,10 +41,10 @@
     "eslint-plugin-tailwindcss": "^3.15.1",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.12",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.6"
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.4",
+    "vite": "^5.2.8"
   },
   "prettier": {
     "plugins": [
