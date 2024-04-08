@@ -5,13 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pnpm" # See documentation for possible values
+  - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
     assignees:
       - "kaiquesimao"
-      commit-message:
+    commit-message:
       # Prefix all commit messages with "npm: "
       prefix: "pnpm"
     labels:
