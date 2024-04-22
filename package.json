@@ -19,7 +19,7 @@
     "maath": "^0.10.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-parallax-tilt": "^1.7.220",
+    "react-parallax-tilt": "^1.7.222",
     "react-router-dom": "^6.22.3",
     "react-vertical-timeline-component": "^3.6.0",
     "three": "^0.163.0"
@@ -28,7 +28,7 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@types/react-vertical-timeline-component": "^3.3.6",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.19",
@@ -44,7 +44,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "vite": "^5.2.8"
+    "vite": "^5.2.10"
   },
   "prettier": {
     "plugins": [
