@@ -24,6 +24,7 @@ Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de s
 3. Execute `pnpm dev` para iniciar o servidor local.
 4. Acesse `http://localhost:5173` no seu navegador.
 5. Caso queira visualizar online acesse `https://portfolio-3d-pi.vercel.app`
+6. Para visualizar em smartphone/celular é necessário o navegador [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=pt_BR&gl=br)
 
 ## Capturas de Tela
 
