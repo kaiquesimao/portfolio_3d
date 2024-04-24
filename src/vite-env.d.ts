@@ -1,8 +1,10 @@
 /// <reference types="vite/client" />
-declare namespace NodeJS {
-  interface ProcessEnv {
-    readonly EMAILJS_SERVICEID: string;
-    readonly EMAILJS_TEMPLATEID: string;
-    readonly EMAILJS_OPTIONS: string;
-  }
+
+interface ImportMetaEnv {
+  readonly VITE_EMAILJS_SERVICEID: string;
+  readonly VITE_EMAILJS_TEMPLATEID: string;
+  readonly VITE_EMAILJS_OPTIONS: string;
+}
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

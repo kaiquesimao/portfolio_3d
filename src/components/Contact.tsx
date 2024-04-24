@@ -28,8 +28,8 @@ const ContactSection = () => {
     setLoading(true);
     emailjs
       .send(
-        process.env.EMAILJS_SERVICEID,
-        process.env.EMAILJS_TEMPLATEID,
+        import.meta.env.VITE_EMAILJS_SERVICEID,
+        import.meta.env.VITE_EMAILJS_TEMPLATEID,
         {
           from_name: formState.name,
           from_phone: formState.phone,
@@ -38,7 +38,7 @@ const ContactSection = () => {
           to_email: "kaique.gabriel.me@gmail.com",
           message: formState.message,
         },
-        process.env.EMAILJS_OPTIONS,
+        import.meta.env.VITE_EMAILJS_OPTIONS,
       )
       .then(() => {
         setLoading(false);
