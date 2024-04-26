@@ -5,6 +5,8 @@ import { slideIn } from "../utils/motion.ts";
 import { styles } from "../styles.ts";
 import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
+import "react-phone-number-input/style.css";
+import PhoneInputWithCountrySelect from "react-phone-number-input";
 
 const ContactSection = () => {
   const formRef = useRef(null);
@@ -81,7 +83,7 @@ const ContactSection = () => {
               inputMode={"text"}
               type={"text"}
               name={"name"}
-              autoComplete={"on"}
+              autoComplete={"name"}
               value={formState.name}
               onChange={handleChange}
               placeholder={"Qual é o seu nome?"}
@@ -93,19 +95,33 @@ const ContactSection = () => {
 
           <label className={"flex flex-col"}>
             <span className={"mb-4 font-medium text-white"}>Seu Telefone</span>
-            <input
-              type={"tel"}
-              inputMode={"tel"}
-              name={"phone"}
-              pattern={"[0-9]{2}[0-9]{5}[0-9]{4}"}
-              required={true}
-              maxLength={11}
+            <PhoneInputWithCountrySelect
+              countrySelectProps={{
+                autoComplete: "country-name",
+                name: "country",
+                className:
+                  "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary",
+              }}
+              numberInputProps={{
+                name: "phone",
+                id: "phone",
+                required: true,
+                inputMode: "tel",
+                type: "tel",
+                autoComplete: "tel-national",
+                className:
+                  "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary",
+              }}
               autoComplete={"on"}
+              defaultCountry={"BR"} //TODO internacionalizar
+              addInternationalOption={false}
+              placeholder={"Qual é o seu número de telefone?"}
+              initialValueFormat={"national"}
+              displayInitialValueAsLocalNumber
+              limitMaxLength
               value={formState.phone}
-              onChange={handleChange}
-              placeholder={"Qual é o seu número de telefone? Ex: 11999999999"}
-              className={
-                "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary"
+              onChange={(value) =>
+                setFormState({ ...formState, phone: `${value}` })
               }
             />
           </label>
@@ -117,7 +133,7 @@ const ContactSection = () => {
               inputMode={"email"}
               type={"email"}
               name={"email"}
-              autoComplete={"on"}
+              autoComplete={"email"}
               value={formState.email}
               onChange={handleChange}
               placeholder={"Qual é o seu email?"}
@@ -134,7 +150,7 @@ const ContactSection = () => {
               required={true}
               rows={7}
               name={"message"}
-              autoComplete={"on"}
+              autoComplete={"off"}
               value={formState.message}
               onChange={handleChange}
               placeholder={"O que você gostaria de me dizer?"}
