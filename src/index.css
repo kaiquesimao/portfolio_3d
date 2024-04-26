@@ -22,7 +22,7 @@
 .black-gradient {
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
+    90deg,
     #434343,
     #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
@@ -52,7 +52,7 @@
 .orange-text-gradient {
   background: #f12711; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to top,
+    0deg,
     #f12711,
     #f5af19
   ); /* Chrome 10-25, Safari 5.1-6 */
@@ -68,7 +68,7 @@
 .green-text-gradient {
   background: #11998e; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to top,
+    0deg,
     #11998e,
     #38ef7d
   ); /* Chrome 10-25, Safari 5.1-6 */
@@ -82,10 +82,9 @@
 }
 
 .blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
   background: #56ccf2; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to top,
+    0deg,
     #2f80ed,
     #56ccf2
   ); /* Chrome 10-25, Safari 5.1-6 */
@@ -101,31 +100,32 @@
 .yellow-text-gradient {
   background: #f6e58d; /* amarelo mais escuro - altere para a cor desejada */
   background: -webkit-linear-gradient(
-    to top,
-    #f6e58d, /* amarelo mais escuro - altere para a cor desejada */
-    #ffeb3b /* amarelo mais claro - altere para a cor desejada */
+    0deg,
+    #f6e58d,
+    /* amarelo mais escuro - altere para a cor desejada */ #ffeb3b
+      /* amarelo mais claro - altere para a cor desejada */
   );
   background: linear-gradient(
     to top,
-    #f6e58d, /* amarelo mais escuro - altere para a cor desejada */
-    #ffeb3b /* amarelo mais claro - altere para a cor desejada */
+    #f6e58d,
+    /* amarelo mais escuro - altere para a cor desejada */ #ffeb3b
+      /* amarelo mais claro - altere para a cor desejada */
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .blue_yellow-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
   background: #ffff00; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-  to top,
-  #2f80ed,
-  #ffbf00
+    0deg,
+    #2f80ed,
+    #ffbf00
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-  to top,
-  #2f80ed,
-  #ffbf00
+    to top,
+    #2f80ed,
+    #ffbf00
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -134,7 +134,7 @@
 .pink-text-gradient {
   background: #ec008c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to top,
+    0deg,
     #ec008c,
     #fc6767
   ); /* Chrome 10-25, Safari 5.1-6 */
