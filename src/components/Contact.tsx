@@ -119,6 +119,8 @@ const ContactSection = () => {
               initialValueFormat={"national"}
               displayInitialValueAsLocalNumber
               limitMaxLength
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               value={formState.phone}
               onChange={(value) =>
                 setFormState({ ...formState, phone: `${value}` })
