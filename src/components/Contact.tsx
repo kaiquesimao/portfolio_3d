@@ -7,12 +7,13 @@ import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import "react-phone-number-input/style.css";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
+import { type Value } from "react-phone-number-input";
 
 const ContactSection = () => {
   const formRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
-    phone: "",
+    phone: "" as Value | undefined,
     email: "",
     message: "",
   });
@@ -47,7 +48,7 @@ const ContactSection = () => {
         alert("Obrigado pelo contato. Responderei em breve.");
         setFormState({
           name: "",
-          phone: "",
+          phone: "" as Value | undefined,
           email: "",
           message: "",
         });
@@ -120,9 +121,7 @@ const ContactSection = () => {
               displayInitialValueAsLocalNumber
               limitMaxLength
               value={formState.phone}
-              onChange={(value) =>
-                setFormState({ ...formState, phone: `${value}` })
-              }
+              onChange={(value) => setFormState({ ...formState, phone: value })}
             />
           </label>
 
