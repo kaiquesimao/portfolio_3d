@@ -325,7 +325,7 @@ const projects = [
 const languages = {
   en: {
     nativeName: "English",
-    code: "en",
+    code: "en-US",
   },
   ptbr: {
     nativeName: "Português",
