@@ -1,12 +1,26 @@
 import { useState } from "react";
 import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { languages, navLinks } from "../constants";
+import { logo, menu, close, brasil, usa } from "../assets";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(true);
+
+  const handleCountryChange = async (language: {
+    nativeName: string;
+    code: string;
+  }) => {
+    try {
+      return await i18n.changeLanguage(language.code);
+    } catch (error) {
+      return console.error(error);
+    }
+  };
+
   return (
     <nav
       className={`${styles.paddingX} fixed top-0 z-20 flex w-full items-center bg-primary py-5`}
@@ -24,7 +38,7 @@ const Navbar = () => {
         >
           <img src={logo} alt={"logo"} className={"size-9 object-contain"} />
           <p className={"flex cursor-pointer text-lg font-bold text-white"}>
-            Kaique | Portfolio
+            {t("page_title")}
           </p>
         </Link>
         <ul className={"hidden list-none flex-row gap-10 sm:flex"}>
@@ -74,6 +88,33 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="flex size-10 items-center justify-end rounded-full">
+          <img
+            src={brasil}
+            alt={t("country_img")}
+            className="size-full cursor-pointer object-contain"
+            title={t("change_language")}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.ptbr);
+              };
+              void handle();
+            }}
+          />
+          <img
+            src={usa}
+            alt={t("country_img")}
+            className="size-full cursor-pointer object-contain"
+            title={t("change_language")}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.en);
+              };
+              void handle();
+            }}
+          />
         </div>
       </div>
     </nav>

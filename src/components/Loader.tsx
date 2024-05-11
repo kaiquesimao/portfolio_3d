@@ -12,7 +12,7 @@ const Loader = () => {
             fontWeight: 800,
           }}
         >
-          Loading 3D model...{progress.toFixed(2)}%
+          Loading...{progress.toFixed(2)}%
         </p>
       </div>
     </Html>

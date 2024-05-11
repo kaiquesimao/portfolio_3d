@@ -35,6 +35,9 @@ import internet from "./internet.png";
 import alura from "./alura.png";
 import freeway from "./freeway.png";
 
+import brasil from "./locales/brasil.png";
+import usa from "./locales/united_states.png";
+
 export {
   logo,
   backend,
@@ -70,4 +73,6 @@ export {
   internet,
   alura,
   freeway,
+  brasil,
+  usa,
 };

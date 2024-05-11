@@ -110,7 +110,7 @@ const technologies = [
     icon: postgre,
   },
   {
-    name: "docker",
+    name: "Docker",
     icon: docker,
   },
 ];
@@ -322,6 +322,17 @@ const projects = [
   },
 ];
 
+const languages = {
+  en: {
+    nativeName: "English",
+    code: "en",
+  },
+  ptbr: {
+    nativeName: "Português",
+    code: "pt-BR",
+  },
+};
+
 export {
   devStacks,
   technologies,
@@ -329,4 +340,5 @@ export {
   testimonials,
   projects,
   navLinks,
+  languages,
 };
