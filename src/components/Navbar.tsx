@@ -53,17 +53,69 @@ const Navbar = () => {
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+          <img
+            src={brasil}
+            alt={t("country_img")}
+            style={
+              i18n.resolvedLanguage === languages.ptbr.code
+                ? {
+                    border: "2px solid white",
+                    borderRadius: "50%",
+                  }
+                : { border: "none" }
+            }
+            className="box-border size-9 cursor-pointer object-contain"
+            title={t("change_language")}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.ptbr);
+              };
+              void handle();
+            }}
+          />
+          <img
+            src={usa}
+            alt={t("country_img")}
+            style={
+              i18n.resolvedLanguage === languages.en.code
+                ? {
+                    border: "2px solid white",
+                    borderRadius: "50%",
+                  }
+                : { border: "none" }
+            }
+            className="box-border size-9 cursor-pointer object-contain"
+            title={t("change_language")}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.en);
+              };
+              void handle();
+            }}
+          />
         </ul>
         <div className={"flex flex-1 items-center justify-end sm:hidden"}>
-          <img
-            src={toggle ? menu : close}
-            alt={"menu"}
-            className={"size-7 cursor-pointer object-contain"}
-            onClickCapture={() => setToggle(!toggle)}
-          />
+          <div className="relative">
+            <img
+              src={menu}
+              alt={"menu"}
+              className={`absolute transition-opacity duration-500 ${
+                toggle ? "opacity-100" : "opacity-0"
+              } size-7 cursor-pointer object-contain`}
+              onClickCapture={() => setToggle(!toggle)}
+            />
+            <img
+              src={close}
+              alt={"close"}
+              className={`transition-opacity duration-500 ${
+                toggle ? "opacity-0" : "opacity-100"
+              } size-7 cursor-pointer object-contain`}
+              onClickCapture={() => setToggle(!toggle)}
+            />
+          </div>
           <div
-            className={`${
-              toggle ? "hidden" : "flex"
+            className={`transition-opacity duration-500 ${
+              toggle ? "opacity-0" : "opacity-100"
             } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-36 rounded-xl p-6`}
           >
             <ul
@@ -86,35 +138,50 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
+              <div className={"flex flex-row justify-between gap-4"}>
+                <img
+                  src={brasil}
+                  alt={t("country_img")}
+                  style={
+                    i18n.resolvedLanguage === languages.ptbr.code
+                      ? {
+                          border: "2px solid white",
+                          borderRadius: "50%",
+                        }
+                      : { border: "none" }
+                  }
+                  className="box-border size-9 cursor-pointer object-contain"
+                  title={t("change_language")}
+                  onClick={() => {
+                    const handle = async () => {
+                      await handleCountryChange(languages.ptbr);
+                    };
+                    void handle();
+                  }}
+                />
+                <img
+                  src={usa}
+                  alt={t("country_img")}
+                  style={
+                    i18n.resolvedLanguage === languages.en.code
+                      ? {
+                          border: "2px solid white",
+                          borderRadius: "50%",
+                        }
+                      : { border: "none" }
+                  }
+                  className="box-border size-9 cursor-pointer object-contain"
+                  title={t("change_language")}
+                  onClick={() => {
+                    const handle = async () => {
+                      await handleCountryChange(languages.en);
+                    };
+                    void handle();
+                  }}
+                />
+              </div>
             </ul>
           </div>
-        </div>
-
-        <div className="flex size-10 items-center justify-end rounded-full">
-          <img
-            src={brasil}
-            alt={t("country_img")}
-            className="size-full cursor-pointer object-contain"
-            title={t("change_language")}
-            onClick={() => {
-              const handle = async () => {
-                await handleCountryChange(languages.ptbr);
-              };
-              void handle();
-            }}
-          />
-          <img
-            src={usa}
-            alt={t("country_img")}
-            className="size-full cursor-pointer object-contain"
-            title={t("change_language")}
-            onClick={() => {
-              const handle = async () => {
-                await handleCountryChange(languages.en);
-              };
-              void handle();
-            }}
-          />
         </div>
       </div>
     </nav>
