@@ -66,7 +66,12 @@ const Navbar = () => {
             }
             className="box-border size-9 cursor-pointer object-contain"
             title={t("change_language")}
-            onClick={void handleCountryChange(languages.portuguese)}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.portuguese);
+              };
+              void handle();
+            }}
           />
           <img
             src={usa}
@@ -81,7 +86,12 @@ const Navbar = () => {
             }
             className="box-border size-9 cursor-pointer object-contain"
             title={t("change_language")}
-            onClick={void handleCountryChange(languages.english)}
+            onClick={() => {
+              const handle = async () => {
+                await handleCountryChange(languages.english);
+              };
+              void handle();
+            }}
           />
         </ul>
         <div className={"flex flex-1 items-center justify-end sm:hidden"}>
@@ -142,7 +152,12 @@ const Navbar = () => {
                   }
                   className="box-border size-9 cursor-pointer object-contain"
                   title={t("change_language")}
-                  onClick={void handleCountryChange(languages.portuguese)}
+                  onClick={() => {
+                    const handle = async () => {
+                      await handleCountryChange(languages.portuguese);
+                    };
+                    void handle();
+                  }}
                 />
                 <img
                   src={usa}
@@ -157,7 +172,12 @@ const Navbar = () => {
                   }
                   className="box-border size-9 cursor-pointer object-contain"
                   title={t("change_language")}
-                  onClick={void handleCountryChange(languages.english)}
+                  onClick={() => {
+                    const handle = async () => {
+                      await handleCountryChange(languages.english);
+                    };
+                    void handle();
+                  }}
                 />
               </div>
             </ul>
