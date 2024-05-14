@@ -57,7 +57,7 @@ const Navbar = () => {
             src={brasil}
             alt={t("country_img")}
             style={
-              i18n.resolvedLanguage === languages.ptbr.code
+              i18n.resolvedLanguage === languages.portuguese.code
                 ? {
                     border: "2px solid white",
                     borderRadius: "50%",
@@ -66,18 +66,13 @@ const Navbar = () => {
             }
             className="box-border size-9 cursor-pointer object-contain"
             title={t("change_language")}
-            onClick={() => {
-              const handle = async () => {
-                await handleCountryChange(languages.ptbr);
-              };
-              void handle();
-            }}
+            onClick={void handleCountryChange(languages.portuguese)}
           />
           <img
             src={usa}
             alt={t("country_img")}
             style={
-              i18n.resolvedLanguage === languages.en.code
+              i18n.resolvedLanguage === languages.english.code
                 ? {
                     border: "2px solid white",
                     borderRadius: "50%",
@@ -86,12 +81,7 @@ const Navbar = () => {
             }
             className="box-border size-9 cursor-pointer object-contain"
             title={t("change_language")}
-            onClick={() => {
-              const handle = async () => {
-                await handleCountryChange(languages.en);
-              };
-              void handle();
-            }}
+            onClick={void handleCountryChange(languages.english)}
           />
         </ul>
         <div className={"flex flex-1 items-center justify-end sm:hidden"}>
@@ -143,7 +133,7 @@ const Navbar = () => {
                   src={brasil}
                   alt={t("country_img")}
                   style={
-                    i18n.resolvedLanguage === languages.ptbr.code
+                    i18n.resolvedLanguage === languages.portuguese.code
                       ? {
                           border: "2px solid white",
                           borderRadius: "50%",
@@ -152,18 +142,13 @@ const Navbar = () => {
                   }
                   className="box-border size-9 cursor-pointer object-contain"
                   title={t("change_language")}
-                  onClick={() => {
-                    const handle = async () => {
-                      await handleCountryChange(languages.ptbr);
-                    };
-                    void handle();
-                  }}
+                  onClick={void handleCountryChange(languages.portuguese)}
                 />
                 <img
                   src={usa}
                   alt={t("country_img")}
                   style={
-                    i18n.resolvedLanguage === languages.en.code
+                    i18n.resolvedLanguage === languages.english.code
                       ? {
                           border: "2px solid white",
                           borderRadius: "50%",
@@ -172,12 +157,7 @@ const Navbar = () => {
                   }
                   className="box-border size-9 cursor-pointer object-contain"
                   title={t("change_language")}
-                  onClick={() => {
-                    const handle = async () => {
-                      await handleCountryChange(languages.en);
-                    };
-                    void handle();
-                  }}
+                  onClick={void handleCountryChange(languages.english)}
                 />
               </div>
             </ul>

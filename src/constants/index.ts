@@ -323,13 +323,13 @@ const projects = [
 ];
 
 const languages = {
-  en: {
+  english: {
     nativeName: "English",
-    code: "en-US",
+    code: "en",
   },
-  ptbr: {
+  portuguese: {
     nativeName: "Português",
-    code: "pt-BR",
+    code: "pt",
   },
 };
 
