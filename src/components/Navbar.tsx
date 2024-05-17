@@ -21,6 +21,11 @@ const Navbar = () => {
     }
   };
 
+  const countryImgStyleClass = (
+    language: string,
+  ) => `box-border size-9 cursor-pointer object-contain
+             ${i18n.resolvedLanguage === language && `rounded-full border-2 border-white`}`;
+
   return (
     <nav
       className={`${styles.paddingX} fixed top-0 z-20 flex w-full items-center bg-primary py-5`}
@@ -56,8 +61,7 @@ const Navbar = () => {
           <img
             src={brasil}
             alt={t("country_img")}
-            className={`box-border size-9 cursor-pointer object-contain
-             ${i18n.resolvedLanguage === languages.portuguese.code && `rounded-full border-2 border-white`}`}
+            className={countryImgStyleClass(languages.portuguese.code)}
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
@@ -69,8 +73,7 @@ const Navbar = () => {
           <img
             src={usa}
             alt={t("country_img")}
-            className={`box-border size-9 cursor-pointer object-contain
-             ${i18n.resolvedLanguage === languages.english.code && `rounded-full border-2 border-white`}`}
+            className={countryImgStyleClass(languages.english.code)}
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
@@ -127,8 +130,7 @@ const Navbar = () => {
                 <img
                   src={brasil}
                   alt={t("country_img")}
-                  className={`box-border size-9 cursor-pointer object-contain
-                   ${i18n.resolvedLanguage === languages.portuguese.code && `rounded-full border-2 border-white`}`}
+                  className={countryImgStyleClass(languages.portuguese.code)}
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {
@@ -140,8 +142,7 @@ const Navbar = () => {
                 <img
                   src={usa}
                   alt={t("country_img")}
-                  className={`box-border size-9 cursor-pointer object-contain
-                   ${i18n.resolvedLanguage === languages.english.code && `rounded-full border-2 border-white`}`}
+                  className={countryImgStyleClass(languages.english.code)}
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {
