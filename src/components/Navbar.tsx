@@ -46,25 +46,18 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-white" : "text-secondary"
+                active === link.id ? "text-white" : "text-secondary"
               } cursor-pointer text-lg font-medium hover:text-white`}
-              onClickCapture={() => setActive(link.title)}
+              onClickCapture={() => setActive(link.id)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={`#${link.id}`}>{t(link.title)}</a>
             </li>
           ))}
           <img
             src={brasil}
             alt={t("country_img")}
-            style={
-              i18n.resolvedLanguage === languages.portuguese.code
-                ? {
-                    border: "2px solid white",
-                    borderRadius: "50%",
-                  }
-                : { border: "none" }
-            }
-            className="box-border size-9 cursor-pointer object-contain"
+            className={`box-border size-9 cursor-pointer object-contain
+             ${i18n.resolvedLanguage === languages.portuguese.code && `rounded-full border-2 border-white`}`}
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
@@ -76,15 +69,8 @@ const Navbar = () => {
           <img
             src={usa}
             alt={t("country_img")}
-            style={
-              i18n.resolvedLanguage === languages.english.code
-                ? {
-                    border: "2px solid white",
-                    borderRadius: "50%",
-                  }
-                : { border: "none" }
-            }
-            className="box-border size-9 cursor-pointer object-contain"
+            className={`box-border size-9 cursor-pointer object-contain
+             ${i18n.resolvedLanguage === languages.english.code && `rounded-full border-2 border-white`}`}
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
@@ -126,31 +112,23 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <li
                   key={link.id}
-                  /* eslint-disable-next-line tailwindcss/no-custom-classname */
                   className={`${
-                    active === link.title ? "text-white" : "text-secondary"
-                  } font-poppins cursor-pointer text-base font-medium`}
+                    active === link.id ? "text-white" : "text-secondary"
+                  } cursor-pointer font-[Poppins] text-base font-medium`}
                   onClickCapture={() => {
                     setToggle(!toggle);
-                    setActive(link.title);
+                    setActive(link.id);
                   }}
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
+                  <a href={`#${link.id}`}>{t(link.title)}</a>
                 </li>
               ))}
               <div className={"flex flex-row justify-between gap-4"}>
                 <img
                   src={brasil}
                   alt={t("country_img")}
-                  style={
-                    i18n.resolvedLanguage === languages.portuguese.code
-                      ? {
-                          border: "2px solid white",
-                          borderRadius: "50%",
-                        }
-                      : { border: "none" }
-                  }
-                  className="box-border size-9 cursor-pointer object-contain"
+                  className={`box-border size-9 cursor-pointer object-contain
+                   ${i18n.resolvedLanguage === languages.portuguese.code && `rounded-full border-2 border-white`}`}
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {
@@ -162,15 +140,8 @@ const Navbar = () => {
                 <img
                   src={usa}
                   alt={t("country_img")}
-                  style={
-                    i18n.resolvedLanguage === languages.english.code
-                      ? {
-                          border: "2px solid white",
-                          borderRadius: "50%",
-                        }
-                      : { border: "none" }
-                  }
-                  className="box-border size-9 cursor-pointer object-contain"
+                  className={`box-border size-9 cursor-pointer object-contain
+                   ${i18n.resolvedLanguage === languages.english.code && `rounded-full border-2 border-white`}`}
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {

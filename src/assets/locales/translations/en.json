@@ -1,5 +1,9 @@
 {
   "page_title": "Kaique's portfolio",
   "country_img": "Image of the Brazilian flag",
-  "change_language": "Click here to change the language"
+  "change_language": "Click here to change the language",
+  "about": "About me",
+  "work": "Work",
+  "projects": "Projects",
+  "contact": "Contact"
 }
