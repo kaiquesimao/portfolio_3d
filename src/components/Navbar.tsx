@@ -10,7 +10,7 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(true);
 
-  const handleCountryChange = async (language: {
+  const handleLanguageChange = async (language: {
     nativeName: string;
     code: string;
   }) => {
@@ -65,7 +65,7 @@ const Navbar = () => {
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
-                await handleCountryChange(languages.portuguese);
+                await handleLanguageChange(languages.portuguese);
               };
               void handle();
             }}
@@ -77,7 +77,7 @@ const Navbar = () => {
             title={t("change_language")}
             onClick={() => {
               const handle = async () => {
-                await handleCountryChange(languages.english);
+                await handleLanguageChange(languages.english);
               };
               void handle();
             }}
@@ -134,7 +134,7 @@ const Navbar = () => {
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {
-                      await handleCountryChange(languages.portuguese);
+                      await handleLanguageChange(languages.portuguese);
                     };
                     void handle();
                   }}
@@ -146,7 +146,7 @@ const Navbar = () => {
                   title={t("change_language")}
                   onClick={() => {
                     const handle = async () => {
-                      await handleCountryChange(languages.english);
+                      await handleLanguageChange(languages.english);
                     };
                     void handle();
                   }}
