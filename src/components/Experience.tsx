@@ -6,19 +6,23 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { experiences } from "../constants";
 import ExperienceCard from "./ExperienceCard";
+import { useTranslation } from "react-i18next";
 
 const ExperienceSection = () => {
+  const { t } = useTranslation();
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>O que eu fiz até agora</p>
-        <h2 className={styles.sectionHeadText}>Experiência Profissional</h2>
+        <p className={styles.sectionSubText}>{t("experience_sub_text")}</p>
+        <h2 className={styles.sectionHeadText}>
+          {t("professional_experience")}
+        </h2>
       </motion.div>
       <div className={"mt-20 flex flex-col"}>
         <VerticalTimeline>
           {experiences.map((experience) => (
             <ExperienceCard
-              key={`experience${experience.company_name}`}
+              key={`experience-${experience.company_name}`}
               experience={experience}
             />
           ))}

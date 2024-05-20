@@ -24,5 +24,20 @@
   "intro_so2": "(com o WSL) ou no Linux",
   "intro_so3": "com a distro Ubuntu",
   "and": "e",
-  "with": "com"
+  "with": "com",
+  "experience_sub_text": "O que eu fiz até agora",
+  "professional_experience": "Experiência Profissional",
+  "experience_1": "Desenvolvedor Full Stack",
+  "experience_2": "Desenvolvedor Full Stack",
+  "experience_1_date": "Fev 2023 - Presente",
+  "experience_2_date": "Mai 2022 - Fev 2023",
+  "experience_1_desc_1": "Desenvolver e manter aplicações web de ponta, utilizando uma variedade de tecnologias, como React com Styled Components, Angular com Material-UI, Vue, Java 11 e 17 com o Spring Framework.",
+  "experience_1_desc_2": "Implementar sistemas de tradução (i18n) para garantir que nossos produtos sejam acessíveis globalmente e em diferentes idiomas.",
+  "experience_1_desc_3": "Gerenciar a comunicação com bancos de dados, realizando a adição de novas colunas e tabelas conforme necessário para atender às demandas dos projetos.",
+  "experience_1_desc_4": "Colaborar ativamente com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócios, testadores e outros programadores, para criar software de alta qualidade que atenda às necessidades dos nossos clientes.",
+  "experience_2_desc_1": "Desenvolver e manter aplicações Web utilizando React, Angular e Java com Spring Framework.",
+  "experience_2_desc_2": "Implementar tradução em sistemas utilizando tecnologias como i18n.",
+  "experience_2_desc_3": "Implementar comunicação com banco de dados, bem como novas colunas e/ou tabelas.",
+  "experience_2_desc_4": "Colaborar com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócio, testadores e outros programadores para criar softwares de alta qualidade.",
+  "experience_2_desc_5": "Participar em revisões de código e fornecer feedback construtivo a outros programadores."
 }

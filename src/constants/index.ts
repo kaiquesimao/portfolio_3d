@@ -117,30 +117,30 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Desenvolvedor Full Stack",
+    title: "experience_1",
     company_name: "Innomotics",
     icon: innomotics,
     iconBg: "#E1F000",
-    date: "Fev 2023 - Present",
+    date: "experience_1_date",
     points: [
-      "Desenvolver e manter aplicações web de ponta, utilizando uma variedade de tecnologias, como React com Styled Components, Angular com Material-UI, Vue, Java 11 e 17 com o Spring Framework.",
-      "Implementar sistemas de tradução (i18n) para garantir que nossos produtos sejam acessíveis globalmente e em diferentes idiomas.",
-      "Gerenciar a comunicação com bancos de dados, realizando a adição de novas colunas e tabelas conforme necessário para atender às demandas dos projetos.",
-      "Colaborar ativamente com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócios, testadores e outros programadores, para criar software de alta qualidade que atenda às necessidades dos nossos clientes.",
+      "experience_1_desc_1",
+      "experience_1_desc_2",
+      "experience_1_desc_3",
+      "experience_1_desc_4",
     ],
   },
   {
-    title: "Desenvolvedor Full Stack",
+    title: "experience_2",
     company_name: "Siemens",
     icon: siemens,
     iconBg: "#009999",
-    date: "Mai 2022 - Fev 2023",
+    date: "experience_2_date",
     points: [
-      "Desenvolver e manter aplicações Web utilizando React, Angular e Java com Spring Framework.",
-      "Implementar tradução em sistemas utilizando tecnologias como i18n",
-      "Implementar comunicação com banco de dados, bem como novas colunas e/ou tabelas",
-      "Colaborar com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócio, testadores e outros programadores para criar softwares de alta qualidade.",
-      "Participar em revisões de código e fornecer feedback construtivo a outros programadores.",
+      "experience_2_desc_1",
+      "experience_2_desc_2",
+      "experience_2_desc_3",
+      "experience_2_desc_4",
+      "experience_2_desc_5",
     ],
   },
 ];
