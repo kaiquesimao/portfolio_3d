@@ -9,18 +9,18 @@ interface DevStacksType {
 }
 const DevCard = ({ title, index, icon }: DevStacksType) => {
   return (
-    <ReactParallaxTilt className={"w-full xs:w-64"}>
+    <ReactParallaxTilt
+      className={"w-full xs:w-64"}
+      scale={1}
+      transitionSpeed={450}
+      tiltMaxAngleX={45}
+      tiltMaxAngleY={45}
+    >
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
         className={"green-pink-gradient w-full rounded-3xl p-px shadow-card"}
       >
         <div
-          // @ts-expect-error options is a valid property
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
           className={
             "flex min-h-72 flex-col items-center justify-evenly rounded-3xl bg-tertiary px-12 py-5"
           }

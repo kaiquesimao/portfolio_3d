@@ -29,8 +29,10 @@ const ProjectCard = ({
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <ReactParallaxTilt
-        // @ts-expect-error options is a valid property
-        options={{ max: 45, scale: 1, speed: 450 }}
+        transitionSpeed={450}
+        scale={1}
+        tiltMaxAngleX={45}
+        tiltMaxAngleY={45}
         className="w-full rounded-2xl bg-tertiary p-5 sm:w-[22.5rem]"
       >
         <div className="relative h-56 w-full">
