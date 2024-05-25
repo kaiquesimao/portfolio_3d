@@ -10,11 +10,29 @@ import {
   Tech,
   Projects,
 } from "./components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import MobileContext from "./contexts/MobileContext.tsx";
 
 const App = () => {
   const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   useEffect(() => {
     document.title = t("page_title");
@@ -32,25 +50,27 @@ const App = () => {
   }, [t, i18n]);
 
   return (
-    <BrowserRouter>
-      <div className={"relative z-0 bg-primary"}>
-        <div className={"bg-hero-pattern bg-cover bg-center bg-no-repeat"}>
-          <Navbar />
-          <Hero />
-        </div>
+    <MobileContext.Provider value={isMobile}>
+      <BrowserRouter>
+        <div className={"relative z-0 bg-primary"}>
+          <div className={"bg-hero-pattern bg-cover bg-center bg-no-repeat"}>
+            <Navbar />
+            <Hero />
+          </div>
 
-        <About />
-        <Experience />
-        <Tech />
-        <Projects />
-        <Feedbacks />
+          <About />
+          <Experience />
+          <Tech />
+          <Projects />
+          <Feedbacks />
 
-        <div className={"relative z-0"}>
-          <Contact />
-          <StarsCanvas />
+          <div className={"relative z-0"}>
+            <Contact />
+            <StarsCanvas />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </MobileContext.Provider>
   );
 };
 

@@ -1,10 +1,12 @@
 import CanvasLoader from "../Loader";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useContext } from "react";
+import MobileContext from "../../contexts/MobileContext.tsx";
 
-const Computers = ({ isMobile }: { isMobile: boolean }) => {
+const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
+  const isMobile = useContext(MobileContext);
   return (
     <mesh>
       <hemisphereLight intensity={2} groundColor={"black"} />
@@ -28,23 +30,7 @@ const Computers = ({ isMobile }: { isMobile: boolean }) => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
+  const isMobile = useContext(MobileContext);
 
   return (
     <div className={`${isMobile ? "h-64" : "h-96"} w-full`}>
@@ -62,7 +48,7 @@ const ComputersCanvas = () => {
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
           />
-          <Computers isMobile={isMobile} />
+          <Computers />
         </Suspense>
         <Preload all />
       </Canvas>

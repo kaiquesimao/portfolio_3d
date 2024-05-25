@@ -3,8 +3,12 @@ import { staggerContainer } from "../utils/motion";
 import { styles } from "../styles";
 import React from "react";
 
-const SectionWrapper = (Component: () => React.JSX.Element, idName: string) =>
+const SectionWrapper = (
+  Component: () => React.JSX.Element | undefined,
+  idName: string,
+) =>
   function HOC() {
+    if (!Component) return null;
     return (
       <motion.section
         variants={staggerContainer()}
