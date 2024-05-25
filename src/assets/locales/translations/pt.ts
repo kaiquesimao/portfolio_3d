@@ -72,6 +72,18 @@ const pt = {
   project_6_name: "FreeWay clássico",
   project_6_description:
     "Aplicação/jogo Web criado como desafio da trilha de desenvolvimento web da Alura. O jogo consiste em tentar atravessar a vaquinha na rodovia.",
+  testimonials: "Depoimentos",
+  testimonials_sub_text: "O que as pessoas estão dizendo",
+  onCompany: "na empresa",
+  testimonial_1:
+    "Kaique é um desenvolvedor incrível. Sua atenção aos detalhes e sua capacidade de resolver problemas complexos são verdadeiramente impressionantes.",
+  testimony_designation_1: "Gerente de projetos",
+  testimonial_2:
+    "Trabalhar com Kaique foi uma experiência fantástica. Ele sempre traz ideias inovadoras e é um verdadeiro líder em nossa equipe de desenvolvimento.",
+  testimony_designation_2: "Analista de requisitos",
+  testimonial_3:
+    "Kaique é um profissional dedicado e altamente qualificado. Seu conhecimento em várias tecnologias e sua habilidade para aprender rapidamente são admiráveis.",
+  testimony_designation_3: "Desenvolvedora Full Stack",
 } as const;
 
 export default pt;

@@ -72,6 +72,18 @@ const en = {
   project_6_name: "FreeWay classic",
   project_6_description:
     "Web application/game created as a challenge for Alura's web development track. The game consists of trying to cross the cow on the highway.",
+  testimonials: "Testimonials",
+  testimonials_sub_text: "What people are saying",
+  onCompany: "in the company",
+  testimonial_1:
+    "Kaique is an incredible developer. His attention to detail and ability to solve complex problems are truly impressive.",
+  testimony_designation_1: "Project Manager",
+  testimonial_2:
+    "Working with Kaique has been a fantastic experience. He always brings innovative ideas and is a true leader in our development team.",
+  testimony_designation_2: "Requirements Analyst",
+  testimonial_3:
+    "Kaique is a dedicated and highly qualified professional. His knowledge of various technologies and his ability to learn quickly are admirable.",
+  testimony_designation_3: "Full Stack Developer",
 } as const;
 
 export default en;

@@ -147,26 +147,23 @@ const experiences = [
 
 const testimonials = [
   {
-    testimonial:
-      "Eu não achei que seria possível fazer um site 3D tão bonito, mas o Kaique provou que eu estava errada.",
+    testimonial: "testimonial_1",
     name: "Sara Lee",
-    designation: "Gerente de projetos",
+    designation: "testimony_designation_1",
     company: "Siemens",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
-    testimonial:
-      "Nunca vi um desenvolvedor que se preocupa tanto com qualidade como o Kaique.",
-    name: "Chris Brown",
-    designation: "Analista de requisitos",
+    testimonial: "testimonial_2",
+    name: "John Doe",
+    designation: "testimony_designation_2",
     company: "Innomotics",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
-    testimonial:
-      "Kaique é um cara que sempre está disposto a ajudar os outros.",
+    testimonial: "testimonial_3",
     name: "Lisa Wang",
-    designation: "Desenvolvedora Full Stack",
+    designation: "testimony_designation_3",
     company: "Innomotics",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
