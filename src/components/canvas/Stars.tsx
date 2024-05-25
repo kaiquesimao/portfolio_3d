@@ -6,7 +6,7 @@ import THREE, { TypedArray } from "three";
 const Stars = () => {
   const ref = useRef<THREE.Object3D | null>(null);
 
-  const tempArray = new Float64Array(5000);
+  const tempArray = new Float64Array(5001); //length must be a number that divides by 3
   random.inSphere(tempArray, {
     radius: 1.2,
   });
