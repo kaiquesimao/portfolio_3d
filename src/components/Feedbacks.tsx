@@ -37,7 +37,7 @@ const FeedbackCard = ({
               <span className={"blue-text-gradient"}>@</span> {name}
             </p>
             <p className={"mt-1 text-xs text-secondary"}>
-              {t(designation)} {t("onCompany")} {company}
+              {t(designation)} {t("on_company")} {company}
             </p>
           </div>
           <img

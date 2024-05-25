@@ -74,7 +74,7 @@ const pt = {
     "Aplicação/jogo Web criado como desafio da trilha de desenvolvimento web da Alura. O jogo consiste em tentar atravessar a vaquinha na rodovia.",
   testimonials: "Depoimentos",
   testimonials_sub_text: "O que as pessoas estão dizendo",
-  onCompany: "na empresa",
+  on_company: "na empresa",
   testimonial_1:
     "Kaique é um desenvolvedor incrível. Sua atenção aos detalhes e sua capacidade de resolver problemas complexos são verdadeiramente impressionantes.",
   testimony_designation_1: "Gerente de projetos",
@@ -84,6 +84,17 @@ const pt = {
   testimonial_3:
     "Kaique é um profissional dedicado e altamente qualificado. Seu conhecimento em várias tecnologias e sua habilidade para aprender rapidamente são admiráveis.",
   testimony_designation_3: "Desenvolvedora Full Stack",
+  contact_success: "Obrigado pelo contato. Responderei em breve.",
+  contact_error:
+    "Ops! Algo deu errado. Por favor, verifique as informações e tente novamente.",
+  contact_me: "Entrar em contato",
+  your_name: "Seu Nome",
+  your_phone: "Seu Telefone",
+  your_country: "Selecione seu país primeiro",
+  your_email: "Seu Email",
+  your_message: "Sua Mensagem",
+  send: "Enviar",
+  sending: "Enviando...",
 } as const;
 
 export default pt;

@@ -84,6 +84,17 @@ const en = {
   testimonial_3:
     "Kaique is a dedicated and highly qualified professional. His knowledge of various technologies and his ability to learn quickly are admirable.",
   testimony_designation_3: "Full Stack Developer",
+  contact_success: "Thank you for contacting me. I'll get back to you shortly",
+  contact_error:
+    "Oops, something went wrong. Please check the information and try again.",
+  contact_me: "Get in touch",
+  your_name: "Your Name",
+  your_phone: "Your Phone Number",
+  your_country: "Select your country first",
+  your_email: "Your Email",
+  your_message: "Your Message",
+  send: "Send",
+  sending: "Sending...",
 } as const;
 
 export default en;
