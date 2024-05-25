@@ -52,6 +52,26 @@ const en = {
     "Collaborate with cross-functional teams, including designers, product managers, business analysts, testers and other programmers to create high-quality software.",
   experience_2_desc_5:
     "Participate in code reviews and provide constructive feedback to other programmers.",
+  projects_description:
+    "The following projects exemplify my ability to solve complex problems, work with different technologies and manage projects effectively. Each project is briefly described, with links to code repositories and live demos.",
+  project_1_name: "3D Portfolio",
+  project_1_description:
+    "3D portfolio web application that presents my projects, career path and technical skills in an interactive and engaging way.",
+  project_2_name: "Lantern app",
+  project_2_description:
+    "Flashlight app created as a challenge for Inter Bank's React bootcamp. The app is a simple flashlight that turns on and off with a click.",
+  project_3_name: "DIO Interface",
+  project_3_description:
+    "Web application created as a challenge for Inter bank's React bootcamp. Recreation of the Home, Login and Feed pages of the Digital Innovation One platform.",
+  project_4_name: "Pokedex",
+  project_4_description:
+    "Web application created as a challenge for the Inter bank bootcamp. It's a Pokedex created purely with HTML, CSS and Javascript.",
+  project_5_name: "Alura Barbershop",
+  project_5_description:
+    "Web application created as a challenge for Alura's web development track. A barbershop with Home, Services and Contact pages.",
+  project_6_name: "FreeWay classic",
+  project_6_description:
+    "Web application/game created as a challenge for Alura's web development track. The game consists of trying to cross the cow on the highway.",
 } as const;
 
 export default en;

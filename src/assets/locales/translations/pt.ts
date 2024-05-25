@@ -52,6 +52,26 @@ const pt = {
     "Colaborar com equipes multifuncionais, incluindo designers, gestores de produtos, analistas de negócio, testadores e outros programadores para criar softwares de alta qualidade.",
   experience_2_desc_5:
     "Participar em revisões de código e fornecer feedback construtivo a outros programadores.",
+  projects_description:
+    "Os seguintes projetos exemplificam minha habilidade em resolver problemas complexos, trabalhar com diferentes tecnologias e gerenciar projetos de forma eficaz. Cada projeto é brevemente descrito, com links para repositórios de código e demonstrações ao vivo.",
+  project_1_name: "Portfólio 3D",
+  project_1_description:
+    "Aplicação web em 3D de portfólio que apresenta meus projetos, trajetória profissional e habilidades técnicas de forma interativa e envolvente.",
+  project_2_name: "Lanterna app",
+  project_2_description:
+    "Aplicativo de lanterna criado como desafio do bootcamp de React do banco Inter. O app é uma lanterna simples que liga e desliga com um clique.",
+  project_3_name: "Interface DIO",
+  project_3_description:
+    "Aplicação Web criada como desafio do bootcamp de React do banco Inter. Recriação das páginas Home, Login e Feed da plataforma Digital Innovation One.",
+  project_4_name: "Pokedéx",
+  project_4_description:
+    "Aplicação Web criada como desafio do bootcamp do banco Inter. É uma Pokedex criada puramente com o trio HTML, CSS e Javascript.",
+  project_5_name: "Barbearia Alura",
+  project_5_description:
+    "Aplicação Web criada como desafio da trilha de desenvolvimento web da Alura. Uma barbearia com as páginas Home, Serviços e Contato.",
+  project_6_name: "FreeWay clássico",
+  project_6_description:
+    "Aplicação/jogo Web criado como desafio da trilha de desenvolvimento web da Alura. O jogo consiste em tentar atravessar a vaquinha na rodovia.",
 } as const;
 
 export default pt;

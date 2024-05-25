@@ -174,9 +174,8 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Portfolio 3D",
-    description:
-      "Aplicação web em 3D de portfólio que apresenta meus projetos, trajetória profissional e habilidades técnicas de forma interativa e envolvente.",
+    name: "project_1_name",
+    description: "project_1_description",
     tags: [
       {
         name: "React",
@@ -201,9 +200,8 @@ const projects = [
     demo_link: "https://portfolio-3d-pi.vercel.app",
   },
   {
-    name: "App Lanterna",
-    description:
-      "Aplicativo Android desenvolvido em Kotlin, com função de ligar e desligar a lanterna/flash do smartphone. O intuito deste projeto foi entender a comunicação com o hardware do dispositivo.",
+    name: "project_2_name",
+    description: "project_2_description",
     tags: [
       {
         name: "Kotlin",
@@ -225,9 +223,8 @@ const projects = [
       "https://github.com/kaiquesimao/projetoLanterna/releases/download/v2.0/app-release-2.0.apk",
   },
   {
-    name: "interface DIO",
-    description:
-      "Aplicação Web criada como desafio do bootcamp de React do banco Inter. Recriação das páginas Home, Login e Feed da plataforma Digital Innovation One.",
+    name: "project_3_name",
+    description: "project_3_description",
     tags: [
       {
         name: "React",
@@ -248,9 +245,8 @@ const projects = [
     demo_link: "https://dio-project-react.vercel.app/",
   },
   {
-    name: "Pokedéx",
-    description:
-      "Aplicação Web criada como desafio do bootcamp do banco Inter. É uma Pokedex criada puramente com o trio HTML, CSS e Javascript.",
+    name: "project_4_name",
+    description: "project_4_description",
     tags: [
       {
         name: "HTML",
@@ -271,9 +267,8 @@ const projects = [
     demo_link: "https://kaiquesimao.github.io/InterPokedexProject/",
   },
   {
-    name: "Barbearia Alura",
-    description:
-      "Aplicação Web criada como desafio da trilha de desenvolvimento web da Alura. Uma barbearia com as páginas Home, Serviços e Contato.",
+    name: "project_5_name",
+    description: "project_5_description",
     tags: [
       {
         name: "HTML",
@@ -294,9 +289,8 @@ const projects = [
     demo_link: "https://kaiquesimao.github.io/Alura-Project",
   },
   {
-    name: "FreeWay Game",
-    description:
-      "Aplicação/jogo Web criado como desafio da trilha de desenvolvimento web da Alura. O jogo consiste em tentar atravessar a vaquinha na rodovia.",
+    name: "project_6_name",
+    description: "project_6_description",
     tags: [
       {
         name: "HTML",
