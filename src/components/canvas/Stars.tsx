@@ -4,8 +4,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Points, Preload } from "@react-three/drei";
 import THREE, { TypedArray } from "three";
 const Stars = () => {
-  const ref = useRef<THREE.Object3D | null>(null);
-
+  const ref = useRef<THREE.Points | null>(null);
   const tempArray = new Float64Array(5001); //length must be a number that divides by 3
   random.inSphere(tempArray, {
     radius: 1.2,
@@ -21,8 +20,6 @@ const Stars = () => {
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      {/*eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
-      {/*// @ts-ignore*/}
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={true}>
         <PointMaterial
           transparent
