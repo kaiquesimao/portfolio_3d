@@ -41,8 +41,7 @@ const ProjectCard = ({
             alt={name}
             className="size-full rounded-2xl object-cover"
           />
-          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-          <div className="card-img_hover absolute inset-0 m-3 flex justify-end gap-1">
+          <div className="absolute inset-0 m-3 flex justify-end gap-1">
             <div className="black-gradient flex size-10 items-center justify-center rounded-full">
               <a href={source_code_link} target="_blank" rel="noreferrer">
                 <img
@@ -80,7 +79,7 @@ const ProjectCard = ({
 };
 const ProjectsSection = () => {
   return (
-    <>
+    <motion.div variants={fadeIn("up", "", 0, 0.75)}>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>O QUE EU FIZ ATÉ AGORA</p>
         <h2 className={styles.sectionHeadText}>Projetos</h2>
@@ -105,7 +104,7 @@ const ProjectsSection = () => {
           />
         ))}
       </div>
-    </>
+    </motion.div>
   );
 };
 
