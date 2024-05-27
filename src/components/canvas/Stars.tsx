@@ -1,4 +1,4 @@
-import { useRef, Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { random } from "maath";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Points, Preload } from "@react-three/drei";

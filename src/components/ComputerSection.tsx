@@ -1,5 +1,6 @@
 import { ComputersCanvas } from "./canvas";
 import { motion } from "framer-motion";
+
 const ComputerSection = () => {
   return (
     <section>

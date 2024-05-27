@@ -6,9 +6,9 @@ import {
   Feedbacks,
   Hero,
   Navbar,
+  Projects,
   StarsCanvas,
   Tech,
-  Projects,
 } from "./components";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
