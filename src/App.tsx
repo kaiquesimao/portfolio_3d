@@ -53,22 +53,16 @@ const App = () => {
   return (
     <MobileContext.Provider value={isMobile}>
       <BrowserRouter>
-        <div className={"relative z-0 bg-primary"}>
-          <div className={"bg-hero-pattern bg-cover bg-center bg-no-repeat"}>
-            <Navbar />
-            <Hero />
-          </div>
-
+        <div className={"relative z-0 overflow-x-hidden bg-primary"}>
+          <StarsCanvas />
+          <Navbar />
+          <Hero />
           <About />
           <Experience />
           <Tech />
           <Projects />
           <Feedbacks />
-
-          <div className={"relative z-0"}>
-            <Contact />
-            <StarsCanvas />
-          </div>
+          <Contact />
         </div>
       </BrowserRouter>
     </MobileContext.Provider>
