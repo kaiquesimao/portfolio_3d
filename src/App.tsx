@@ -36,6 +36,7 @@ const App = () => {
 
   useEffect(() => {
     document.title = t("page_title");
+    document.documentElement.lang = i18n.language;
 
     const changeLanguage = (lang: string) => {
       document.documentElement.lang = lang;

@@ -14,8 +14,8 @@ void i18n
   .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
-    resources: { ...translationResources },
+    debug: false,
+    resources: { ...translationResources }, //default namespace is 'translation'
     supportedLngs: Object.values(languages).map((lang) => lang.code),
     fallbackLng: languages.portuguese.code,
     nonExplicitSupportedLngs: true,
