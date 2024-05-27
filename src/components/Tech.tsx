@@ -26,7 +26,9 @@ const Tech = () => {
 
   if (!shouldRenderTech) return null;
 
-  SectionWrapper(TechSection, "tech");
+  const WrappedTechSection = SectionWrapper(TechSection, "tech");
+
+  return <WrappedTechSection />;
 };
 
 export default Tech;
