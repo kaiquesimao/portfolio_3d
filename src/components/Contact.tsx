@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent, ChangeEvent } from "react";
+import { useState, useRef, FormEvent, ChangeEvent, useEffect } from "react";
 import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion.ts";
@@ -7,10 +7,13 @@ import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import "react-phone-number-input/style.css";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
-import { type Value } from "react-phone-number-input";
+import { Value } from "react-phone-number-input";
 import { useTranslation } from "react-i18next";
+import { Country } from "react-phone-number-input";
+import { CountryData } from "../utils/types.ts";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const formRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
@@ -19,8 +22,7 @@ const ContactSection = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-
-  const { t } = useTranslation();
+  const [country, setCountry] = useState<Country | undefined>("BR");
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -51,7 +53,7 @@ const ContactSection = () => {
         alert(t("contact_success"));
         setFormState({
           name: "",
-          phone: "" as Value | undefined,
+          phone: "" as Value,
           email: "",
           message: "",
         });
@@ -62,6 +64,13 @@ const ContactSection = () => {
         alert(t("contact_error"));
       });
   };
+
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data: CountryData) => setCountry(data.country_code))
+      .catch(() => setCountry("BR")); // default to BR if the fetch fails
+  }, []);
 
   return (
     <div
@@ -117,13 +126,13 @@ const ContactSection = () => {
                 inputMode: "tel",
                 type: "tel",
                 autoComplete: "tel-national",
+                placeholder: t("your_country"),
                 className:
                   "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary",
               }}
-              autoComplete={"on"}
-              defaultCountry={"BR"} //TODO internacionalizar
+              autoComplete={"tel-national"}
+              defaultCountry={country}
               addInternationalOption={false}
-              placeholder={t("your_country")}
               initialValueFormat={"national"}
               displayInitialValueAsLocalNumber
               limitMaxLength

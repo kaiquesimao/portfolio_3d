@@ -6,17 +6,8 @@ import ReactParallaxTilt from "react-parallax-tilt";
 import { SectionWrapper } from "../hoc";
 import { github } from "../assets";
 import { useTranslation } from "react-i18next";
+import { IProjectCard } from "../utils/types.ts";
 
-interface IProjectCard {
-  index: number;
-  name: string;
-  description: string;
-  tags: { name: string; color: string }[];
-  image: string;
-  source_code_link: string;
-  demo_link: string;
-  webImg: string;
-}
 const ProjectCard = ({
   index,
   name,

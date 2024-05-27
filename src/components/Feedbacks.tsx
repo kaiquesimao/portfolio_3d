@@ -4,15 +4,7 @@ import { fadeIn, textVariant } from "../utils/motion.ts";
 import { testimonials } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { useTranslation } from "react-i18next";
-
-interface IFeedbackCard {
-  index: number;
-  testimonial: string;
-  name: string;
-  designation: string;
-  company: string;
-  image: string;
-}
+import { IFeedbackCard } from "../utils/types.ts";
 
 const FeedbackCard = ({
   index,

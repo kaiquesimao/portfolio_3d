@@ -1,12 +1,8 @@
 import ReactParallaxTilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
+import { DevStacksType } from "../utils/types.ts";
 
-interface DevStacksType {
-  title: string;
-  icon: string;
-  index: number;
-}
 const DevCard = ({ title, index, icon }: DevStacksType) => {
   return (
     <ReactParallaxTilt

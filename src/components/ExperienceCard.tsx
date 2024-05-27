@@ -1,14 +1,7 @@
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import { useTranslation } from "react-i18next";
+import { ExperienceType } from "../utils/types.ts";
 
-interface ExperienceType {
-  title: string;
-  company_name: string;
-  icon: string;
-  iconBg: string;
-  date: string;
-  points: string[];
-}
 const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
   const { t } = useTranslation();
   return (
