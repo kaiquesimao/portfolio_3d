@@ -75,14 +75,14 @@ const ProjectsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <motion.div variants={fadeIn("up", "", 0, 0.75)}>
+    <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>{t("experience_sub_text")}</p>
         <h2 className={styles.sectionHeadText}>{t("projects")}</h2>
       </motion.div>
       <div className={"flex w-full"}>
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          variants={textVariant()}
           className={"mt-3 max-w-3xl text-base leading-7 text-secondary"}
         >
           {t("projects_description")}
@@ -97,7 +97,7 @@ const ProjectsSection = () => {
           />
         ))}
       </div>
-    </motion.div>
+    </>
   );
 };
 
