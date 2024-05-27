@@ -1,8 +1,11 @@
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import ComputerSection from "./ComputerSection";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={"relative mx-auto mt-12 w-full"}>
       <div
@@ -14,11 +17,11 @@ const HeroSection = () => {
         </div>
         <div>
           <h1 className={`${styles.heroHeadText}`}>
-            Olá, eu sou o <br className={"hidden sm:block"} />
-            <span className={"text-[#915EFF]"}>Kaique Simão</span>
+            {t("im_the")} <br className={"hidden sm:block"} />
+            <span className={"text-[#915EFF]"}>{t("hero_title")}</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Desenvolvedor de aplicações web
+            {t("hero_subtitle")}
           </p>
         </div>
       </div>

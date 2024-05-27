@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent, ChangeEvent } from "react";
+import { useState, useRef, FormEvent, ChangeEvent, useEffect } from "react";
 import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion.ts";
@@ -7,9 +7,13 @@ import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import "react-phone-number-input/style.css";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
-import { type Value } from "react-phone-number-input";
+import { Value } from "react-phone-number-input";
+import { useTranslation } from "react-i18next";
+import { Country } from "react-phone-number-input";
+import { CountryData } from "../utils/types.ts";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const formRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
@@ -18,6 +22,7 @@ const ContactSection = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  const [country, setCountry] = useState<Country | undefined>("BR");
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -45,10 +50,10 @@ const ContactSection = () => {
       )
       .then(() => {
         setLoading(false);
-        alert("Obrigado pelo contato. Responderei em breve.");
+        alert(t("contact_success"));
         setFormState({
           name: "",
-          phone: "" as Value | undefined,
+          phone: "" as Value,
           email: "",
           message: "",
         });
@@ -56,29 +61,34 @@ const ContactSection = () => {
       .catch((error) => {
         setLoading(false);
         console.log(error);
-        alert("Algo deu errado. Tente novamente.");
+        alert(t("contact_error"));
       });
   };
 
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data: CountryData) => setCountry(data.country_code))
+      .catch(() => setCountry("BR")); // default to BR if the fetch fails
+  }, []);
+
   return (
-    <div
-      className={
-        "flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row"
-      }
-    >
+    <div className={"flex flex-col-reverse gap-10 xl:mt-12 xl:flex-row"}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className={"flex-[0.75] rounded-2xl bg-black-100 p-8"}
       >
-        <p className={styles.sectionSubText}>Entrar em contato</p>
-        <h3 className={styles.sectionHeadText}>Contato</h3>
+        <p className={styles.sectionSubText}>{t("contact_me")}</p>
+        <h3 className={styles.sectionHeadText}>{t("contact")}</h3>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
           className={"mt-12 flex flex-col gap-8"}
         >
           <label className={"flex flex-col"}>
-            <span className={"mb-4 font-medium text-white"}>Seu Nome</span>
+            <span className={"mb-4 font-medium text-white"}>
+              {t("your_name")}
+            </span>
             <input
               required={true}
               inputMode={"text"}
@@ -87,7 +97,7 @@ const ContactSection = () => {
               autoComplete={"name"}
               value={formState.name}
               onChange={handleChange}
-              placeholder={"Qual é o seu nome?"}
+              placeholder={t("your_name")}
               className={
                 "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary"
               }
@@ -95,7 +105,9 @@ const ContactSection = () => {
           </label>
 
           <label className={"flex flex-col"}>
-            <span className={"mb-4 font-medium text-white"}>Seu Telefone</span>
+            <span className={"mb-4 font-medium text-white"}>
+              {t("your_phone")}
+            </span>
             <PhoneInputWithCountrySelect
               countrySelectProps={{
                 autoComplete: "country-name",
@@ -110,13 +122,13 @@ const ContactSection = () => {
                 inputMode: "tel",
                 type: "tel",
                 autoComplete: "tel-national",
+                placeholder: t("your_country"),
                 className:
                   "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary",
               }}
-              autoComplete={"on"}
-              defaultCountry={"BR"} //TODO internacionalizar
+              autoComplete={"tel-national"}
+              defaultCountry={country}
               addInternationalOption={false}
-              placeholder={"Qual é o seu número de telefone?"}
               initialValueFormat={"national"}
               displayInitialValueAsLocalNumber
               limitMaxLength
@@ -126,7 +138,9 @@ const ContactSection = () => {
           </label>
 
           <label className={"flex flex-col"}>
-            <span className={"mb-4 font-medium text-white"}>Seu Email</span>
+            <span className={"mb-4 font-medium text-white"}>
+              {t("your_email")}
+            </span>
             <input
               required={true}
               inputMode={"email"}
@@ -135,7 +149,7 @@ const ContactSection = () => {
               autoComplete={"email"}
               value={formState.email}
               onChange={handleChange}
-              placeholder={"Qual é o seu email?"}
+              placeholder={t("your_email")}
               className={
                 "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary"
               }
@@ -143,7 +157,9 @@ const ContactSection = () => {
           </label>
 
           <label className={"flex flex-col"}>
-            <span className={"mb-4 font-medium text-white"}>Sua Mensagem</span>
+            <span className={"mb-4 font-medium text-white"}>
+              {t("your_message")}
+            </span>
             <textarea
               inputMode={"text"}
               required={true}
@@ -152,7 +168,7 @@ const ContactSection = () => {
               autoComplete={"off"}
               value={formState.message}
               onChange={handleChange}
-              placeholder={"O que você gostaria de me dizer?"}
+              placeholder={t("your_message")}
               className={
                 "rounded-lg border-none bg-tertiary px-6 py-4 font-medium text-white outline-none placeholder:text-secondary"
               }
@@ -166,7 +182,7 @@ const ContactSection = () => {
             type={"submit"}
             value={"Send"}
           >
-            {loading ? "Enviando..." : "Enviar"}
+            {loading ? t("sending") : t("send")}
           </button>
         </form>
       </motion.div>

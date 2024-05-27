@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import backend from "./backend.png";
-import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
@@ -27,18 +26,20 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import siemens from "./company/siemens.png";
 import innomotics from "./company/innomotics.png";
-import dio from "./dioProject.png";
-import portfolio3d from "./portfolio3d.png";
-import lanternaApp from "./lanternaApp.png";
-import pokedex from "./pokedex.png";
+import dio from "./projects/dioProject.png";
+import portfolio3d from "./projects/portfolio3d.png";
+import lanternaApp from "./projects/lanternaApp.png";
+import pokedex from "./projects/pokedex.png";
 import internet from "./internet.png";
-import alura from "./alura.png";
-import freeway from "./freeway.png";
+import alura from "./projects/alura.png";
+import freeway from "./projects/freeway.png";
+
+import brasil from "./locales/brasil.png";
+import usa from "./locales/united_states.png";
 
 export {
   logo,
   backend,
-  creator,
   mobile,
   web,
   github,
@@ -70,4 +71,6 @@ export {
   internet,
   alura,
   freeway,
+  brasil,
+  usa,
 };
