@@ -6,9 +6,9 @@ import THREE, { TypedArray } from "three";
 
 const Stars = () => {
   const ref = useRef<THREE.Points | null>(null);
-  const tempArray = new Float64Array(15003); // Aumente o tamanho do array para aumentar a quantidade de bolinhas
+  const tempArray = new Float64Array(15003);
   random.inSphere(tempArray, {
-    radius: 50.0,
+    radius: 10.0,
   });
   const sphere: TypedArray = new Float32Array(tempArray);
   useFrame((_state, delta) => {
@@ -25,7 +25,7 @@ const Stars = () => {
         <PointMaterial
           transparent
           color="#f272c8"
-          size={0.03} // Reduza o tamanho para diminuir o tamanho das bolinhas
+          size={0.01}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -37,7 +37,7 @@ const Stars = () => {
 const StarsCanvas = () => {
   return (
     <div className={"absolute inset-0 z-[-1] h-auto w-full"}>
-      <Canvas camera={{ position: [0, 0, 0] }}>
+      <Canvas camera={{ position: [0, 0, 10] }}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
