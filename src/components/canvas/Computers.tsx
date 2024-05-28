@@ -1,10 +1,10 @@
 import CanvasLoader from "../Loader";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useContext } from "react";
+import React, { Suspense, useContext } from "react";
 import MobileContext from "../../contexts/MobileContext.tsx";
 
-const Computers = () => {
+const Computers = React.memo(() => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   const isMobile = useContext(MobileContext);
   return (
@@ -27,9 +27,9 @@ const Computers = () => {
       />
     </mesh>
   );
-};
+});
 
-const ComputersCanvas = () => {
+const ComputersCanvas = React.memo(() => {
   const isMobile = useContext(MobileContext);
 
   return (
@@ -54,6 +54,6 @@ const ComputersCanvas = () => {
       </Canvas>
     </div>
   );
-};
+});
 
 export default ComputersCanvas;

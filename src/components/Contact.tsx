@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent, ChangeEvent, useEffect } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion.ts";
@@ -6,10 +6,11 @@ import { styles } from "../styles.ts";
 import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import "react-phone-number-input/style.css";
-import PhoneInputWithCountrySelect from "react-phone-number-input";
-import { Value } from "react-phone-number-input";
+import PhoneInputWithCountrySelect, {
+  Country,
+  Value,
+} from "react-phone-number-input";
 import { useTranslation } from "react-i18next";
-import { Country } from "react-phone-number-input";
 import { CountryData } from "../utils/types.ts";
 
 const ContactSection = () => {

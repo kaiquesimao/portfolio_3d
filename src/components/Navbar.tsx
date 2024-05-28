@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { styles } from "../styles";
 import { languages, navLinks } from "../constants";
-import { logo, menu, close, brasil, usa } from "../assets";
+import { brasil, close, logo, menu, usa } from "../assets";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MobileContext from "../contexts/MobileContext.tsx";
@@ -55,9 +55,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={`${
-                  active === link.id ? "text-white" : "text-secondary"
-                } cursor-pointer text-lg font-medium hover:text-white`}
+                className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer text-lg font-medium hover:text-white`}
                 onClickCapture={() => setActive(link.id)}
               >
                 <a href={`#${link.id}`}>{t(link.title)}</a>
@@ -97,24 +95,18 @@ const Navbar = () => {
               <img
                 src={menu}
                 alt={"menu"}
-                className={`absolute transition-opacity duration-500 ${
-                  toggle ? "opacity-100" : "opacity-0"
-                } size-7 cursor-pointer object-contain`}
+                className={`absolute transition-opacity duration-500 ${toggle ? "opacity-100" : "opacity-0"} size-7 cursor-pointer object-contain`}
                 onClickCapture={() => setToggle(!toggle)}
               />
               <img
                 src={close}
                 alt={"close"}
-                className={`transition-opacity duration-500 ${
-                  toggle ? "opacity-0" : "opacity-100"
-                } size-7 cursor-pointer object-contain`}
+                className={`transition-opacity duration-500 ${toggle ? "opacity-0" : "opacity-100"} size-7 cursor-pointer object-contain`}
                 onClickCapture={() => setToggle(!toggle)}
               />
             </div>
             <div
-              className={`transition-opacity duration-500 ${
-                toggle ? "opacity-0" : "opacity-100"
-              } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-36 rounded-xl p-6 ${toggle ? "hidden" : ""}`}
+              className={`transition-opacity duration-500 ${toggle ? "opacity-0" : "opacity-100"} black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-36 rounded-xl p-6 ${toggle ? "hidden" : ""}`}
             >
               <ul
                 className={
@@ -124,9 +116,7 @@ const Navbar = () => {
                 {navLinks.map((link) => (
                   <li
                     key={link.id}
-                    className={`${
-                      active === link.id ? "text-white" : "text-secondary"
-                    } cursor-pointer font-[Poppins] text-base font-medium`}
+                    className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer font-[Poppins] text-base font-medium`}
                     onClickCapture={() => {
                       setToggle(!toggle);
                       setActive(link.id);

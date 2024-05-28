@@ -1,6 +1,8 @@
 import { ComputersCanvas } from "./canvas";
 import { motion } from "framer-motion";
-const ComputerSection = () => {
+import React from "react";
+
+const ComputerSection = React.memo(() => {
   return (
     <section>
       <ComputersCanvas />
@@ -29,6 +31,6 @@ const ComputerSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default ComputerSection;

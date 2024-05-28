@@ -6,10 +6,10 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import CanvasLoader from "../Loader.tsx";
 
-const Ball = (props: { imgUrl: string }) => {
+const Ball = React.memo((props: { imgUrl: string }) => {
   const [decal] = useTexture([props.imgUrl]);
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
@@ -31,9 +31,9 @@ const Ball = (props: { imgUrl: string }) => {
       </mesh>
     </Float>
   );
-};
+});
 
-const BallCanvas = ({ icon }: { icon: string }) => {
+const BallCanvas = React.memo(({ icon }: { icon: string }) => {
   return (
     <Canvas gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
@@ -43,5 +43,5 @@ const BallCanvas = ({ icon }: { icon: string }) => {
       <Preload all />
     </Canvas>
   );
-};
+});
 export default BallCanvas;

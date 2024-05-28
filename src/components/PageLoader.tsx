@@ -1,4 +1,6 @@
-const PageLoager = () => {
+import React from "react";
+
+const PageLoager = React.memo(() => {
   return (
     <div
       className={
@@ -8,6 +10,6 @@ const PageLoager = () => {
       <div className={"loader"}></div>
     </div>
   );
-};
+});
 
 export default PageLoager;
