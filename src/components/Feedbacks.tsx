@@ -42,6 +42,7 @@ const FeedbackCard = ({
     </motion.div>
   );
 };
+
 const Feedbacks = () => {
   const { t } = useTranslation();
   return (
