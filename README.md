@@ -29,12 +29,10 @@ Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de s
 
 ## Licença
 
-O modelo 3D do computador é o [Gaming Desktop PC](https://sketchfab.com/3d-models/gaming-desktop-pc-d1d8282c9916438091f11aeb28787b66) 
-por [Yolala1232](https://sketchfab.com/Yolala1232) 
+O modelo 3D do computador é o [Gaming Desktop PC](https://sketchfab.com/3d-models/gaming-desktop-pc-d1d8282c9916438091f11aeb28787b66)
+por [Yolala1232](https://sketchfab.com/Yolala1232)
 licenciado sob [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-O modelo 3D do planeta é o [Stylized planet](https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70) 
+O modelo 3D do planeta é o [Stylized planet](https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70)
 por [cmzw](https://sketchfab.com/cmzw)
 licenciado sob [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
-
-

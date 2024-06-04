@@ -1,6 +1,6 @@
 {
-    "sonarlint.connectedMode.project": {
-        "connectionId": "kaiquesimao",
-        "projectKey": "kaiquesimao_portfolio_3d"
-    }
+  "sonarlint.connectedMode.project": {
+    "connectionId": "kaiquesimao",
+    "projectKey": "kaiquesimao_portfolio_3d"
+  }
 }
