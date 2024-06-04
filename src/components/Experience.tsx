@@ -31,5 +31,8 @@ const ExperienceSection = () => {
     </>
   );
 };
+
+ExperienceSection.displayName = "ExperienceSection";
+
 const Experience = SectionWrapper(ExperienceSection, "work");
 export default Experience;

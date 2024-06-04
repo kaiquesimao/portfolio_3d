@@ -10,7 +10,7 @@ const translationResources = {
   pt: { translation: pt },
 };
 
-void i18n
+i18n
   .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .init({

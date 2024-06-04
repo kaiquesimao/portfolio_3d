@@ -42,6 +42,8 @@ const AboutMe = () => {
   );
 };
 
+AboutMe.displayName = "AboutMe";
+
 const Description = () => {
   return (
     <motion.p
@@ -52,6 +54,9 @@ const Description = () => {
     </motion.p>
   );
 };
+
+Description.displayName = "Description";
+
 const AboutSection = () => {
   const { t } = useTranslation();
   return (
@@ -74,6 +79,8 @@ const AboutSection = () => {
     </>
   );
 };
+
+AboutSection.displayName = "AboutSection";
 
 const About = SectionWrapper(AboutSection, "about");
 export default About;

@@ -30,5 +30,7 @@ const HeroSection = () => {
   );
 };
 
+HeroSection.displayName = "HeroSection";
+
 const Hero = SectionWrapper(HeroSection, "/");
 export default Hero;

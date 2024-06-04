@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import { memo, Suspense } from "react";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const Earth = React.memo(() => {
+const Earth = memo(() => {
   const earth = useGLTF("./planet/scene.gltf");
   return (
     <primitive
@@ -15,7 +15,9 @@ const Earth = React.memo(() => {
   );
 });
 
-const EarthCanvas = React.memo(() => {
+Earth.displayName = "Earth";
+
+const EarthCanvas = memo(() => {
   return (
     <Canvas
       shadows={true}
@@ -37,4 +39,5 @@ const EarthCanvas = React.memo(() => {
   );
 });
 
+EarthCanvas.displayName = "EarthCanvas";
 export default EarthCanvas;

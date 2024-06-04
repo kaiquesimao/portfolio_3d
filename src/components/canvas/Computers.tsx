@@ -1,10 +1,10 @@
 import CanvasLoader from "../Loader";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense, useContext } from "react";
+import { memo, Suspense, useContext } from "react";
 import MobileContext from "../../contexts/MobileContext.tsx";
 
-const Computers = React.memo(() => {
+const Computer = memo(() => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   const isMobile = useContext(MobileContext);
   return (
@@ -29,11 +29,13 @@ const Computers = React.memo(() => {
   );
 });
 
-const ComputersCanvas = React.memo(() => {
+Computer.displayName = "Computer";
+
+const ComputerCanvas = memo(() => {
   const isMobile = useContext(MobileContext);
 
   return (
-    <div className={`${isMobile ? "h-64" : "h-96"} w-full`}>
+    <div className={`${isMobile ? "h-64" : "h-96"} w-full cursor-pointer`}>
       <Canvas
         frameloop={"demand"}
         shadows
@@ -48,7 +50,7 @@ const ComputersCanvas = React.memo(() => {
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
           />
-          <Computers />
+          <Computer />
         </Suspense>
         <Preload all />
       </Canvas>
@@ -56,4 +58,5 @@ const ComputersCanvas = React.memo(() => {
   );
 });
 
-export default ComputersCanvas;
+ComputerCanvas.displayName = "ComputerCanvas";
+export default ComputerCanvas;

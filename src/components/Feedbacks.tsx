@@ -43,6 +43,8 @@ const FeedbackCard = ({
   );
 };
 
+FeedbackCard.displayName = "FeedbackCard";
+
 const Feedbacks = () => {
   const { t } = useTranslation();
   return (
@@ -61,6 +63,8 @@ const Feedbacks = () => {
     </div>
   );
 };
+
+Feedbacks.displayName = "Feedbacks";
 
 const FeedbacksSection = SectionWrapper(Feedbacks, "feedbacks");
 export default FeedbacksSection;

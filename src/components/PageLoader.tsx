@@ -1,6 +1,6 @@
-import React from "react";
+import { memo } from "react";
 
-const PageLoager = React.memo(() => {
+const PageLoager = memo(() => {
   return (
     <div
       className={
@@ -12,4 +12,5 @@ const PageLoager = React.memo(() => {
   );
 });
 
+PageLoager.displayName = "PageLoager";
 export default PageLoager;

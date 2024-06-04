@@ -31,4 +31,5 @@ const DevCard = ({ title, index, icon }: DevStacksType) => {
   );
 };
 
+DevCard.displayName = "DevCard";
 export default DevCard;

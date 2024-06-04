@@ -197,5 +197,7 @@ const ContactSection = () => {
   );
 };
 
+ContactSection.displayName = "ContactSection";
+
 const Contact = SectionWrapper(ContactSection, "contact");
 export default Contact;
