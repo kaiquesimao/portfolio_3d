@@ -23,10 +23,12 @@ const Navbar = () => {
     }
   };
 
-  const countryImgStyleClass = (
-    language: string,
-  ) => `box-border size-9 cursor-pointer object-contain
-             ${i18n.resolvedLanguage === language && `rounded-full border-2 border-white`}`;
+  const countryImgStyleClass = (language: string) =>
+    `box-border size-9 cursor-pointer object-contain ${
+      i18n.resolvedLanguage === language
+        ? "rounded-full border-2 border-white"
+        : ""
+    }`;
 
   return (
     <nav
@@ -61,30 +63,31 @@ const Navbar = () => {
                 <a href={`#${link.id}`}>{t(link.title)}</a>
               </li>
             ))}
-            <img
-              src={brasil}
-              alt={t("country_img")}
-              className={countryImgStyleClass(languages.portuguese.code)}
-              title={t("change_language")}
+
+            <button
               onClick={() => {
-                const handle = async () => {
-                  await handleLanguageChange(languages.portuguese);
-                };
-                void handle();
+                void handleLanguageChange(languages.portuguese);
               }}
-            />
-            <img
-              src={usa}
-              alt={t("country_img")}
-              className={countryImgStyleClass(languages.english.code)}
-              title={t("change_language")}
+            >
+              <img
+                src={brasil}
+                alt={t("country_img")}
+                className={countryImgStyleClass(languages.portuguese.code)}
+                title={t("change_language")}
+              />
+            </button>
+            <button
               onClick={() => {
-                const handle = async () => {
-                  await handleLanguageChange(languages.english);
-                };
-                void handle();
+                void handleLanguageChange(languages.english);
               }}
-            />
+            >
+              <img
+                src={usa}
+                alt={t("country_img")}
+                className={countryImgStyleClass(languages.english.code)}
+                title={t("change_language")}
+              />
+            </button>
           </ul>
         )}
 
@@ -126,30 +129,32 @@ const Navbar = () => {
                   </li>
                 ))}
                 <div className={"flex flex-row justify-between gap-4"}>
-                  <img
-                    src={brasil}
-                    alt={t("country_img")}
-                    className={countryImgStyleClass(languages.portuguese.code)}
-                    title={t("change_language")}
+                  <button
                     onClick={() => {
-                      const handle = async () => {
-                        await handleLanguageChange(languages.portuguese);
-                      };
-                      void handle();
+                      void handleLanguageChange(languages.portuguese);
                     }}
-                  />
-                  <img
-                    src={usa}
-                    alt={t("country_img")}
-                    className={countryImgStyleClass(languages.english.code)}
-                    title={t("change_language")}
+                  >
+                    <img
+                      src={brasil}
+                      alt={t("country_img")}
+                      className={countryImgStyleClass(
+                        languages.portuguese.code,
+                      )}
+                      title={t("change_language")}
+                    />
+                  </button>
+                  <button
                     onClick={() => {
-                      const handle = async () => {
-                        await handleLanguageChange(languages.english);
-                      };
-                      void handle();
+                      void handleLanguageChange(languages.english);
                     }}
-                  />
+                  >
+                    <img
+                      src={usa}
+                      alt={t("country_img")}
+                      className={countryImgStyleClass(languages.english.code)}
+                      title={t("change_language")}
+                    />
+                  </button>
                 </div>
               </ul>
             </div>

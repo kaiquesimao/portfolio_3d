@@ -22,7 +22,7 @@ const FeedbackCard = ({
     >
       <p className={"text-5xl font-black text-white"}>&quot;</p>
       <div className={"mt-1"}>
-        <p className={"text-lg tracking-wider text-white "}>{t(testimonial)}</p>
+        <p className={"text-lg tracking-wider text-white"}>{t(testimonial)}</p>
         <div className={"mt-7 flex items-center justify-between gap-1"}>
           <div className={"flex flex-1 flex-col"}>
             <p className={"text-base font-medium text-white"}>
@@ -43,6 +43,8 @@ const FeedbackCard = ({
   );
 };
 
+FeedbackCard.displayName = "FeedbackCard";
+
 const Feedbacks = () => {
   const { t } = useTranslation();
   return (
@@ -61,6 +63,8 @@ const Feedbacks = () => {
     </div>
   );
 };
+
+Feedbacks.displayName = "Feedbacks";
 
 const FeedbacksSection = SectionWrapper(Feedbacks, "feedbacks");
 export default FeedbacksSection;

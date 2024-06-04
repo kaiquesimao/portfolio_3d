@@ -1,10 +1,10 @@
-import React, { Suspense, useRef } from "react";
+import { memo, Suspense, useRef } from "react";
 import { random } from "maath";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Points, Preload } from "@react-three/drei";
 import THREE, { TypedArray } from "three";
 
-const Stars = React.memo(() => {
+const Stars = memo(() => {
   const ref = useRef<THREE.Points | null>(null);
   const tempArray = new Float64Array(15003);
   random.inSphere(tempArray, {
@@ -34,7 +34,9 @@ const Stars = React.memo(() => {
   );
 });
 
-const StarsCanvas = React.memo(() => {
+Stars.displayName = "Stars";
+
+const StarsCanvas = memo(() => {
   return (
     <div className={"absolute inset-0 z-[-1] h-auto w-full"}>
       <Canvas camera={{ position: [0, 0, 10] }}>
@@ -47,4 +49,5 @@ const StarsCanvas = React.memo(() => {
   );
 });
 
+StarsCanvas.displayName = "StarsCanvas";
 export default StarsCanvas;

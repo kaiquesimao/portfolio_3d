@@ -71,6 +71,9 @@ const ProjectCard = ({
     </motion.div>
   );
 };
+
+ProjectCard.displayName = "ProjectCard";
+
 const ProjectsSection = () => {
   const { t } = useTranslation();
 
@@ -100,6 +103,8 @@ const ProjectsSection = () => {
     </>
   );
 };
+
+ProjectsSection.displayName = "ProjectsSection";
 
 const Projects = SectionWrapper(ProjectsSection, "projects");
 export default Projects;

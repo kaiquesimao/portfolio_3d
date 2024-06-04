@@ -1,11 +1,11 @@
-import { ComputersCanvas } from "./canvas";
+import { ComputerCanvas } from "./canvas";
 import { motion } from "framer-motion";
-import React from "react";
+import { memo } from "react";
 
-const ComputerSection = React.memo(() => {
+const ComputerSection = memo(() => {
   return (
     <section>
-      <ComputersCanvas />
+      <ComputerCanvas />
       <div
         className={
           "absolute bottom-0 flex w-full items-center justify-center xs:-bottom-16"
@@ -33,4 +33,5 @@ const ComputerSection = React.memo(() => {
   );
 });
 
+ComputerSection.displayName = "ComputerSection";
 export default ComputerSection;

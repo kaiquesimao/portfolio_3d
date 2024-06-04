@@ -1,3 +1,5 @@
+[English version](README-en.md)
+
 # Meu Portfólio em 3D
 
 Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de software de forma interativa e visualmente atraente. Aqui estão os principais detalhes:
@@ -24,12 +26,13 @@ Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de s
 3. Execute `pnpm dev` para iniciar o servidor local.
 4. Acesse `http://localhost:5173` no seu navegador.
 5. Caso queira visualizar online acesse `https://portfolio-3d-pi.vercel.app`
-6. Para visualizar em smartphone/celular é necessário o navegador [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=pt_BR&gl=br)
 
-## Capturas de Tela
+## Licença
 
-![image](https://github.com/kaiquesimao/portfolio_3d/assets/66140734/5b4720c3-57b8-4fba-82ef-00bfb12aa875)
+O modelo 3D do computador é o [Gaming Desktop PC](https://sketchfab.com/3d-models/gaming-desktop-pc-d1d8282c9916438091f11aeb28787b66)
+por [Yolala1232](https://sketchfab.com/Yolala1232)
+licenciado sob [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-![image](https://github.com/kaiquesimao/portfolio_3d/assets/66140734/86391ea2-717b-4b0b-a8ce-ded9445f648c)
-
-
+O modelo 3D do planeta é o [Stylized planet](https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70)
+por [cmzw](https://sketchfab.com/cmzw)
+licenciado sob [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)

@@ -45,4 +45,5 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
   );
 };
 
+ExperienceCard.displayName = "ExperienceCard";
 export default ExperienceCard;
