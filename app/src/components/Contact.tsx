@@ -1,4 +1,10 @@
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  SubmitEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion.ts";
@@ -31,13 +37,13 @@ const ContactSection = () => {
     setFormState({ ...formState, [name]: value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     setLoading(true);
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICEID ?? "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATEID ?? "",
+        process.env.NEXT_EMAILJS_SERVICEID ?? "",
+        process.env.NEXT_EMAILJS_TEMPLATEID ?? "",
         {
           from_name: formState.name,
           from_phone: formState.phone,
@@ -46,10 +52,9 @@ const ContactSection = () => {
           to_email: "kaique.gabriel.me@gmail.com",
           message: formState.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_OPTIONS ?? "",
+        process.env.NEXT_EMAILJS_OPTIONS ?? "",
       )
       .then(() => {
-        setLoading(false);
         alert(t("contact_success"));
         setFormState({
           name: "",
@@ -59,9 +64,10 @@ const ContactSection = () => {
         });
       })
       .catch((error) => {
-        setLoading(false);
         console.log(error);
         alert(t("contact_error"));
+      }).finally(() => {
+        setLoading(false);
       });
   };
 
