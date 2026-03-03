@@ -46,7 +46,13 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <Image src={logo} alt={"logo"} width={36} height={36} className={"object-contain"} />
+          <Image
+            src={logo}
+            alt={"logo"}
+            width={36}
+            height={36}
+            className={"h-auto w-9 object-contain"}
+          />
           <p className={"flex cursor-pointer text-lg font-bold text-white"}>
             {t("page_title")}
           </p>

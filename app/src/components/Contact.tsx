@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion.ts";
 import { styles } from "../styles.ts";
 import { EarthCanvas } from "./canvas";
-import emailjs from "@emailjs/browser";
 import PhoneInputWithCountrySelect, {
   Country,
   Value,
@@ -20,12 +19,6 @@ import { CountryData } from "../utils/types.ts";
 
 const ContactSection = () => {
   const { t } = useTranslation();
-  const emailJsServiceId = process.env.NEXT_EMAILJS_SERVICEID;
-  const emailJsTemplateId = process.env.NEXT_EMAILJS_TEMPLATEID;
-  const emailJsPublicKey = process.env.NEXT_EMAILJS_OPTIONS;
-  const isEmailJsConfigured = Boolean(
-    emailJsServiceId && emailJsTemplateId && emailJsPublicKey,
-  );
   const formRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
@@ -43,47 +36,40 @@ const ContactSection = () => {
     setFormState({ ...formState, [name]: value });
   };
 
-  const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-
-    if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
-      console.error(
-        "EmailJS is not configured. Missing NEXT_EMAILJS_SERVICEID, NEXT_EMAILJS_TEMPLATEID, or NEXT_EMAILJS_OPTIONS.",
-      );
-      alert("Email service is temporarily unavailable. Please try again later.");
-      return;
-    }
-
     setLoading(true);
-    emailjs
-      .send(
-        emailJsServiceId,
-        emailJsTemplateId,
-        {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           from_name: formState.name,
           from_phone: formState.phone,
           from_email: formState.email,
-          to_name: "Kaique",
-          to_email: "kaique.gabriel.me@gmail.com",
           message: formState.message,
-        },
-        emailJsPublicKey,
-      )
-      .then(() => {
-        alert(t("contact_success"));
-        setFormState({
-          name: "",
-          phone: "" as Value,
-          email: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(t("contact_error"));
-      }).finally(() => {
-        setLoading(false);
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to send contact message");
+      }
+
+      alert(t("contact_success"));
+      setFormState({
+        name: "",
+        phone: "" as Value,
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+      alert(t("contact_error"));
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -200,7 +186,7 @@ const ContactSection = () => {
             className={
               "w-fit rounded-xl bg-tertiary px-8 py-3 font-bold text-white shadow-md shadow-primary outline-none disabled:cursor-not-allowed disabled:opacity-60"
             }
-            disabled={loading || !isEmailJsConfigured}
+            disabled={loading}
             type={"submit"}
             value={"Send"}
           >

@@ -16,6 +16,7 @@ i18n
   .init({
     debug: false,
     resources: { ...translationResources }, //default namespace is 'translation'
+    lng: languages.portuguese.code,
     supportedLngs: Object.values(languages).map((lang) => lang.code),
     fallbackLng: languages.portuguese.code,
     nonExplicitSupportedLngs: true,
