@@ -35,6 +35,7 @@ const ProjectCard = ({
             src={image}
             alt={t(name)}
             fill
+            sizes="(max-width: 640px) 100vw, 360px"
             className="rounded-2xl object-cover"
           />
           <div className="absolute inset-0 m-3 flex justify-end gap-1">

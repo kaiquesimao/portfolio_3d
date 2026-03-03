@@ -102,7 +102,7 @@ Em vez de um currículo estático, a proposta é uma experiência navegável que
 ### Conteúdo e integração
 
 - **react-i18next + i18next + language detector**
-- **@emailjs/browser**
+- **@emailjs/nodejs**
 - **react-phone-number-input**
 - **react-vertical-timeline-component**
 
@@ -143,7 +143,7 @@ Em vez de um currículo estático, a proposta é uma experiência navegável que
 2. `app/src/App.tsx` compõe as seções principais (Navbar, Hero, About, Work, Projects, etc.).
 3. `MobileContext` define comportamento para mobile e controla renderizações específicas.
 4. `SectionWrapper` aplica padrão de animação, espaçamento e âncoras navegáveis.
-5. `Contact.tsx` envia o formulário diretamente com `@emailjs/browser`.
+5. `Contact.tsx` envia o formulário para `POST /api/contact`, e o backend usa `@emailjs/nodejs`.
 6. Componentes em `components/canvas` renderizam os elementos 3D.
 
 ---
@@ -189,15 +189,16 @@ Criar um arquivo `.env.local` na raiz do projeto com:
 NEXT_EMAILJS_SERVICEID=
 NEXT_EMAILJS_TEMPLATEID=
 NEXT_EMAILJS_OPTIONS=
+NEXT_EMAILJS_PRIVATEKEY=
 ```
 
-> Observação: no estado atual do projeto, o envio é feito no cliente com `@emailjs/browser`.
+> Observação: no estado atual do projeto, o envio é feito no backend (`app/api/contact/route.ts`) com `@emailjs/nodejs`.
 
 ### Dependências externas em runtime
 
 | Serviço | Finalidade |
 |---|---|
-| EmailJS | Envio de mensagens do formulário no cliente com `@emailjs/browser` |
+| EmailJS | Envio de mensagens do formulário via rota server-side com `@emailjs/nodejs` |
 | `https://ipapi.co/json/` | Detectar país para telefone no formulário |
 | `https://randomuser.me/...` | Avatares dos depoimentos |
 

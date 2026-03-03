@@ -104,7 +104,7 @@ Instead of a static resume, the portfolio acts as a navigable and technical stor
 ### Content and integration
 
 - **react-i18next + i18next + language detector**
-- **@emailjs/browser**
+- **@emailjs/nodejs**
 - **react-phone-number-input**
 - **react-vertical-timeline-component**
 
@@ -145,7 +145,7 @@ Instead of a static resume, the portfolio acts as a navigable and technical stor
 2. `app/src/App.tsx` renders and orders all major sections.
 3. `MobileContext` centralizes mobile-state behavior.
 4. `SectionWrapper` standardizes animation, spacing, and hash anchor support.
-5. `Contact.tsx` sends the form directly using `@emailjs/browser`.
+5. `Contact.tsx` submits the form to `POST /api/contact`, and the backend sends email using `@emailjs/nodejs`.
 6. `components/canvas/*` render the 3D scenes and decorative effects.
 
 ---
@@ -196,15 +196,16 @@ Create `.env.local` at the project root:
 NEXT_EMAILJS_SERVICEID=
 NEXT_EMAILJS_TEMPLATEID=
 NEXT_EMAILJS_OPTIONS=
+NEXT_EMAILJS_PRIVATEKEY=
 ```
 
-> Note: in the current state of the project, email is sent on the client with `@emailjs/browser`.
+> Note: in the current state of the project, email is sent on the backend (`app/api/contact/route.ts`) with `@emailjs/nodejs`.
 
 ### Runtime external dependencies
 
 | Service                     | Purpose                                                              |
 | --------------------------- | -------------------------------------------------------------------- |
-| EmailJS                     | Sends contact form submissions on the client with `@emailjs/browser` |
+| EmailJS                     | Sends contact form submissions through a server-side route with `@emailjs/nodejs` |
 | `https://ipapi.co/json/`    | Detects country for phone input default                              |
 | `https://randomuser.me/...` | Testimonial avatars                                                  |
 
