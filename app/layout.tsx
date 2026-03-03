@@ -7,6 +7,10 @@ import "devicon/devicon.min.css";
 export const metadata: Metadata = {
   title: "Kaique | Portfólio",
   description: "Portfólio 3D com projetos, experiência e contato.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
