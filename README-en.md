@@ -17,15 +17,14 @@ This is my 3D portfolio, where I display my software development projects in an 
 - Interactive 3D models.
 - Custom animations.
 - Responsiveness on different devices.
-- Integration with relevant APIs or data sources.
-
+- Integration with [EmailJS](https://www.emailjs.com) API.
 ## How to View
 
 1. Clone this repository.
 2. Run `pnpm install` to install the dependencies.
 3. Run `pnpm dev` to start the local server.
 4. Access `http://localhost:5173` in your browser.
-5. If you want to view online access `https://portfolio-3d-pi.vercel.app`
+5. If you want to view online access [here](https://kaique.site)
 
 ## License
 

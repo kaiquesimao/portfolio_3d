@@ -17,7 +17,7 @@ Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de s
 - Modelos 3D interativos.
 - Animações personalizadas.
 - Responsividade em diferentes dispositivos.
-- Integração com APIs ou fontes de dados relevantes.
+- Integração com API [EmailJS](https://www.emailjs.com).
 
 ## Como Visualizar
 
@@ -25,7 +25,7 @@ Este é o meu portfólio em 3D, onde exibo meus projetos de desenvolvimento de s
 2. Execute `pnpm install` para instalar as dependências.
 3. Execute `pnpm dev` para iniciar o servidor local.
 4. Acesse `http://localhost:5173` no seu navegador.
-5. Caso queira visualizar online acesse `https://portfolio-3d-pi.vercel.app`
+5. Caso queira visualizar online acesse [aqui](https://kaique.site)
 
 ## Licença
 
