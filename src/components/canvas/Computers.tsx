@@ -5,7 +5,7 @@ import { memo, Suspense, useContext } from "react";
 import MobileContext from "../../contexts/MobileContext.tsx";
 
 const Computer = memo(() => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("/desktop_pc/scene.gltf");
   const isMobile = useContext(MobileContext);
   return (
     <mesh>
@@ -21,7 +21,7 @@ const Computer = memo(() => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 1.0}
+        scale={isMobile ? 0.7 : 1}
         position={isMobile ? [0, -1, -1.4] : [0, -1.7, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />

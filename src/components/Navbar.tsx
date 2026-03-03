@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { styles } from "../styles";
 import { languages, navLinks } from "../constants";
 import { brasil, close, logo, menu, usa } from "../assets";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MobileContext from "../contexts/MobileContext.tsx";
 
@@ -38,14 +39,14 @@ const Navbar = () => {
         className={"mx-auto flex w-full max-w-7xl items-center justify-between"}
       >
         <Link
-          to={"/"}
+          href={"/"}
           className={"flex items-center gap-2"}
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt={"logo"} className={"size-9 object-contain"} />
+          <Image src={logo} alt={"logo"} width={36} height={36} className={"object-contain"} />
           <p className={"flex cursor-pointer text-lg font-bold text-white"}>
             {t("page_title")}
           </p>
@@ -69,9 +70,11 @@ const Navbar = () => {
                 void handleLanguageChange(languages.portuguese);
               }}
             >
-              <img
+              <Image
                 src={brasil}
                 alt={t("country_img")}
+                width={36}
+                height={36}
                 className={countryImgStyleClass(languages.portuguese.code)}
                 title={t("change_language")}
               />
@@ -81,9 +84,11 @@ const Navbar = () => {
                 void handleLanguageChange(languages.english);
               }}
             >
-              <img
+              <Image
                 src={usa}
                 alt={t("country_img")}
+                width={36}
+                height={36}
                 className={countryImgStyleClass(languages.english.code)}
                 title={t("change_language")}
               />
@@ -95,16 +100,20 @@ const Navbar = () => {
         {isMobile && (
           <div className={"flex flex-1 items-center justify-end sm:hidden"}>
             <div className="relative">
-              <img
+              <Image
                 src={menu}
                 alt={"menu"}
-                className={`absolute transition-opacity duration-500 ${toggle ? "opacity-100" : "opacity-0"} size-7 cursor-pointer object-contain`}
+                width={28}
+                height={28}
+                className={`absolute transition-opacity duration-500 ${toggle ? "opacity-100" : "opacity-0"} cursor-pointer object-contain`}
                 onClickCapture={() => setToggle(!toggle)}
               />
-              <img
+              <Image
                 src={close}
                 alt={"close"}
-                className={`transition-opacity duration-500 ${toggle ? "opacity-0" : "opacity-100"} size-7 cursor-pointer object-contain`}
+                width={28}
+                height={28}
+                className={`transition-opacity duration-500 ${toggle ? "opacity-0" : "opacity-100"} cursor-pointer object-contain`}
                 onClickCapture={() => setToggle(!toggle)}
               />
             </div>
@@ -134,9 +143,11 @@ const Navbar = () => {
                       void handleLanguageChange(languages.portuguese);
                     }}
                   >
-                    <img
+                    <Image
                       src={brasil}
                       alt={t("country_img")}
+                      width={36}
+                      height={36}
                       className={countryImgStyleClass(
                         languages.portuguese.code,
                       )}
@@ -148,9 +159,11 @@ const Navbar = () => {
                       void handleLanguageChange(languages.english);
                     }}
                   >
-                    <img
+                    <Image
                       src={usa}
                       alt={t("country_img")}
+                      width={36}
+                      height={36}
                       className={countryImgStyleClass(languages.english.code)}
                       title={t("change_language")}
                     />

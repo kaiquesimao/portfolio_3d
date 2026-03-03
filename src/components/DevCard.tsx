@@ -1,4 +1,5 @@
 import ReactParallaxTilt from "react-parallax-tilt";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import { DevStacksType } from "../utils/types.ts";
@@ -21,7 +22,7 @@ const DevCard = ({ title, index, icon }: DevStacksType) => {
             "flex min-h-72 flex-col items-center justify-evenly rounded-3xl bg-tertiary px-12 py-5"
           }
         >
-          <img src={icon} alt={title} className={"size-16 object-contain"} />
+          <Image src={icon} alt={title} width={64} height={64} className={"object-contain"} />
           <h3 className={"text-center text-xl font-bold text-white"}>
             {title}
           </h3>

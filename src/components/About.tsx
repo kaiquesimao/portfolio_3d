@@ -1,12 +1,9 @@
-/* eslint-disable tailwindcss/no-custom-classname */
-
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import { devStacks } from "../constants";
 import { SectionWrapper } from "../hoc";
 import DevCard from "./DevCard.tsx";
-import "devicon";
 import { useTranslation } from "react-i18next";
 
 const AboutMe = () => {

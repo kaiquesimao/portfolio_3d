@@ -1,4 +1,5 @@
 import { styles } from "../styles.ts";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion.ts";
 import { testimonials } from "../constants";
@@ -32,10 +33,12 @@ const FeedbackCard = ({
               {t(designation)} {t("on_company")} {company}
             </p>
           </div>
-          <img
+          <Image
             src={image}
             alt={`feedback-by-${name}`}
-            className={"size-10 rounded-full object-cover"}
+            width={40}
+            height={40}
+            className={"rounded-full object-cover"}
           />
         </div>
       </div>

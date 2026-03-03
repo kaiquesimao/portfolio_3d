@@ -1,4 +1,3 @@
-import { BrowserRouter } from "react-router-dom";
 import {
   About,
   Contact,
@@ -16,12 +15,16 @@ import MobileContext from "./contexts/MobileContext.tsx";
 
 const App = () => {
   const { t, i18n } = useTranslation();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (globalThis.window === undefined) {
+      return false;
+    }
+
+    return globalThis.window.matchMedia("(max-width: 500px)").matches;
+  });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    setIsMobile(mediaQuery.matches);
+    const mediaQuery = globalThis.window.matchMedia("(max-width: 500px)");
 
     const handleMediaQueryChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
@@ -52,19 +55,17 @@ const App = () => {
 
   return (
     <MobileContext.Provider value={isMobile}>
-      <BrowserRouter>
-        <div className={"relative z-0 overflow-x-hidden bg-primary"}>
-          <StarsCanvas />
-          <Navbar />
-          <Hero />
-          <About />
-          <Experience />
-          <Tech />
-          <Projects />
-          <Feedbacks />
-          <Contact />
-        </div>
-      </BrowserRouter>
+      <div className={"relative z-0 overflow-x-hidden bg-primary"}>
+        <StarsCanvas />
+        <Navbar />
+        <Hero />
+        <About />
+        <Experience />
+        <Tech />
+        <Projects />
+        <Feedbacks />
+        <Contact />
+      </div>
     </MobileContext.Provider>
   );
 };

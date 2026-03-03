@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeIn, textVariant } from "../utils/motion.ts";
 import { styles } from "../styles.ts";
 import { projects } from "../constants";
@@ -30,27 +31,32 @@ const ProjectCard = ({
         className="w-full rounded-2xl bg-tertiary p-5 sm:w-[22.5rem]"
       >
         <div className="relative h-56 w-full">
-          <img
+          <Image
             src={image}
             alt={t(name)}
-            className="size-full rounded-2xl object-cover"
+            fill
+            className="rounded-2xl object-cover"
           />
           <div className="absolute inset-0 m-3 flex justify-end gap-1">
             <div className="black-gradient flex size-10 items-center justify-center rounded-full">
               <a href={source_code_link} target="_blank" rel="noreferrer">
-                <img
+                <Image
                   src={github}
                   alt="github"
-                  className="size-full cursor-pointer object-contain"
+                  width={40}
+                  height={40}
+                  className="cursor-pointer object-contain"
                 />
               </a>
             </div>
             <div className="flex size-10 items-center justify-center rounded-full">
               <a href={demo_link} target="_blank" rel="noreferrer">
-                <img
+                <Image
                   src={webImg}
                   alt={t(name)}
-                  className="size-full cursor-pointer object-contain"
+                  width={40}
+                  height={40}
+                  className="cursor-pointer object-contain"
                 />
               </a>
             </div>

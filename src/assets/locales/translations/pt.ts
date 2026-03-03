@@ -21,7 +21,7 @@ const pt = {
   mobile_work_with2: "sou fã número um de Kotlin",
   to_android: "para Android",
   intro_db:
-    "Tenho conhecimentos em bancos de dados relacionais como SQL Server e Postgre",
+    "Tenho conhecimentos em bancos de dados relacionais como SQL Server e Postgres",
   intro_so:
     "E por fim, também me viro tranquilamente nos sistemas operacionais, seja no Windows",
   intro_so2: "(com o WSL) ou no Linux",

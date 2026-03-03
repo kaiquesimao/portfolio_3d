@@ -2,5 +2,6 @@
   "sonarlint.connectedMode.project": {
     "connectionId": "kaiquesimao",
     "projectKey": "kaiquesimao_portfolio_3d"
-  }
+  },
+  "editor.fontSize": 14
 }

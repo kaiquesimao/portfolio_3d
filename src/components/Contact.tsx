@@ -5,7 +5,6 @@ import { slideIn } from "../utils/motion.ts";
 import { styles } from "../styles.ts";
 import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
-import "react-phone-number-input/style.css";
 import PhoneInputWithCountrySelect, {
   Country,
   Value,
@@ -37,8 +36,8 @@ const ContactSection = () => {
     setLoading(true);
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICEID,
-        import.meta.env.VITE_EMAILJS_TEMPLATEID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICEID ?? "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATEID ?? "",
         {
           from_name: formState.name,
           from_phone: formState.phone,
@@ -47,7 +46,7 @@ const ContactSection = () => {
           to_email: "kaique.gabriel.me@gmail.com",
           message: formState.message,
         },
-        import.meta.env.VITE_EMAILJS_OPTIONS,
+        process.env.NEXT_PUBLIC_EMAILJS_OPTIONS ?? "",
       )
       .then(() => {
         setLoading(false);

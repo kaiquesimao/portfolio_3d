@@ -2,13 +2,14 @@ import { memo, Suspense, useRef } from "react";
 import { random } from "maath";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Points, Preload } from "@react-three/drei";
-import THREE, { TypedArray } from "three";
+import { TypedArray } from "three";
+import * as THREE from "three";
 
 const Stars = memo(() => {
-  const ref = useRef<THREE.Points | null>(null);
+  const ref = useRef<THREE.Group | null>(null);
   const tempArray = new Float64Array(15003);
   random.inSphere(tempArray, {
-    radius: 10.0,
+    radius: 10,
   });
   const sphere: TypedArray = new Float32Array(tempArray);
   useFrame((_state, delta) => {
@@ -20,8 +21,8 @@ const Stars = memo(() => {
   });
 
   return (
-    <group position={[0, 0, 0]} rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={true}>
+    <group ref={ref} position={[0, 0, 0]} rotation={[0, 0, Math.PI / 4]}>
+      <Points positions={sphere} stride={3} frustumCulled={true}>
         <PointMaterial
           transparent
           color="#f272c8"
