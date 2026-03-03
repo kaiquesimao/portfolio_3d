@@ -20,6 +20,12 @@ import { CountryData } from "../utils/types.ts";
 
 const ContactSection = () => {
   const { t } = useTranslation();
+  const emailJsServiceId = process.env.NEXT_EMAILJS_SERVICEID;
+  const emailJsTemplateId = process.env.NEXT_EMAILJS_TEMPLATEID;
+  const emailJsPublicKey = process.env.NEXT_EMAILJS_OPTIONS;
+  const isEmailJsConfigured = Boolean(
+    emailJsServiceId && emailJsTemplateId && emailJsPublicKey,
+  );
   const formRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
@@ -39,11 +45,20 @@ const ContactSection = () => {
 
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
+      console.error(
+        "EmailJS is not configured. Missing NEXT_EMAILJS_SERVICEID, NEXT_EMAILJS_TEMPLATEID, or NEXT_EMAILJS_OPTIONS.",
+      );
+      alert("Email service is temporarily unavailable. Please try again later.");
+      return;
+    }
+
     setLoading(true);
     emailjs
       .send(
-        process.env.NEXT_EMAILJS_SERVICEID ?? "",
-        process.env.NEXT_EMAILJS_TEMPLATEID ?? "",
+        emailJsServiceId,
+        emailJsTemplateId,
         {
           from_name: formState.name,
           from_phone: formState.phone,
@@ -52,7 +67,7 @@ const ContactSection = () => {
           to_email: "kaique.gabriel.me@gmail.com",
           message: formState.message,
         },
-        process.env.NEXT_EMAILJS_OPTIONS ?? "",
+        emailJsPublicKey,
       )
       .then(() => {
         alert(t("contact_success"));
@@ -183,8 +198,9 @@ const ContactSection = () => {
 
           <button
             className={
-              "w-fit rounded-xl bg-tertiary px-8 py-3 font-bold text-white shadow-md shadow-primary outline-none"
+              "w-fit rounded-xl bg-tertiary px-8 py-3 font-bold text-white shadow-md shadow-primary outline-none disabled:cursor-not-allowed disabled:opacity-60"
             }
+            disabled={loading || !isEmailJsConfigured}
             type={"submit"}
             value={"Send"}
           >
