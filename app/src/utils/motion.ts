@@ -1,4 +1,9 @@
-export const textVariant = (delay?: number) => {
+import type { Variants } from "framer-motion";
+
+type Direction = "left" | "right" | "up" | "down" | "";
+type TransitionType = "spring" | "tween" | "inertia" | "keyframes";
+
+export const textVariant = (delay = 0): Variants => {
   return {
     hidden: {
       y: -50,
@@ -17,11 +22,11 @@ export const textVariant = (delay?: number) => {
 };
 
 export const fadeIn = (
-  direction: string,
-  type: string,
+  direction: Direction,
+  type: TransitionType = "tween",
   delay: number,
   duration: number,
-) => {
+): Variants => {
   let x = 0;
   let y = 0;
 
@@ -63,11 +68,11 @@ export const fadeIn = (
 };
 
 export const slideIn = (
-  direction: string,
-  type: string,
+  direction: Direction,
+  type: TransitionType = "tween",
   delay: number,
   duration: number,
-) => {
+): Variants => {
   let x = "0";
   let y = "0";
 
@@ -106,14 +111,14 @@ export const slideIn = (
 };
 
 export const staggerContainer = (
-  staggerChildren?: never,
-  delayChildren?: never,
-) => {
+  staggerChildren = 0,
+  delayChildren = 0,
+): Variants => {
   return {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: staggerChildren,
+        staggerChildren,
         delayChildren: delayChildren ?? 0,
       },
     },
