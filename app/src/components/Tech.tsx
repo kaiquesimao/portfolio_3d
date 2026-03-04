@@ -1,16 +1,63 @@
 import { technologies } from "../constants";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { memo, useContext } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import MobileContext from "../contexts/MobileContext.tsx";
 import { getBrowser } from "../utils/utils.ts";
 
 const TechSection = memo(() => {
+  const [shouldRenderCanvas, setShouldRenderCanvas] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (shouldRenderCanvas) {
+      return;
+    }
+
+    const container = containerRef.current;
+
+    if (!container || typeof IntersectionObserver === "undefined") {
+      const frameId = requestAnimationFrame(() => {
+        setShouldRenderCanvas(true);
+      });
+
+      return () => {
+        cancelAnimationFrame(frameId);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRenderCanvas(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "220px 0px" },
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [shouldRenderCanvas]);
+
   return (
-    <div className={"flex flex-row flex-wrap justify-center gap-10"}>
+    <div
+      ref={containerRef}
+      className={"flex flex-row flex-wrap justify-center gap-10"}
+    >
       {technologies.map((tech) => (
         <div className={"size-28 cursor-pointer"} key={tech.name}>
-          <BallCanvas icon={tech.icon} />
+          {shouldRenderCanvas ? (
+            <BallCanvas icon={tech.icon} />
+          ) : (
+            <div
+              aria-hidden={true}
+              className={"size-full animate-pulse rounded-full bg-tertiary/60"}
+            />
+          )}
         </div>
       ))}
     </div>
@@ -18,6 +65,9 @@ const TechSection = memo(() => {
 });
 
 TechSection.displayName = "TechSection";
+
+// @ts-expect-error - HOC
+const WrappedTechSection = SectionWrapper(TechSection, "tech");
 
 const Tech = memo(() => {
   const isMobile = useContext(MobileContext);
@@ -27,9 +77,6 @@ const Tech = memo(() => {
   const shouldRenderTech = isFirefoxOnMobile || isNotMobile;
 
   if (!shouldRenderTech) return null;
-
-  // @ts-expect-error - HOC
-  const WrappedTechSection = SectionWrapper(TechSection, "tech");
 
   return <WrappedTechSection />;
 });

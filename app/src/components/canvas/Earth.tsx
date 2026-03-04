@@ -20,9 +20,9 @@ Earth.displayName = "Earth";
 const EarthCanvas = memo(() => {
   return (
     <Canvas
-      shadows={true}
       frameloop={"demand"}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: false, powerPreference: "low-power" }}
       camera={{ fov: 45, near: 0.1, far: 200, position: [-4, 3, 6] }}
     >
       <Suspense fallback={<CanvasLoader />}>

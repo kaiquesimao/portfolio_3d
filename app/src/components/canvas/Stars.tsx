@@ -1,17 +1,21 @@
-import { memo, Suspense, useRef } from "react";
+import { memo, Suspense, useMemo, useRef } from "react";
 import { random } from "maath";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { PointMaterial, Points, Preload } from "@react-three/drei";
-import { TypedArray } from "three";
+import { PointMaterial, Points } from "@react-three/drei";
 import * as THREE from "three";
 
 const Stars = memo(() => {
   const ref = useRef<THREE.Group | null>(null);
-  const tempArray = new Float64Array(15003);
-  random.inSphere(tempArray, {
-    radius: 10,
-  });
-  const sphere: TypedArray = new Float32Array(tempArray);
+  const sphere = useMemo(() => {
+    const points = new Float32Array(15003);
+
+    random.inSphere(points, {
+      radius: 10,
+    });
+
+    return points;
+  }, []);
+
   useFrame((_state, delta) => {
     if (ref.current !== null) {
       ref.current.rotation.x -= delta / 10;
@@ -40,11 +44,14 @@ Stars.displayName = "Stars";
 const StarsCanvas = memo(() => {
   return (
     <div className={"absolute inset-0 z-[-1] h-auto w-full"}>
-      <Canvas camera={{ position: [0, 0, 10] }}>
+      <Canvas
+        camera={{ position: [0, 0, 10] }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+      >
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
-        <Preload all={true} />
       </Canvas>
     </div>
   );
