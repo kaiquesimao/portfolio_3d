@@ -1,5 +1,5 @@
 import CanvasLoader from "../Loader";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { memo, Suspense, useContext } from "react";
 import MobileContext from "../../contexts/MobileContext.tsx";
@@ -17,7 +17,7 @@ const Computer = memo(() => {
         penumbra={1}
         intensity={1}
         castShadow={true}
-        shadow-mapSize={1024}
+        shadow-mapSize={512}
       />
       <primitive
         object={computer.scene}
@@ -40,7 +40,8 @@ const ComputerCanvas = memo(() => {
         frameloop={"demand"}
         shadows
         camera={{ position: [20, 3, 5], fov: 25 }}
-        gl={{ preserveDrawingBuffer: true }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: false, powerPreference: "high-performance" }}
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
@@ -52,7 +53,6 @@ const ComputerCanvas = memo(() => {
           />
           <Computer />
         </Suspense>
-        <Preload all />
       </Canvas>
     </div>
   );

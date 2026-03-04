@@ -1,7 +1,12 @@
+import dynamic from "next/dynamic";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import ComputerSection from "./ComputerSection";
 import { useTranslation } from "react-i18next";
+
+const ComputerSection = dynamic(() => import("./ComputerSection"), {
+  ssr: false,
+  loading: () => <div aria-hidden={true} className={"h-64 w-full sm:h-96"} />,
+});
 
 const HeroSection = () => {
   const { t } = useTranslation();
