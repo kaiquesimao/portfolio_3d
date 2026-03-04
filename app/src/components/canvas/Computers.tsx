@@ -2,6 +2,7 @@ import CanvasLoader from "../Loader";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { memo, Suspense, useContext } from "react";
+import * as THREE from "three";
 import MobileContext from "../../contexts/MobileContext.tsx";
 
 const Computer = memo(() => {
@@ -38,7 +39,7 @@ const ComputerCanvas = memo(() => {
     <div className={`${isMobile ? "h-64" : "h-96"} w-full cursor-pointer`}>
       <Canvas
         frameloop={"demand"}
-        shadows
+        shadows={{ type: THREE.PCFShadowMap }}
         camera={{ position: [20, 3, 5], fov: 25 }}
         dpr={[1, 1.5]}
         gl={{ antialias: false, powerPreference: "high-performance" }}

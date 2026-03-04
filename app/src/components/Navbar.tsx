@@ -51,7 +51,7 @@ const Navbar = () => {
             alt={"logo"}
             width={36}
             height={36}
-            className={"h-auto w-9 object-contain"}
+            className={"size-9 object-contain"}
           />
           <p className={"flex cursor-pointer text-lg font-bold text-white"}>
             {t("page_title")}
