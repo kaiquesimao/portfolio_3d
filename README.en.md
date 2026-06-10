@@ -12,7 +12,7 @@
 A professional portfolio web app designed to showcase technical depth, career journey, and project outcomes through an immersive 3D experience.
 
 - 🇧🇷 **Primary Portuguese version:** [README.md](./README.md)
-- 🚀 **Live demo:** https://portfolio-3d-pi.vercel.app
+- 🚀 **Access here:** https://kaique.site
 
 ---
 
