@@ -12,7 +12,7 @@
 Aplicação de portfólio profissional com experiência visual 3D, narrativa de trajetória técnica e canal direto de contato para oportunidades.
 
 - 🌍 **Versão em inglês:** [README.en.md](./README.en.md)
-- 🚀 **Demo:** https://portfolio-3d-pi.vercel.app
+- 🚀 **Acesse aqui:** https://kaique.site
 
 ---
 
