@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "portfolio-3d",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-03",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "secrets": {
+    "required": [
+      "NEXT_EMAILJS_SERVICEID",
+      "NEXT_EMAILJS_TEMPLATEID",
+      "NEXT_EMAILJS_OPTIONS",
+      "NEXT_EMAILJS_PRIVATEKEY"
+    ]
+  },
+  "routes": [
+    {
+      "pattern": "portfolio.kaique.site",
+      "custom_domain": true
+    }
+  ]
+}
