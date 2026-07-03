@@ -1,0 +1,76 @@
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm type-check
+
+  deploy-preview:
+    if: github.event_name == 'pull_request'
+    needs: quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec opennextjs-cloudflare build
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+        env:
+          NEXT_EMAILJS_SERVICEID: ${{ secrets.NEXT_EMAILJS_SERVICEID }}
+          NEXT_EMAILJS_TEMPLATEID: ${{ secrets.NEXT_EMAILJS_TEMPLATEID }}
+          NEXT_EMAILJS_OPTIONS: ${{ secrets.NEXT_EMAILJS_OPTIONS }}
+          NEXT_EMAILJS_PRIVATEKEY: ${{ secrets.NEXT_EMAILJS_PRIVATEKEY }}
+
+  deploy-production:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec opennextjs-cloudflare build
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+        env:
+          NEXT_EMAILJS_SERVICEID: ${{ secrets.NEXT_EMAILJS_SERVICEID }}
+          NEXT_EMAILJS_TEMPLATEID: ${{ secrets.NEXT_EMAILJS_TEMPLATEID }}
+          NEXT_EMAILJS_OPTIONS: ${{ secrets.NEXT_EMAILJS_OPTIONS }}
+          NEXT_EMAILJS_PRIVATEKEY: ${{ secrets.NEXT_EMAILJS_PRIVATEKEY }}

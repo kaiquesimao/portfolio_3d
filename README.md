@@ -12,7 +12,7 @@
 Aplicação de portfólio profissional com experiência visual 3D, narrativa de trajetória técnica e canal direto de contato para oportunidades.
 
 - 🌍 **Versão em inglês:** [README.en.md](./README.en.md)
-- 🚀 **Acesse aqui:** https://kaique.site
+- 🚀 **Acesse aqui:** https://portfolio.kaique.site
 
 ---
 
@@ -233,7 +233,9 @@ Abra `http://localhost:3000` no navegador.
 | Script | Comando | Descrição |
 |---|---|---|
 | Desenvolvimento | `pnpm dev` | Sobe a aplicação em modo local |
-| Build | `pnpm build` | Gera build de produção |
+| Build | `pnpm build` | Gera build de produção Next.js |
+| Preview CF | `pnpm preview` | Build OpenNext + servidor local Workers |
+| Deploy CF | `pnpm deploy` | Build OpenNext + deploy Cloudflare |
 | Start | `pnpm start` | Executa build em modo produção |
 | Lint | `pnpm lint` | Verifica padrões de código com ESLint |
 | Type-check | `pnpm type-check` | Valida tipos TypeScript sem emitir arquivos |
@@ -272,13 +274,59 @@ Se necessário, ajuste escala/posição em:
 
 ## Deploy
 
-O deploy recomendado é na **Vercel** (compatível nativamente com Next.js).
+O deploy é feito na **Cloudflare Workers** via [@opennextjs/cloudflare](https://opennext.js.org/cloudflare), com CI/CD no **GitHub Actions**.
 
-Fluxo mínimo:
+**URL de produção:** https://portfolio.kaique.site
 
-1. Configurar variáveis de ambiente no provedor.
-2. Executar `pnpm build` localmente para validação.
-3. Publicar branch principal no ambiente de deploy.
+### Pré-requisitos (Cloudflare)
+
+1. Conta Cloudflare com a zona `kaique.site` ativa.
+2. Worker `portfolio-3d` com custom domain `portfolio.kaique.site` (configurado em [`wrangler.jsonc`](wrangler.jsonc)).
+3. Secrets do EmailJS no Worker (**Settings → Variables and Secrets** ou CLI):
+
+```bash
+wrangler secret put NEXT_EMAILJS_SERVICEID
+wrangler secret put NEXT_EMAILJS_TEMPLATEID
+wrangler secret put NEXT_EMAILJS_OPTIONS
+wrangler secret put NEXT_EMAILJS_PRIVATEKEY
+```
+
+Para desenvolvimento local com runtime Workers, copie [`.dev.vars.example`](.dev.vars.example) para `.dev.vars` e preencha os valores.
+
+### Pré-requisitos (GitHub Actions)
+
+Configure em **Settings → Secrets and variables → Actions**:
+
+| Secret | Descrição |
+|--------|-----------|
+| `CLOUDFLARE_API_TOKEN` | Token com permissão **Workers Scripts: Edit** |
+| `CLOUDFLARE_ACCOUNT_ID` | ID da conta Cloudflare |
+| `NEXT_EMAILJS_SERVICEID` | EmailJS (build + runtime) |
+| `NEXT_EMAILJS_TEMPLATEID` | EmailJS (build + runtime) |
+| `NEXT_EMAILJS_OPTIONS` | EmailJS public key |
+| `NEXT_EMAILJS_PRIVATEKEY` | EmailJS private key |
+
+### Deploy manual
+
+```bash
+pnpm preview   # build + servidor local no runtime Workers
+pnpm deploy    # build + deploy para Cloudflare
+```
+
+### CI/CD
+
+O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) executa:
+
+- **Push em `master`:** lint, type-check, build OpenNext, deploy produção.
+- **Pull request:** lint, type-check, build OpenNext, deploy preview.
+
+### Migração da Vercel
+
+Após validar `portfolio.kaique.site`:
+
+1. Remover domínio `kaique.site` do projeto na Vercel.
+2. Desabilitar Git integration na Vercel (evita deploys duplicados).
+3. Opcional: arquivar o projeto na Vercel por 1–2 semanas como rollback.
 
 ---
 
