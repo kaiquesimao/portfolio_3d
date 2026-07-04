@@ -44,7 +44,7 @@ AboutMe.displayName = "AboutMe";
 const Description = () => {
   return (
     <motion.p
-      variants={fadeIn("", "tween", 0.1, 1)}
+      variants={fadeIn("", 0.1, 1, "tween")}
       className={"mt-4 max-w-4xl text-base leading-8 text-secondary"}
     >
       <AboutMe />

@@ -18,7 +18,7 @@ const FeedbackCard = ({
   const { t } = useTranslation();
   return (
     <motion.div
-      variants={fadeIn("", "spring", index * 0.5, 0.75)}
+      variants={fadeIn("", index * 0.5, 0.75, "spring")}
       className={"w-full rounded-3xl bg-black-200 p-10 xs:w-80"}
     >
       <p className={"text-5xl font-black text-white"}>&quot;</p>

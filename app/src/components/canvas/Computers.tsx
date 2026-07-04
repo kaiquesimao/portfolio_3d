@@ -18,7 +18,8 @@ const Computer = memo(() => {
         penumbra={1}
         intensity={1}
         castShadow={true}
-        shadow-mapSize={512}
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
       />
       <primitive
         object={computer.scene}

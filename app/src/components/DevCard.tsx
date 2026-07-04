@@ -14,7 +14,7 @@ const DevCard = ({ title, index, icon }: DevStacksType) => {
       tiltMaxAngleY={45}
     >
       <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+        variants={fadeIn("right", 0.5 * index, 0.75, "spring")}
         className={"green-pink-gradient w-full rounded-3xl p-px shadow-card"}
       >
         <div

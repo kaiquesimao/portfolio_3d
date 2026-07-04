@@ -1,4 +1,4 @@
-import { memo, Suspense, useMemo, useRef } from "react";
+import { memo, Suspense, useLayoutEffect, useMemo, useRef } from "react";
 import { random } from "maath";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Points } from "@react-three/drei";
@@ -16,6 +16,13 @@ const Stars = memo(() => {
     return points;
   }, []);
 
+  useLayoutEffect(() => {
+    if (ref.current !== null) {
+      ref.current.position.set(0, 0, 0);
+      ref.current.rotation.set(0, 0, Math.PI / 4);
+    }
+  }, []);
+
   useFrame((_state, delta) => {
     if (ref.current !== null) {
       ref.current.rotation.x -= delta / 10;
@@ -25,7 +32,7 @@ const Stars = memo(() => {
   });
 
   return (
-    <group ref={ref} position={[0, 0, 0]} rotation={[0, 0, Math.PI / 4]}>
+    <group ref={ref}>
       <Points positions={sphere} stride={3} frustumCulled={true}>
         <PointMaterial
           transparent

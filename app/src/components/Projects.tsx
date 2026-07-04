@@ -22,13 +22,13 @@ const ProjectCard = ({
   const { t } = useTranslation();
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", index * 0.5, 0.75, "spring")}>
       <ReactParallaxTilt
         transitionSpeed={450}
         scale={1}
         tiltMaxAngleX={45}
         tiltMaxAngleY={45}
-        className="w-full rounded-2xl bg-tertiary p-5 sm:w-[22.5rem]"
+        className="w-full rounded-2xl bg-tertiary p-5 sm:w-90"
       >
         <div className="relative h-56 w-full">
           <Image

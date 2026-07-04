@@ -23,9 +23,9 @@ export const textVariant = (delay = 0): Variants => {
 
 export const fadeIn = (
   direction: Direction,
-  type: TransitionType = "tween",
   delay: number,
   duration: number,
+  type: TransitionType = "tween",
 ): Variants => {
   let x = 0;
   let y = 0;
@@ -69,9 +69,9 @@ export const fadeIn = (
 
 export const slideIn = (
   direction: Direction,
-  type: TransitionType = "tween",
   delay: number,
   duration: number,
+  type: TransitionType = "tween",
 ): Variants => {
   let x = "0";
   let y = "0";
