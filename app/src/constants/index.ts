@@ -194,7 +194,7 @@ const projects = [
     image: portfolio3d,
     webImg: internet,
     source_code_link: "https://github.com/kaiquesimao/portfolio_3d",
-    demo_link: "https://kaique.site",
+    demo_link: "https://portfolio.kaique.site",
   },
   {
     name: "project_2_name",
