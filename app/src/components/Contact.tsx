@@ -36,8 +36,7 @@ const ContactSection = () => {
     setFormState({ ...formState, [name]: value });
   };
 
-  const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+  const submitContactForm = async () => {
     setLoading(true);
     try {
       const response = await fetch("/api/contact", {
@@ -72,6 +71,11 @@ const ContactSection = () => {
     }
   };
 
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    void submitContactForm();
+  };
+
   useEffect(() => {
     fetch("https://ipapi.co/json/")
       .then((response) => response.json())
@@ -82,7 +86,7 @@ const ContactSection = () => {
   return (
     <div className={"flex flex-col-reverse gap-10 xl:mt-12 xl:flex-row"}>
       <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
+        variants={slideIn("left", 0.2, 1, "tween")}
         className={"flex-[0.75] rounded-2xl bg-black-100 p-8"}
       >
         <p className={styles.sectionSubText}>{t("contact_me")}</p>
@@ -195,7 +199,7 @@ const ContactSection = () => {
         </form>
       </motion.div>
       <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
+        variants={slideIn("right", 0.2, 1, "tween")}
         className={"h-[350px] md:h-[550px] xl:h-auto xl:flex-1"}
       >
         <EarthCanvas />
