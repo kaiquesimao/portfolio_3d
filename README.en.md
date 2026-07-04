@@ -327,14 +327,6 @@ The [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) workflow runs
 - **Push to `master`:** lint, type-check, OpenNext build, production deploy.
 - **Pull request:** lint, type-check, OpenNext build, preview deploy.
 
-### Migrating from Vercel
-
-After validating `portfolio.kaique.site`:
-
-1. Remove the `kaique.site` domain from the Vercel project.
-2. Disable Git integration on Vercel (avoids duplicate deploys).
-3. Optionally archive the Vercel project for 1–2 weeks as a rollback option.
-
 ---
 
 ## Code quality and maintenance
