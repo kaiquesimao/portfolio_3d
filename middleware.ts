@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DEFAULT_LOCALE, isLocale, LOCALES } from "./app/src/constants/seo";
 
-export function proxy(request: NextRequest) {
+/**
+ * Locale routing for Cloudflare Workers / OpenNext.
+ * Keep as middleware.ts (Edge): proxy.ts is Node-only in Next 16 and not
+ * supported yet by @opennextjs/cloudflare builds.
+ */
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (
