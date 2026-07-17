@@ -28,6 +28,7 @@ const AboutMe = () => {
       {t("back_work_spring")} <i className={"devicon-spring-plain colored"} />
       .<br />
       {t("mobile_work_with")} 📱 {t("mobile_work_with2")}{" "}
+      <i className={"devicon-flutter-plain colored"} />{" "}
       <i className={"devicon-kotlin-plain colored"} /> {t("to_android")}{" "}
       <i className={"devicon-android-plain colored"} />.<br />
       {t("intro_db")} <i className={"devicon-postgresql-plain colored"} />.

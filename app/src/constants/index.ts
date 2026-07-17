@@ -5,6 +5,7 @@ import {
   backend,
   dio,
   docker,
+  flutter,
   freeway,
   innomotics,
   internet,
@@ -13,7 +14,7 @@ import {
   kotlin,
   lanternaApp,
   mobile,
-  pokedex,
+  pokedata,
   portfolio3d,
   postgre,
   reactjs,
@@ -104,6 +105,10 @@ const technologies = [
   {
     name: "Android",
     icon: android,
+  },
+  {
+    name: "Flutter",
+    icon: flutter,
   },
   {
     name: "Postgre",
@@ -197,6 +202,32 @@ const projects = [
     demo_link: "https://portfolio.kaique.site",
   },
   {
+    name: "project_4_name",
+    description: "project_4_description",
+    tags: [
+      {
+        name: "Flutter",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Dart",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Firebase",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "Riverpod",
+        color: "green-text-gradient",
+      },
+    ],
+    image: pokedata,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/new_pokedex_app",
+    demo_link: "https://pokedata.kaique.site",
+  },
+  {
     name: "project_2_name",
     description: "project_2_description",
     tags: [
@@ -240,28 +271,6 @@ const projects = [
     webImg: internet,
     source_code_link: "https://github.com/kaiquesimao/DioProjectReact",
     demo_link: "https://dio-project-react.vercel.app/",
-  },
-  {
-    name: "project_4_name",
-    description: "project_4_description",
-    tags: [
-      {
-        name: "HTML",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Javascript",
-        color: "yellow-text-gradient",
-      },
-    ],
-    image: pokedex,
-    webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/InterPokedexProject",
-    demo_link: "https://kaiquesimao.github.io/InterPokedexProject/",
   },
   {
     name: "project_5_name",
