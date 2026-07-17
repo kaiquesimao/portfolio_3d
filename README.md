@@ -1,189 +1,87 @@
-# Portfólio 3D | Kaique Simão
+# Portfólio 3D — Kaique Simão
 
-<p>
-  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" />
-  <img alt="React" src="https://img.shields.io/badge/React-19-20232A?logo=react" />
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript" />
-  <img alt="Three.js" src="https://img.shields.io/badge/Three.js-WebGL-black?logo=three.js" />
-  <img alt="Tailwind CSS" src="https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss" />
-  <img alt="i18n" src="https://img.shields.io/badge/i18n-PT%20%7C%20EN-4B5563" />
-</p>
+Portfólio pessoal de **Software Engineer** com cena 3D interativa, conteúdo bilíngue (PT/EN) e formulário de contato.
 
-Aplicação de portfólio profissional com experiência visual 3D, narrativa de trajetória técnica e canal direto de contato para oportunidades.
-
-- 🌍 **Versão em inglês:** [README.en.md](./README.en.md)
-- 🚀 **Acesse aqui:** https://portfolio.kaique.site
+**Live:** [portfolio.kaique.site](https://portfolio.kaique.site) · **English:** [README.en.md](./README.en.md)
 
 ---
 
-## Sumário
+## Stack
 
-1. [Visão do projeto](#visão-do-projeto)
-2. [Resumo executivo (RH e liderança)](#resumo-executivo-rh-e-liderança)
-3. [Funcionalidades](#funcionalidades)
-4. [Stack tecnológica](#stack-tecnológica)
-5. [Arquitetura e estrutura](#arquitetura-e-estrutura)
-6. [Fluxo da aplicação](#fluxo-da-aplicação)
-7. [Dados, conteúdo e i18n](#dados-conteúdo-e-i18n)
-8. [Serviços externos e ambiente](#serviços-externos-e-ambiente)
-9. [Como rodar localmente](#como-rodar-localmente)
-10. [Scripts disponíveis](#scripts-disponíveis)
-11. [Guia de customização](#guia-de-customização)
-12. [Deploy](#deploy)
-13. [Qualidade e manutenção](#qualidade-e-manutenção)
+| Camada | Tecnologia |
+|--------|------------|
+| App | Next.js 16 (App Router), React 19, TypeScript |
+| UI | Tailwind CSS 4, Framer Motion |
+| 3D | Three.js, React Three Fiber, drei |
+| i18n | i18next / react-i18next (`pt`, `en`) |
+| Contato | `@emailjs/nodejs` via `POST /api/contact` |
+| Deploy | OpenNext + Cloudflare Workers (`wrangler`) |
+
+Gerenciador de pacotes: **pnpm** (`packageManager` no `package.json`).
 
 ---
 
-## Visão do projeto
+## Seções
 
-Este projeto foi desenvolvido para representar, de forma técnica e estratégica, um perfil **Full Stack** com:
+A landing em `app/src/App.tsx` compõe, nesta ordem:
 
-- apresentação visual moderna (WebGL/3D);
-- comunicação clara de experiência profissional;
-- projetos com links para código e demonstração;
-- suporte bilíngue (português e inglês);
-- contato direto via formulário integrado ao EmailJS.
+1. **Hero** — título, tagline e modelo 3D do desktop (`ComputerCanvas`)
+2. **About** — overview e stacks (Frontend, Backend, Mobile, Cloud)
+3. **Experience** — timeline profissional
+4. **Tech** — ícones em esferas 3D
+5. **Projects** — cases e projetos públicos
+6. **Contact** — formulário com detecção de país (`ipapi.co`) para o telefone
 
-Em vez de um currículo estático, a proposta é uma experiência navegável que combina storytelling de carreira e execução técnica.
+Background estrelado (`StarsCanvas`) apenas em desktop, carregado de forma lazy/idle.
 
----
+### Projetos em destaque
 
-## Resumo executivo (RH e liderança)
-
-### O que este portfólio demonstra
-
-1. **Capacidade de entrega ponta a ponta**: frontend interativo, integração com serviços externos e atenção à experiência do usuário.
-2. **Amplitude técnica real**: frontend (React/Next), visual 3D (Three.js), internacionalização, responsividade e integração de contato.
-3. **Comunicação de valor**: histórico profissional, tecnologias, projetos e recomendações em uma narrativa única.
-
-### Competências evidenciadas
-
-- Engenharia de frontend com React + TypeScript.
-- Criação de interfaces interativas com animações e elementos 3D.
-- Organização de conteúdo orientada a dados (constants + traduções).
-- Boas práticas de DX: lint, type-check, estrutura modular e separação por domínio.
+| Projeto | Tipo |
+|---------|------|
+| **iLoA** | Case study (enterprise) |
+| **Videowall** | Case study (industrial / ops) |
+| **TalentHub** | Case study (SaaS multi-tenant) |
+| **PokeData** | App público (código + demo) |
+| **Portfólio 3D** | Este repositório (código + demo) |
 
 ---
 
-## Funcionalidades
-
-- **Hero com cena 3D** de computador (`ComputerCanvas`).
-- **Background estrelado 3D** em toda a aplicação (`StarsCanvas`).
-- **Seção Sobre** com foco em stack e perfil técnico.
-- **Timeline de experiência profissional**.
-- **Seção de tecnologias** com ícones em esfera 3D.
-- **Grid de projetos** com links para código fonte e demo.
-- **Depoimentos** para reforço de credibilidade.
-- **Formulário de contato** com envio via EmailJS.
-- **Detecção de país** (IP) para facilitar preenchimento do telefone.
-- **Internacionalização** PT/EN com troca dinâmica de idioma.
-- **Layout responsivo** com comportamento específico para mobile.
-
----
-
-## Stack tecnológica
-
-### Core
-
-- **Next.js 16** (App Router)
-- **React 19**
-- **TypeScript 5**
-- **Tailwind CSS 3**
-
-### Experiência visual e animações
-
-- **three**
-- **@react-three/fiber**
-- **@react-three/drei**
-- **framer-motion**
-- **maath**
-- **react-parallax-tilt**
-
-### Conteúdo e integração
-
-- **react-i18next + i18next + language detector**
-- **@emailjs/nodejs**
-- **react-phone-number-input**
-- **react-vertical-timeline-component**
-
----
-
-## Arquitetura e estrutura
+## Estrutura
 
 ```text
 .
 ├── app/
-│   ├── layout.tsx                 # metadata global, css global, idioma base
-│   ├── page.tsx                   # entry client-side com Suspense
-│   ├── globals.css                # tema global, utilitários visuais e loaders
+│   ├── layout.tsx / page.tsx / globals.css
+│   ├── api/contact/route.ts      # EmailJS (server-side)
 │   └── src/
-│       ├── App.tsx                # composição das seções da página
-│       ├── i18n.ts                # configuração de internacionalização
-│       ├── styles.ts              # tokens utilitários de classes
-│       ├── assets/                # imagens, ícones e traduções
-│       ├── components/
-│       │   ├── canvas/            # componentes 3D (Three.js)
-│       │   └── *.tsx              # seções principais da landing
-│       ├── constants/index.ts     # dados estruturados (links, experiências, projetos)
-│       ├── contexts/              # contexto de responsividade (mobile)
-│       ├── hoc/                   # SectionWrapper com animação e âncoras
-│       └── utils/                 # animações, tipos e utilidades
-├── public/
-│   ├── desktop_pc/                # modelo 3D do computador
-│   ├── planet/                    # modelo 3D do planeta
-│   └── assets/                    # ícones e imagens usadas no conteúdo
+│       ├── App.tsx               # composição das seções
+│       ├── i18n.ts
+│       ├── constants/index.ts    # nav, experiences, technologies, projects
+│       ├── assets/locales/       # pt.ts / en.ts
+│       ├── components/           # seções + canvas/
+│       ├── contexts/             # MobileContext
+│       └── hoc/                  # SectionWrapper
+├── public/                       # GLTFs (desktop_pc, planet) e assets estáticos
+├── scripts/setup-secrets.ps1     # sync EmailJS → Worker + .dev.vars
+├── wrangler.jsonc
 └── package.json
 ```
 
----
+### Nota para contribuidores (Tech / 3D)
 
-## Fluxo da aplicação
-
-1. `app/page.tsx` inicia o app em modo client-side com `Suspense`.
-2. `app/src/App.tsx` compõe as seções principais (Navbar, Hero, About, Work, Projects, etc.).
-3. `MobileContext` define comportamento para mobile e controla renderizações específicas.
-4. `SectionWrapper` aplica padrão de animação, espaçamento e âncoras navegáveis.
-5. `Contact.tsx` envia o formulário para `POST /api/contact`, e o backend usa `@emailjs/nodejs`.
-6. Componentes em `components/canvas` renderizam os elementos 3D.
+As esferas de tecnologia usam **um único `Canvas`** com **`View` do drei** (`Ball.tsx`): cada ícone é um viewport rastreado, em vez de um canvas por bola. Isso reduz custo de WebGL; ao alterar layout ou tamanho dos slots, valide o framing das `View`s.
 
 ---
 
-## Dados, conteúdo e i18n
+## Setup local
 
-O projeto foi desenhado para ser **orientado a conteúdo**, reduzindo acoplamento entre UI e texto.
+**Pré-requisitos:** Node.js 20+ (CI usa 24), pnpm.
 
-- **Dados estruturados**: `app/src/constants/index.ts`
-  - navegação
-  - experiências
-  - tecnologias
-  - depoimentos
-  - projetos
+```bash
+pnpm install
+```
 
-- **Traduções**:
-  - `app/src/assets/locales/translations/pt.ts`
-  - `app/src/assets/locales/translations/en.ts`
-
-- **Configuração i18n**: `app/src/i18n.ts`
-  - idiomas suportados: `pt`, `en`
-  - fallback: português
-
-### Onde editar cada tipo de conteúdo
-
-| Objetivo | Arquivo principal |
-|---|---|
-| Alterar textos PT/EN | `app/src/assets/locales/translations/*.ts` |
-| Adicionar/remover experiências | `app/src/constants/index.ts` |
-| Atualizar projetos e links | `app/src/constants/index.ts` |
-| Ajustar seções da página | `app/src/App.tsx` |
-| Ajustar visual global | `app/globals.css` e `app/src/styles.ts` |
-
----
-
-## Serviços externos e ambiente
-
-### Variáveis de ambiente (obrigatórias para o contato)
-
-Criar um arquivo `.env.local` na raiz do projeto com:
+Crie `.env.local` na raiz (necessário para o formulário de contato):
 
 ```env
 NEXT_EMAILJS_SERVICEID=
@@ -192,97 +90,53 @@ NEXT_EMAILJS_OPTIONS=
 NEXT_EMAILJS_PRIVATEKEY=
 ```
 
-> Observação: no estado atual do projeto, o envio é feito no backend (`app/api/contact/route.ts`) com `@emailjs/nodejs`.
-
-### Dependências externas em runtime
-
-| Serviço | Finalidade |
-|---|---|
-| EmailJS | Envio de mensagens do formulário via rota server-side com `@emailjs/nodejs` |
-| `https://ipapi.co/json/` | Detectar país para telefone no formulário |
-| `https://randomuser.me/...` | Avatares dos depoimentos |
-
----
-
-## Como rodar localmente
-
-### Pré-requisitos
-
-- Node.js **20+** recomendado
-- pnpm (recomendado), npm, yarn ou bun
-
-### Passos
+Para preview no runtime Workers, use `.dev.vars` (veja [`.dev.vars.example`](.dev.vars.example)) ou o script abaixo.
 
 ```bash
-# 1) Instalar dependências
-pnpm install
-
-# 2) Configurar variáveis de ambiente
-# criar .env.local (veja seção acima)
-
-# 3) Rodar ambiente de desenvolvimento
-pnpm dev
+pnpm dev          # http://localhost:3000
+pnpm lint
+pnpm type-check
 ```
 
-Abra `http://localhost:3000` no navegador.
+### Scripts
+
+| Comando | Descrição |
+|---------|-----------|
+| `pnpm dev` | Desenvolvimento Next.js |
+| `pnpm build` / `pnpm start` | Build e serve Next.js |
+| `pnpm preview` | Build OpenNext + preview local (Workers) |
+| `pnpm deploy` | Build OpenNext + deploy Cloudflare |
+| `pnpm cf-typegen` | Gera tipos Cloudflare (`wrangler types`) |
+
+Windows — publicar secrets do EmailJS no Worker e gerar `.dev.vars` a partir de `.env.local`:
+
+```powershell
+.\scripts\setup-secrets.ps1
+```
+
+(Auth: `wrangler login` ou `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` em `.cloudflare.local`.)
 
 ---
 
-## Scripts disponíveis
+## Conteúdo e i18n
 
-| Script | Comando | Descrição |
-|---|---|---|
-| Desenvolvimento | `pnpm dev` | Sobe a aplicação em modo local |
-| Build | `pnpm build` | Gera build de produção Next.js |
-| Preview CF | `pnpm preview` | Build OpenNext + servidor local Workers |
-| Deploy CF | `pnpm deploy` | Build OpenNext + deploy Cloudflare |
-| Start | `pnpm start` | Executa build em modo produção |
-| Lint | `pnpm lint` | Verifica padrões de código com ESLint |
-| Type-check | `pnpm type-check` | Valida tipos TypeScript sem emitir arquivos |
+| O quê | Onde |
+|-------|------|
+| Textos PT/EN | `app/src/assets/locales/translations/pt.ts`, `en.ts` |
+| Experiências, techs, projetos, nav | `app/src/constants/index.ts` |
+| Ordem das seções | `app/src/App.tsx` |
+| Tema / utilitários CSS | `app/globals.css`, `app/src/styles.ts` |
+| Modelos 3D | `public/desktop_pc/`, `public/planet/` (ajuste em `Computers.tsx` / `Earth.tsx`) |
 
----
-
-## Guia de customização
-
-### 1) Atualizar informações profissionais
-
-Edite os arrays em `app/src/constants/index.ts`:
-
-- `experiences`
-- `projects`
-- `technologies`
-- `testimonials`
-
-### 2) Alterar textos e idioma
-
-Edite as traduções em:
-
-- `app/src/assets/locales/translations/pt.ts`
-- `app/src/assets/locales/translations/en.ts`
-
-### 3) Trocar modelos 3D
-
-- computador: `public/desktop_pc/scene.gltf`
-- planeta: `public/planet/scene.gltf`
-
-Se necessário, ajuste escala/posição em:
-
-- `app/src/components/canvas/Computers.tsx`
-- `app/src/components/canvas/Earth.tsx`
+Idiomas: `pt` (fallback) e `en`, configurados em `app/src/i18n.ts`.
 
 ---
 
 ## Deploy
 
-O deploy é feito na **Cloudflare Workers** via [@opennextjs/cloudflare](https://opennext.js.org/cloudflare), com CI/CD no **GitHub Actions**.
+Produção: **Cloudflare Workers** via [@opennextjs/cloudflare](https://opennext.js.org/cloudflare). Domínio: `portfolio.kaique.site` ([`wrangler.jsonc`](wrangler.jsonc)).
 
-**URL de produção:** https://portfolio.kaique.site
-
-### Pré-requisitos (Cloudflare)
-
-1. Conta Cloudflare com a zona `kaique.site` ativa.
-2. Worker `portfolio-3d` com custom domain `portfolio.kaique.site` (configurado em [`wrangler.jsonc`](wrangler.jsonc)).
-3. Secrets do EmailJS no Worker (**Settings → Variables and Secrets** ou CLI):
+### Secrets do Worker
 
 ```bash
 wrangler secret put NEXT_EMAILJS_SERVICEID
@@ -291,50 +145,26 @@ wrangler secret put NEXT_EMAILJS_OPTIONS
 wrangler secret put NEXT_EMAILJS_PRIVATEKEY
 ```
 
-Para desenvolvimento local com runtime Workers, copie [`.dev.vars.example`](.dev.vars.example) para `.dev.vars` e preencha os valores.
+### GitHub Actions
 
-### Pré-requisitos (GitHub Actions)
+Secrets em **Settings → Secrets and variables → Actions**:
 
-Configure em **Settings → Secrets and variables → Actions**:
+- `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- `NEXT_EMAILJS_SERVICEID`, `NEXT_EMAILJS_TEMPLATEID`, `NEXT_EMAILJS_OPTIONS`, `NEXT_EMAILJS_PRIVATEKEY`
 
-| Secret | Descrição |
-|--------|-----------|
-| `CLOUDFLARE_API_TOKEN` | Token com permissão **Workers Scripts: Edit** |
-| `CLOUDFLARE_ACCOUNT_ID` | ID da conta Cloudflare |
-| `NEXT_EMAILJS_SERVICEID` | EmailJS (build + runtime) |
-| `NEXT_EMAILJS_TEMPLATEID` | EmailJS (build + runtime) |
-| `NEXT_EMAILJS_OPTIONS` | EmailJS public key |
-| `NEXT_EMAILJS_PRIVATEKEY` | EmailJS private key |
+Workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
-### Deploy manual
+- **Push em `master`:** lint, type-check, build OpenNext, deploy produção
+- **Pull request:** lint, type-check, build OpenNext, `wrangler versions upload` (preview `*.workers.dev`, sem afetar produção)
 
 ```bash
-pnpm preview   # build + servidor local no runtime Workers
-pnpm deploy    # build + deploy para Cloudflare
+pnpm preview
+pnpm deploy
 ```
 
-### CI/CD
-
-O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) executa:
-
-- **Push em `master`:** lint, type-check, build OpenNext, deploy produção (`portfolio.kaique.site`).
-- **Pull request:** lint, type-check, build OpenNext, `wrangler versions upload` (preview em `*.workers.dev`, sem afetar produção).
-
 ---
 
-## Qualidade e manutenção
+## Qualidade
 
-- ESLint configurado com `eslint-config-next` (`core-web-vitals` + TypeScript).
-- Tipagem estrita ativada via `tsconfig.json`.
-- Organização modular por contexto (componentes, constantes, utilitários, i18n).
-
-### Melhorias futuras sugeridas
-
-- adicionar testes automatizados (unitários e integração);
-- adicionar monitoramento de erros (ex.: Sentry);
-- adicionar analytics de navegação por seção;
-- otimizar carregamento progressivo de assets 3D mais pesados.
-
----
-
-Se este projeto te ajudou ou inspirou, fique à vontade para abrir uma issue, sugerir melhorias ou entrar em contato.
+- ESLint (`eslint-config-next`) + TypeScript estrito
+- Lint e type-check no CI antes do deploy
