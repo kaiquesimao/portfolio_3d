@@ -317,8 +317,8 @@ pnpm deploy    # build + deploy para Cloudflare
 
 O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) executa:
 
-- **Push em `master`:** lint, type-check, build OpenNext, deploy produção.
-- **Pull request:** lint, type-check, build OpenNext, deploy preview.
+- **Push em `master`:** lint, type-check, build OpenNext, deploy produção (`portfolio.kaique.site`).
+- **Pull request:** lint, type-check, build OpenNext, `wrangler versions upload` (preview em `*.workers.dev`, sem afetar produção).
 
 ---
 
