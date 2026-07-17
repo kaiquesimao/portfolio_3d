@@ -1,9 +1,7 @@
 import { technologies } from "../constants";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { memo, useContext, useEffect, useRef, useState } from "react";
-import MobileContext from "../contexts/MobileContext.tsx";
-import { getBrowser } from "../utils/utils.ts";
+import { memo, useEffect, useRef, useState } from "react";
 
 const TechSection = memo(() => {
   const [shouldRenderCanvas, setShouldRenderCanvas] = useState(false);
@@ -65,19 +63,6 @@ const TechSection = memo(() => {
 TechSection.displayName = "TechSection";
 
 // @ts-expect-error - HOC
-const WrappedTechSection = SectionWrapper(TechSection, "tech");
+const Tech = SectionWrapper(TechSection, "tech");
 
-const Tech = memo(() => {
-  const isMobile = useContext(MobileContext);
-  const isFirefoxOnMobile = isMobile && getBrowser() === "Firefox";
-  const isNotMobile = !isMobile;
-
-  const shouldRenderTech = isFirefoxOnMobile || isNotMobile;
-
-  if (!shouldRenderTech) return null;
-
-  return <WrappedTechSection />;
-});
-
-Tech.displayName = "Tech";
 export default Tech;
