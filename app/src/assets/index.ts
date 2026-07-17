@@ -21,10 +21,10 @@ const kotlin = "/assets/tech/kotlin.png";
 const android = "/assets/tech/android.png";
 const flutter = "/assets/tech/flutter.png";
 const postgre = "/assets/tech/postgre.png";
-const aws = "/assets/tech/aws.png?v=3";
-const azure = "/assets/tech/azure.png?v=3";
-const gcp = "/assets/tech/gcp.png?v=3";
-const cloudflare = "/assets/tech/cloudflare.png?v=3";
+const aws = "/assets/tech/aws.png";
+const azure = "/assets/tech/azure.png";
+const gcp = "/assets/tech/gcp.png";
+const cloudflare = "/assets/tech/cloudflare.png";
 
 const siemens = "/assets/company/siemens.png";
 const innomotics = "/assets/company/innomotics.png";

@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
 import MobileContext from "./contexts/MobileContext.tsx";
 import i18n from "./i18n";
 
@@ -84,13 +83,14 @@ const App = () => {
     <MobileContext.Provider value={isMobile}>
       <div className={"relative z-0 overflow-x-hidden bg-primary"}>
         {shouldShowStars ? <StarsCanvas /> : null}
-        <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Tech />
-        <Projects />
-        <Contact />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Tech />
+          <Projects />
+          <Contact />
+        </main>
       </div>
     </MobileContext.Provider>
   );

@@ -3,6 +3,12 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import "react-phone-number-input/style.css";
 import "react-vertical-timeline-component/style.min.css";
+import {
+  PAGE_TITLE,
+  SITE_NAME,
+  SITE_URL,
+  seoByLocale,
+} from "./src/constants/seo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,14 +16,28 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
-  title: "Kaique Simão | Software Engineer",
-  description:
-    "Software Engineer full-stack — sistemas críticos, SaaS multi-tenant, cloud e experiências web modernas.",
+  metadataBase: new URL(SITE_URL),
+  title: PAGE_TITLE,
+  description: seoByLocale.pt.description,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
+    apple: "/logo.svg",
   },
+  manifest: "/manifest.webmanifest",
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -26,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" dir="ltr" suppressHydrationWarning>
+    <html lang="pt" dir="ltr" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={poppins.className}>{children}</body>
     </html>
   );

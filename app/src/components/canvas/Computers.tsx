@@ -17,7 +17,7 @@ const Computer = memo(() => {
         angle={0.12}
         penumbra={1}
         intensity={1}
-        castShadow={true}
+        castShadow={!isMobile}
         shadow-mapSize-width={512}
         shadow-mapSize-height={512}
       />
@@ -39,16 +39,19 @@ const ComputerCanvas = memo(() => {
   return (
     <div className={`${isMobile ? "h-64" : "h-96"} w-full cursor-pointer`}>
       <Canvas
-        frameloop={"demand"}
-        shadows={{ type: THREE.PCFShadowMap }}
+        frameloop="demand"
+        shadows={isMobile ? false : { type: THREE.PCFShadowMap }}
         camera={{ position: [20, 3, 5], fov: 25 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: false, powerPreference: "high-performance" }}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        gl={{
+          antialias: false,
+          powerPreference: isMobile ? "low-power" : "high-performance",
+        }}
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
             enableZoom={false}
-            autoRotate={true}
+            autoRotate={!isMobile}
             enablePan={false}
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}

@@ -1,33 +1,57 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { styles } from "../styles";
 import { languages, navLinks } from "../constants";
 import { brasil, close, logo, menu, usa } from "../assets";
 import { useTranslation } from "react-i18next";
+import {
+  DEFAULT_LOCALE,
+  isLocale,
+  Locale,
+  localizedPath,
+} from "../constants/seo";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(true);
 
-  const handleLanguageChange = async (language: {
+  const pathSegments = pathname.split("/").filter(Boolean);
+  const localeSegment = pathSegments[0];
+  const currentLocale: Locale = isLocale(localeSegment)
+    ? localeSegment
+    : DEFAULT_LOCALE;
+  const pathWithoutLocale =
+    pathSegments.length > 1 ? `/${pathSegments.slice(1).join("/")}` : "";
+  const isHome = pathWithoutLocale === "";
+
+  const handleLanguageChange = (language: {
     nativeName: string;
     code: string;
   }) => {
-    try {
-      return await i18n.changeLanguage(language.code);
-    } catch (error) {
-      return console.error(error);
+    if (!isLocale(language.code)) {
+      return;
     }
+    const nextPath = localizedPath(language.code, pathWithoutLocale || "/");
+    void i18n.changeLanguage(language.code);
+    router.replace(nextPath);
   };
 
   const countryImgStyleClass = (language: string) =>
     `box-border size-9 cursor-pointer object-contain ${
-      i18n.resolvedLanguage === language
+      currentLocale === language || i18n.resolvedLanguage === language
         ? "rounded-full border-2 border-white"
         : ""
     }`;
+
+  const homeHref = localizedPath(currentLocale);
+  const blogHref = localizedPath(currentLocale, "/blog");
 
   return (
     <nav
@@ -39,20 +63,23 @@ const Navbar = () => {
         }
       >
         <Link
-          href={"/"}
+          href={homeHref}
           className={
             "flex min-w-0 max-w-[calc(100%-2.75rem)] items-center gap-2 sm:max-w-none"
           }
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+            if (isHome) {
+              window.scrollTo(0, 0);
+            }
           }}
         >
           <Image
             src={logo}
-            alt={"logo"}
+            alt={t("hero_title")}
             width={36}
             height={36}
+            priority
             className={"size-9 shrink-0 object-contain"}
           />
           <p
@@ -65,21 +92,30 @@ const Navbar = () => {
           </p>
         </Link>
 
-        {/* desktop — visibility via CSS so SSR and client stay in sync */}
-        <ul className={"hidden list-none flex-row gap-10 sm:flex"}>
-          {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer text-lg font-medium hover:text-white`}
-              onClickCapture={() => setActive(link.id)}
-            >
-              <a href={`#${link.id}`}>{t(link.title)}</a>
-            </li>
-          ))}
+        <ul className={"hidden list-none flex-row items-center gap-10 sm:flex"}>
+          {isHome
+            ? navLinks.map((link) => (
+                <li
+                  key={link.id}
+                  className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer text-lg font-medium hover:text-white`}
+                  onClickCapture={() => setActive(link.id)}
+                >
+                  <a href={`#${link.id}`}>{t(link.title)}</a>
+                </li>
+              ))
+            : null}
+          <li
+            className={`${active === "blog" ? "text-white" : "text-secondary"} cursor-pointer text-lg font-medium hover:text-white`}
+          >
+            <Link href={blogHref} onClick={() => setActive("blog")}>
+              {t("blog")}
+            </Link>
+          </li>
 
           <button
+            type="button"
             onClick={() => {
-              void handleLanguageChange(languages.portuguese);
+              handleLanguageChange(languages.portuguese);
             }}
           >
             <Image
@@ -92,13 +128,14 @@ const Navbar = () => {
             />
           </button>
           <button
+            type="button"
             onClick={() => {
-              void handleLanguageChange(languages.english);
+              handleLanguageChange(languages.english);
             }}
           >
             <Image
               src={usa}
-              alt={t("country_img")}
+              alt={t("country_img_en")}
               width={36}
               height={36}
               className={countryImgStyleClass(languages.english.code)}
@@ -107,12 +144,11 @@ const Navbar = () => {
           </button>
         </ul>
 
-        {/* mobile — visibility via CSS so SSR and client stay in sync */}
         <div className={"flex shrink-0 items-center justify-end sm:hidden"}>
           <div className="relative size-7">
             <Image
               src={menu}
-              alt={"menu"}
+              alt={t("menu_open")}
               width={28}
               height={28}
               className={`absolute size-7 transition-opacity duration-500 ${toggle ? "opacity-100" : "opacity-0"} cursor-pointer object-contain`}
@@ -120,7 +156,7 @@ const Navbar = () => {
             />
             <Image
               src={close}
-              alt={"close"}
+              alt={t("menu_close")}
               width={28}
               height={28}
               className={`size-7 transition-opacity duration-500 ${toggle ? "opacity-0" : "opacity-100"} cursor-pointer object-contain`}
@@ -135,22 +171,38 @@ const Navbar = () => {
                 "flex list-none flex-col items-start justify-end gap-4"
               }
             >
-              {navLinks.map((link) => (
-                <li
-                  key={link.id}
-                  className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer font-[Poppins] text-base font-medium`}
-                  onClickCapture={() => {
+              {isHome
+                ? navLinks.map((link) => (
+                    <li
+                      key={link.id}
+                      className={`${active === link.id ? "text-white" : "text-secondary"} cursor-pointer font-[Poppins] text-base font-medium`}
+                      onClickCapture={() => {
+                        setToggle(!toggle);
+                        setActive(link.id);
+                      }}
+                    >
+                      <a href={`#${link.id}`}>{t(link.title)}</a>
+                    </li>
+                  ))
+                : null}
+              <li
+                className={`${active === "blog" ? "text-white" : "text-secondary"} cursor-pointer font-[Poppins] text-base font-medium`}
+              >
+                <Link
+                  href={blogHref}
+                  onClick={() => {
                     setToggle(!toggle);
-                    setActive(link.id);
+                    setActive("blog");
                   }}
                 >
-                  <a href={`#${link.id}`}>{t(link.title)}</a>
-                </li>
-              ))}
+                  {t("blog")}
+                </Link>
+              </li>
               <div className={"flex flex-row justify-between gap-4"}>
                 <button
+                  type="button"
                   onClick={() => {
-                    void handleLanguageChange(languages.portuguese);
+                    handleLanguageChange(languages.portuguese);
                   }}
                 >
                   <Image
@@ -163,13 +215,14 @@ const Navbar = () => {
                   />
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
-                    void handleLanguageChange(languages.english);
+                    handleLanguageChange(languages.english);
                   }}
                 >
                   <Image
                     src={usa}
-                    alt={t("country_img")}
+                    alt={t("country_img_en")}
                     width={36}
                     height={36}
                     className={countryImgStyleClass(languages.english.code)}
