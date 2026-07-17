@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import MobileContext from "./contexts/MobileContext.tsx";
@@ -16,28 +16,30 @@ const Tech = dynamic(() => import("./components/Tech"));
 const Projects = dynamic(() => import("./components/Projects"));
 const Contact = dynamic(() => import("./components/Contact"));
 
+const MOBILE_MEDIA_QUERY = "(max-width: 500px)";
+
+const subscribeToMobileMedia = (onStoreChange: () => void) => {
+  const mediaQuery = globalThis.window.matchMedia(MOBILE_MEDIA_QUERY);
+  mediaQuery.addEventListener("change", onStoreChange);
+  return () => {
+    mediaQuery.removeEventListener("change", onStoreChange);
+  };
+};
+
+const getMobileMediaSnapshot = () =>
+  globalThis.window.matchMedia(MOBILE_MEDIA_QUERY).matches;
+
+// SSR and first client paint stay false so markup matches across hydration.
+const getMobileMediaServerSnapshot = () => false;
+
 const App = () => {
-  // Always start false so SSR HTML matches the first client render.
-  // Real viewport is applied in useEffect after mount.
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useSyncExternalStore(
+    subscribeToMobileMedia,
+    getMobileMediaSnapshot,
+    getMobileMediaServerSnapshot,
+  );
   const [showStars, setShowStars] = useState(false);
   const shouldShowStars = !isMobile && showStars;
-
-  useEffect(() => {
-    const mediaQuery = globalThis.window.matchMedia("(max-width: 500px)");
-
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   useEffect(() => {
     const syncDocumentMetadata = (lang?: string) => {
