@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import "react-phone-number-input/style.css";
 import "react-vertical-timeline-component/style.min.css";
-import "devicon/devicon.min.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,8 +11,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Kaique | Portfólio",
-  description: "Portfólio 3D com projetos, experiência e contato.",
+  title: "Kaique Simão | Software Engineer",
+  description:
+    "Software Engineer full-stack — sistemas críticos, SaaS multi-tenant, cloud e experiências web modernas.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

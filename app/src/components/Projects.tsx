@@ -18,19 +18,30 @@ const ProjectCard = ({
   webImg,
   source_code_link,
   demo_link,
+  isCaseStudy,
 }: IProjectCard) => {
   const { t } = useTranslation();
+  const hasSource = Boolean(source_code_link);
+  const hasDemo = Boolean(demo_link);
+  const hasLinks = hasSource || hasDemo;
 
   return (
-    <motion.div variants={fadeIn("up", index * 0.5, 0.75, "spring")}>
+    <motion.div
+      variants={fadeIn("up", index * 0.5, 0.75, "spring")}
+      className="flex h-full sm:w-90"
+    >
       <ReactParallaxTilt
         transitionSpeed={450}
         scale={1}
-        tiltMaxAngleX={45}
-        tiltMaxAngleY={45}
-        className="w-full rounded-2xl bg-tertiary p-5 sm:w-90"
+        tiltMaxAngleX={isCaseStudy ? 12 : 28}
+        tiltMaxAngleY={isCaseStudy ? 12 : 28}
+        className={`flex h-full w-full flex-col rounded-2xl p-5 ${
+          isCaseStudy
+            ? "border border-[#915EFF]/30 bg-tertiary/90"
+            : "bg-tertiary"
+        }`}
       >
-        <div className="relative h-56 w-full">
+        <div className="relative h-56 w-full shrink-0">
           <Image
             src={image}
             alt={t(name)}
@@ -38,41 +49,66 @@ const ProjectCard = ({
             sizes="(max-width: 640px) 100vw, 360px"
             className="rounded-2xl object-cover"
           />
-          <div className="absolute inset-0 m-3 flex justify-end gap-1">
-            <div className="black-gradient flex size-10 items-center justify-center rounded-full">
-              <a href={source_code_link} target="_blank" rel="noreferrer">
-                <Image
-                  src={github}
-                  alt="github"
-                  width={40}
-                  height={40}
-                  className="cursor-pointer object-contain"
-                />
-              </a>
+          {isCaseStudy ? (
+            <div className="absolute left-3 top-3 rounded-md bg-[#915EFF]/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+              {t("case_study_badge")}
             </div>
-            <div className="flex size-10 items-center justify-center rounded-full">
-              <a href={demo_link} target="_blank" rel="noreferrer">
-                <Image
-                  src={webImg}
-                  alt={t(name)}
-                  width={40}
-                  height={40}
-                  className="cursor-pointer object-contain"
-                />
-              </a>
+          ) : null}
+          {hasLinks ? (
+            <div className="absolute inset-0 m-3 flex justify-end gap-1">
+              {hasSource ? (
+                <div className="black-gradient flex size-10 items-center justify-center rounded-full">
+                  <a
+                    href={source_code_link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${t(name)} source code`}
+                  >
+                    <Image
+                      src={github}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="cursor-pointer object-contain"
+                    />
+                  </a>
+                </div>
+              ) : null}
+              {hasDemo ? (
+                <div className="flex size-10 items-center justify-center rounded-full">
+                  <a
+                    href={demo_link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${t(name)} live demo`}
+                  >
+                    <Image
+                      src={webImg}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="cursor-pointer object-contain"
+                    />
+                  </a>
+                </div>
+              ) : null}
             </div>
+          ) : null}
+        </div>
+        <div className="mt-5 flex min-h-0 flex-1 flex-col">
+          <h3 className="text-xl font-bold text-white sm:text-2xl">
+            {t(name)}
+          </h3>
+          <p className="mt-2 flex-1 text-sm leading-6 text-secondary">
+            {t(description)}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <p key={tag.name} className={`text-sm ${tag.color}`}>
+                #{tag.name}
+              </p>
+            ))}
           </div>
-        </div>
-        <div className="mt-5">
-          <h3 className="text-2xl font-bold text-white">{t(name)}</h3>
-          <p className="mt-2 text-sm text-secondary">{t(description)}</p>
-        </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p key={tag.name} className={`text-sm ${tag.color}`}>
-              #{tag.name}
-            </p>
-          ))}
         </div>
       </ReactParallaxTilt>
     </motion.div>
@@ -98,7 +134,7 @@ const ProjectsSection = () => {
           {t("projects_description")}
         </motion.p>
       </div>
-      <div className={"mt-20 flex flex-wrap gap-7"}>
+      <div className={"mt-16 flex flex-wrap items-stretch gap-7"}>
         {projects.map((project, index) => (
           <ProjectCard
             key={`project-${project.name}`}

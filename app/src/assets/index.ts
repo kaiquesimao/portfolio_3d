@@ -2,6 +2,7 @@ const logo = "/logo.svg";
 const backend = "/assets/backend.png";
 const mobile = "/assets/mobile.png";
 const web = "/assets/web.png";
+const cloud = "/assets/cloud.svg";
 const github = "/assets/github.png";
 const menu = "/assets/menu.svg";
 const close = "/assets/close.svg";
@@ -20,21 +21,19 @@ const kotlin = "/assets/tech/kotlin.png";
 const android = "/assets/tech/android.png";
 const flutter = "/assets/tech/flutter.png";
 const postgre = "/assets/tech/postgre.png";
+const aws = "/assets/tech/aws.png?v=3";
+const azure = "/assets/tech/azure.png?v=3";
+const gcp = "/assets/tech/gcp.png?v=3";
+const cloudflare = "/assets/tech/cloudflare.png?v=3";
 
-const meta = "/assets/company/meta.png";
-const shopify = "/assets/company/shopify.png";
-const starbucks = "/assets/company/starbucks.png";
-const tesla = "/assets/company/tesla.png";
 const siemens = "/assets/company/siemens.png";
 const innomotics = "/assets/company/innomotics.png";
-const dio = "/assets/projects/dioProject.png";
 const portfolio3d = "/assets/projects/portfolio3d.png";
-const lanternaApp = "/assets/projects/lanternaApp.png";
-const pokedex = "/assets/projects/pokedex.png";
 const pokedata = "/assets/projects/pokedata.png";
+const talenthub = "/assets/projects/talenthub.png";
+const videowall = "/assets/projects/videowall.png";
+const iloa = "/assets/projects/iloa.png";
 const internet = "/assets/internet.png";
-const alura = "/assets/projects/alura.png";
-const freeway = "/assets/projects/freeway.png";
 
 const brasil = "/assets/locales/brasil.png";
 const usa = "/assets/locales/united_states.png";
@@ -44,6 +43,7 @@ export {
   backend,
   mobile,
   web,
+  cloud,
   github,
   menu,
   close,
@@ -53,15 +53,9 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   siemens,
   innomotics,
   portfolio3d,
-  dio,
-  lanternaApp,
   angular,
   vue,
   java,
@@ -70,11 +64,15 @@ export {
   android,
   flutter,
   postgre,
-  pokedex,
+  aws,
+  azure,
+  gcp,
+  cloudflare,
   pokedata,
+  talenthub,
+  videowall,
+  iloa,
   internet,
-  alura,
-  freeway,
   brasil,
   usa,
 };

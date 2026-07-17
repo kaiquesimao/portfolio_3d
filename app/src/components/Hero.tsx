@@ -28,6 +28,9 @@ const HeroSection = () => {
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             {t("hero_subtitle")}
           </p>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-secondary sm:text-base sm:leading-7">
+            {t("hero_tagline")}
+          </p>
         </div>
       </div>
       <ComputerSection />

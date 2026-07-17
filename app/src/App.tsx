@@ -14,22 +14,19 @@ const About = dynamic(() => import("./components/About"));
 const Experience = dynamic(() => import("./components/Experience"));
 const Tech = dynamic(() => import("./components/Tech"));
 const Projects = dynamic(() => import("./components/Projects"));
-const Feedbacks = dynamic(() => import("./components/Feedbacks"));
 const Contact = dynamic(() => import("./components/Contact"));
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (globalThis.window === undefined) {
-      return false;
-    }
-
-    return globalThis.window.matchMedia("(max-width: 500px)").matches;
-  });
+  // Always start false so SSR HTML matches the first client render.
+  // Real viewport is applied in useEffect after mount.
+  const [isMobile, setIsMobile] = useState(false);
   const [showStars, setShowStars] = useState(false);
   const shouldShowStars = !isMobile && showStars;
 
   useEffect(() => {
     const mediaQuery = globalThis.window.matchMedia("(max-width: 500px)");
+
+    setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
@@ -91,7 +88,6 @@ const App = () => {
         <Experience />
         <Tech />
         <Projects />
-        <Feedbacks />
         <Contact />
       </div>
     </MobileContext.Provider>

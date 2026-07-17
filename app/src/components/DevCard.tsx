@@ -7,23 +7,29 @@ import { DevStacksType } from "../utils/types.ts";
 const DevCard = ({ title, index, icon }: DevStacksType) => {
   return (
     <ReactParallaxTilt
-      className={"w-full xs:w-64"}
+      className={"w-full xs:w-60"}
       scale={1}
       transitionSpeed={450}
-      tiltMaxAngleX={45}
-      tiltMaxAngleY={45}
+      tiltMaxAngleX={18}
+      tiltMaxAngleY={18}
     >
       <motion.div
         variants={fadeIn("right", 0.5 * index, 0.75, "spring")}
-        className={"green-pink-gradient w-full rounded-3xl p-px shadow-card"}
+        className={"w-full rounded-2xl border border-[#915EFF]/25 bg-tertiary p-px shadow-card"}
       >
         <div
           className={
-            "flex min-h-72 flex-col items-center justify-evenly rounded-3xl bg-tertiary px-12 py-5"
+            "flex min-h-60 flex-col items-center justify-center gap-5 rounded-2xl bg-tertiary px-10 py-8"
           }
         >
-          <Image src={icon} alt={title} width={64} height={64} className={"object-contain"} />
-          <h3 className={"text-center text-xl font-bold text-white"}>
+          <Image
+            src={icon}
+            alt={title}
+            width={56}
+            height={56}
+            className={"object-contain"}
+          />
+          <h3 className={"text-center text-lg font-semibold tracking-wide text-white"}>
             {title}
           </h3>
         </div>
