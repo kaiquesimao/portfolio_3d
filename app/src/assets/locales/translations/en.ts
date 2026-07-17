@@ -1,98 +1,82 @@
 const en = {
-  page_title: "Kaique's Portfolio",
+  page_title: "Kaique Simão | Software Engineer",
   country_img: "Image of the Brazilian flag",
   change_language: "Click here to change the language",
-  about: "About me",
-  work: "Work",
+  about: "About",
+  work: "Experience",
   projects: "Projects",
   contact: "Contact",
-  im_the: "I'm",
+  im_the: "Hi, I'm",
   hero_title: "Kaique Simão",
-  hero_subtitle: "Full Stack Developer",
+  hero_subtitle: "Software Engineer",
+  hero_tagline:
+    "Full-stack · mission-critical systems · multi-tenant SaaS · cloud",
   introduction: "Introduction",
   overview: "Overview",
-  intro_1: "I'm Kaique, a Full Stack software developer!",
+  intro_1:
+    "Full-stack Software Engineer with 5+ years building mission-critical 24/7 systems, multi-tenant SaaS platforms, and real-time industrial solutions.",
   intro_2:
-    "I majored in ADS and dove headfirst into various areas of programming: Frontend, Backend and Mobile.",
-  front_work_with: "On the Frontend, I work with",
-  back_work_with: "On the backend, I get by very well with Java",
-  back_work_spring: "using the Spring Framework",
-  mobile_work_with: "When it comes to mobile development",
-  mobile_work_with2: "I work with Flutter and Kotlin",
-  to_android: "for Android and cross-platform",
-  intro_db:
-    "I have knowledge of relational databases such as SQL Server and Postgres",
-  intro_so:
-    "And finally, I can also easily handle operating systems, be it Windows",
-  intro_so2: "(with WSL) or Linux",
-  intro_so3: "with the Ubuntu distro",
+    "I work with resilient and scalable systems, caching, and multicloud environments (AWS, Azure, GCP, and Cloudflare), plus modern frontends, APIs, applied AI, and hybrid mobile.",
+  intro_education:
+    "Graduated in Systems Analysis and Development from Anhanguera.",
+  expertise_frontend:
+    "Frontend and 3D interfaces with Angular, React, Vue, Next.js, and Three.js.",
+  expertise_backend:
+    "Backend with Java, Spring, PostgreSQL, and resilient system integration.",
+  expertise_mobile: "Hybrid mobile with Flutter and Kotlin for Android.",
+  expertise_cloud:
+    "Cloud and infrastructure across AWS, Azure, GCP/Firebase, and Cloudflare.",
   and: "and",
   with: "with",
-  experience_sub_text: "What I've been up to",
+  experience_sub_text: "Career so far",
   professional_experience: "Professional Experience",
-  experience_1: "Full Stack Developer",
-  experience_2: "Full Stack Developer",
-  experience_1_date: "Feb 2023 - Present",
-  experience_2_date: "May 2022 - Feb 2023",
+  experience_1: "Software Engineer (Junior → Mid-level)",
+  experience_2: "Software Engineering Intern",
+  experience_1_date: "Feb 2023 — Present",
+  experience_2_date: "May 2022 — Feb 2023",
   experience_1_desc_1:
-    "Develop and maintain cutting-edge web applications, using a variety of technologies, such as React with Styled Components, Angular with Material-UI, Vue, Java 11 and 17 with the Spring Framework.",
+    "Build and evolve Videowall and iLoA at Innomotics — control-tower operational dashboards, alerting, and corporate project authority-limit management.",
   experience_1_desc_2:
-    "Implementing translation systems (i18n) to ensure that our products are accessible globally and in different languages.",
+    "Full-stack work on mission-critical industrial systems with Java/Spring, Vue, Angular, and React, prioritizing stability in 24/7 environments.",
   experience_1_desc_3:
-    "Manage communication with databases, adding new columns and tables as necessary to meet project demands.",
+    "Evolve multilingual products (i18n) and relational database models to keep pace with business needs.",
   experience_1_desc_4:
-    "Actively collaborate with cross-functional teams, including designers, product managers, business analysts, testers and other programmers, to create high-quality software that meets our clients' needs.",
+    "Collaborate with design, product, business, and QA; progressed from junior to mid-level with growing technical ownership.",
   experience_2_desc_1:
-    "Develop and maintain web applications using React, Angular and Java with Spring Framework.",
+    "Supported development and maintenance of industrial web applications with React, Angular, and Java/Spring.",
   experience_2_desc_2:
-    "Implementing translation in systems using technologies such as i18n.",
+    "Contributed to i18n integration for multilingual support in existing products.",
   experience_2_desc_3:
-    "Implement communication with databases, as well as new columns and/or tables.",
+    "Took part in evolving data models and relational database communication.",
   experience_2_desc_4:
-    "Collaborate with cross-functional teams, including designers, product managers, business analysts, testers and other programmers to create high-quality software.",
-  experience_2_desc_5:
-    "Participate in code reviews and provide constructive feedback to other programmers.",
+    "Worked with cross-functional teams, joined code reviews, and built foundations in an industrial context.",
   projects_description:
-    "The following projects exemplify my ability to solve complex problems, work with different technologies and manage projects effectively. Each project is briefly described, with links to code repositories and live demos.",
+    "A selection of public projects and enterprise case studies. Corporate cases describe domain and impact without exposing internal details or public demos.",
   project_1_name: "3D Portfolio",
   project_1_description:
-    "3D portfolio web application that presents my projects, career path and technical skills in an interactive and engaging way.",
-  project_2_name: "Lantern app",
-  project_2_description:
-    "Flashlight app created as a challenge for Inter Bank's React bootcamp. The app is a simple flashlight that turns on and off with a click.",
-  project_3_name: "DIO Interface",
-  project_3_description:
-    "Web application created as a challenge for Inter bank's React bootcamp. Recreation of the Home, Login and Feed pages of the Digital Innovation One platform.",
+    "Interactive portfolio built with Next.js and Three.js, featuring a 3D experience, i18n, and a clear presentation of career path and technical stack.",
   project_4_name: "PokeData",
   project_4_description:
-    "Flutter app (Android and Web) with a full Pokédex, regions, favorites, Firebase auth, and deploy at pokedata.kaique.site.",
-  project_5_name: "Alura Barbershop",
-  project_5_description:
-    "Web application created as a challenge for Alura's web development track. A barbershop with Home, Services and Contact pages.",
-  project_6_name: "FreeWay classic",
-  project_6_description:
-    "Web application/game created as a challenge for Alura's web development track. The game consists of trying to cross the cow on the highway.",
-  testimonials: "Testimonials",
-  testimonials_sub_text: "What people are saying",
-  on_company: "in the company",
-  testimonial_1:
-    "Kaique is an incredible developer. His attention to detail and ability to solve complex problems are truly impressive.",
-  testimony_designation_1: "Project Manager",
-  testimonial_2:
-    "Working with Kaique has been a fantastic experience. He always brings innovative ideas and is a true leader in our development team.",
-  testimony_designation_2: "Requirements Analyst",
-  testimonial_3:
-    "Kaique is a dedicated and highly qualified professional. His knowledge of various technologies and his ability to learn quickly are admirable.",
-  testimony_designation_3: "Full Stack Developer",
-  contact_success: "Thank you for contacting me. I'll get back to you shortly",
+    "Flutter app (Android and Web) with a full Pokédex, regions, favorites, Firebase auth, and Play Store release.",
+  project_talenthub_name: "TalentHub",
+  project_talenthub_description:
+    "Enterprise case study: multi-tenant SaaS platform for talent workflows and internal operations, focused on scalability and a modern web experience.",
+  project_videowall_name: "Videowall",
+  project_videowall_description:
+    "Enterprise case study (Innomotics): control-tower for industrial KPIs and logistics, with alerts and Azure AD — Vue, Java/Spring, and PostgreSQL.",
+  project_iloa_name: "iLoA",
+  project_iloa_description:
+    "Enterprise case study (Innomotics): corporate web app for managing project authority limits, with approval workflows on Java/Spring, Vue, and Azure.",
+  case_study_badge: "Case study",
+  contact_success: "Thank you for reaching out. I'll get back to you shortly.",
   contact_error:
-    "Oops, something went wrong. Please check the information and try again.",
+    "Something went wrong. Please check the information and try again.",
   contact_me: "Get in touch",
-  your_name: "Your Name",
-  your_phone: "Your Phone Number",
+  your_name: "Your name",
+  your_phone: "Your phone number",
   your_country: "Select your country first",
-  your_email: "Your Email",
-  your_message: "Your Message",
+  your_email: "Your email",
+  your_message: "Your message",
   send: "Send",
   sending: "Sending...",
 } as const;

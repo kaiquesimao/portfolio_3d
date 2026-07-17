@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import MobileContext from "./contexts/MobileContext.tsx";
@@ -14,33 +14,32 @@ const About = dynamic(() => import("./components/About"));
 const Experience = dynamic(() => import("./components/Experience"));
 const Tech = dynamic(() => import("./components/Tech"));
 const Projects = dynamic(() => import("./components/Projects"));
-const Feedbacks = dynamic(() => import("./components/Feedbacks"));
 const Contact = dynamic(() => import("./components/Contact"));
 
-const App = () => {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (globalThis.window === undefined) {
-      return false;
-    }
+const MOBILE_MEDIA_QUERY = "(max-width: 500px)";
 
-    return globalThis.window.matchMedia("(max-width: 500px)").matches;
-  });
+const subscribeToMobileMedia = (onStoreChange: () => void) => {
+  const mediaQuery = globalThis.window.matchMedia(MOBILE_MEDIA_QUERY);
+  mediaQuery.addEventListener("change", onStoreChange);
+  return () => {
+    mediaQuery.removeEventListener("change", onStoreChange);
+  };
+};
+
+const getMobileMediaSnapshot = () =>
+  globalThis.window.matchMedia(MOBILE_MEDIA_QUERY).matches;
+
+// SSR and first client paint stay false so markup matches across hydration.
+const getMobileMediaServerSnapshot = () => false;
+
+const App = () => {
+  const isMobile = useSyncExternalStore(
+    subscribeToMobileMedia,
+    getMobileMediaSnapshot,
+    getMobileMediaServerSnapshot,
+  );
   const [showStars, setShowStars] = useState(false);
   const shouldShowStars = !isMobile && showStars;
-
-  useEffect(() => {
-    const mediaQuery = globalThis.window.matchMedia("(max-width: 500px)");
-
-    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   useEffect(() => {
     const syncDocumentMetadata = (lang?: string) => {
@@ -91,7 +90,6 @@ const App = () => {
         <Experience />
         <Tech />
         <Projects />
-        <Feedbacks />
         <Contact />
       </div>
     </MobileContext.Provider>

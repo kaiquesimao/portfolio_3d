@@ -1,14 +1,5 @@
 import { Country } from "react-phone-number-input/min";
 
-export interface IFeedbackCard {
-  index: number;
-  testimonial: string;
-  name: string;
-  designation: string;
-  company: string;
-  image: string;
-}
-
 export interface CountryData {
   ip: string;
   city: string;
@@ -55,7 +46,8 @@ export interface IProjectCard {
   description: string;
   tags: { name: string; color: string }[];
   image: string;
-  source_code_link: string;
-  demo_link: string;
+  source_code_link?: string;
+  demo_link?: string;
   webImg: string;
+  isCaseStudy?: boolean;
 }

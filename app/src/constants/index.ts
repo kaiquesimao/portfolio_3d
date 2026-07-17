@@ -1,18 +1,19 @@
 import {
-  alura,
   android,
   angular,
+  aws,
+  azure,
   backend,
-  dio,
+  cloud,
+  cloudflare,
   docker,
   flutter,
-  freeway,
+  gcp,
   innomotics,
   internet,
   java,
   javascript,
   kotlin,
-  lanternaApp,
   mobile,
   pokedata,
   portfolio3d,
@@ -21,8 +22,11 @@ import {
   siemens,
   spring,
   tailwind,
+  iloa,
+  talenthub,
   threejs,
   typescript,
+  videowall,
   vue,
   web,
 } from "../assets";
@@ -58,6 +62,10 @@ const devStacks = [
   {
     title: "Mobile",
     icon: mobile,
+  },
+  {
+    title: "Cloud",
+    icon: cloud,
   },
 ];
 
@@ -111,12 +119,28 @@ const technologies = [
     icon: flutter,
   },
   {
-    name: "Postgre",
+    name: "PostgreSQL",
     icon: postgre,
   },
   {
     name: "Docker",
     icon: docker,
+  },
+  {
+    name: "AWS",
+    icon: aws,
+  },
+  {
+    name: "Azure",
+    icon: azure,
+  },
+  {
+    name: "GCP",
+    icon: gcp,
+  },
+  {
+    name: "Cloudflare",
+    icon: cloudflare,
   },
 ];
 
@@ -145,61 +169,81 @@ const experiences = [
       "experience_2_desc_2",
       "experience_2_desc_3",
       "experience_2_desc_4",
-      "experience_2_desc_5",
     ],
-  },
-];
-
-const testimonials = [
-  {
-    testimonial: "testimonial_1",
-    name: "Sara Lee",
-    designation: "testimony_designation_1",
-    company: "Siemens",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial: "testimonial_2",
-    name: "John Doe",
-    designation: "testimony_designation_2",
-    company: "Innomotics",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial: "testimonial_3",
-    name: "Lisa Wang",
-    designation: "testimony_designation_3",
-    company: "Innomotics",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
 const projects = [
   {
-    name: "project_1_name",
-    description: "project_1_description",
+    name: "project_iloa_name",
+    description: "project_iloa_description",
     tags: [
       {
-        name: "Next",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Typescript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "ThreeJs",
+        name: "Vue",
         color: "green-text-gradient",
       },
       {
-        name: "Tailwind",
+        name: "Java/Spring",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Azure",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Enterprise",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: iloa,
+    webImg: internet,
+    isCaseStudy: true,
+  },
+  {
+    name: "project_videowall_name",
+    description: "project_videowall_description",
+    tags: [
+      {
+        name: "Vue",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Java/Spring",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "PostgreSQL",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Azure",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: videowall,
+    webImg: internet,
+    isCaseStudy: true,
+  },
+  {
+    name: "project_talenthub_name",
+    description: "project_talenthub_description",
+    tags: [
+      {
+        name: "SaaS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Multi-tenant",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Web",
         color: "pink-text-gradient",
       },
     ],
-    image: portfolio3d,
+    image: talenthub,
     webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/portfolio_3d",
-    demo_link: "https://portfolio.kaique.site",
+    isCaseStudy: true,
   },
   {
     name: "project_4_name",
@@ -228,97 +272,30 @@ const projects = [
     demo_link: "https://pokedata.kaique.site",
   },
   {
-    name: "project_2_name",
-    description: "project_2_description",
+    name: "project_1_name",
+    description: "project_1_description",
     tags: [
       {
-        name: "Kotlin",
-        color: "blue_yellow-text-gradient",
+        name: "Next",
+        color: "blue-text-gradient",
       },
       {
-        name: "AndroidStudio",
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Three.js",
         color: "green-text-gradient",
       },
       {
-        name: "Gradle",
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: lanternaApp,
+    image: portfolio3d,
     webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/projetoLanterna",
-    demo_link:
-      "https://github.com/kaiquesimao/projetoLanterna/releases/download/v2.0/app-release-2.0.apk",
-  },
-  {
-    name: "project_3_name",
-    description: "project_3_description",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "StyledComponents",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Javascript",
-        color: "yellow-text-gradient",
-      },
-    ],
-    image: dio,
-    webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/DioProjectReact",
-    demo_link: "https://dio-project-react.vercel.app/",
-  },
-  {
-    name: "project_5_name",
-    description: "project_5_description",
-    tags: [
-      {
-        name: "HTML",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Javascript",
-        color: "yellow-text-gradient",
-      },
-    ],
-    image: alura,
-    webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/Alura-Project",
-    demo_link: "https://kaiquesimao.github.io/Alura-Project",
-  },
-  {
-    name: "project_6_name",
-    description: "project_6_description",
-    tags: [
-      {
-        name: "HTML",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Javascript",
-        color: "yellow-text-gradient",
-      },
-      {
-        name: "P5Js",
-        color: "blue_yellow-text-gradient",
-      },
-    ],
-    image: freeway,
-    webImg: internet,
-    source_code_link: "https://github.com/kaiquesimao/FreeWay_Classic-Game",
-    demo_link: "https://kaiquesimao.github.io/FreeWay_Classic-Game",
+    source_code_link: "https://github.com/kaiquesimao/portfolio_3d",
+    demo_link: "https://portfolio.kaique.site",
   },
 ];
 
@@ -337,7 +314,6 @@ export {
   devStacks,
   technologies,
   experiences,
-  testimonials,
   projects,
   navLinks,
   languages,

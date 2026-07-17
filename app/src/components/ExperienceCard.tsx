@@ -10,15 +10,23 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
       contentStyle={{ background: "#1d1836", color: "#fff" }}
       contentArrowStyle={{ borderRight: "7px solid #232631" }}
       date={t(experience.date)}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{
+        background: experience.iconBg,
+        borderRadius: "50%",
+        overflow: "hidden",
+      }}
       icon={
-        <div className={"flex size-full items-center justify-center"}>
+        <div
+          className={
+            "flex size-full items-center justify-center overflow-hidden rounded-full"
+          }
+        >
           <Image
             src={experience.icon}
             alt={experience.company_name}
-            width={40}
-            height={40}
-            className={"object-contain"}
+            width={24}
+            height={24}
+            className={"size-3/5 object-contain"}
           />
         </div>
       }

@@ -255,6 +255,20 @@
     }
   }
 
+  /* Keep company logos circular on mobile (40px icons fill the circle otherwise) */
+  .vertical-timeline-element-icon {
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .vertical-timeline-element-icon img {
+    max-width: 60%;
+    max-height: 60%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
   .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
