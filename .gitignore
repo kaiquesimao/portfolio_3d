@@ -25,6 +25,7 @@
 .DS_Store
 *.pem
 .sonarlint
+prototypes/
 
 # debug
 npm-debug.log*

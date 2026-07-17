@@ -18,6 +18,7 @@ const java = "/assets/tech/java.png";
 const spring = "/assets/tech/spring-boot.png";
 const kotlin = "/assets/tech/kotlin.png";
 const android = "/assets/tech/android.png";
+const flutter = "/assets/tech/flutter.png";
 const postgre = "/assets/tech/postgre.png";
 
 const meta = "/assets/company/meta.png";
@@ -30,6 +31,7 @@ const dio = "/assets/projects/dioProject.png";
 const portfolio3d = "/assets/projects/portfolio3d.png";
 const lanternaApp = "/assets/projects/lanternaApp.png";
 const pokedex = "/assets/projects/pokedex.png";
+const pokedata = "/assets/projects/pokedata.png";
 const internet = "/assets/internet.png";
 const alura = "/assets/projects/alura.png";
 const freeway = "/assets/projects/freeway.png";
@@ -66,8 +68,10 @@ export {
   spring,
   kotlin,
   android,
+  flutter,
   postgre,
   pokedex,
+  pokedata,
   internet,
   alura,
   freeway,

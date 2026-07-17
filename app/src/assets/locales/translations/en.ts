@@ -18,8 +18,8 @@ const en = {
   back_work_with: "On the backend, I get by very well with Java",
   back_work_spring: "using the Spring Framework",
   mobile_work_with: "When it comes to mobile development",
-  mobile_work_with2: "I'm Kotlin's number one fan",
-  to_android: "for Android",
+  mobile_work_with2: "I work with Flutter and Kotlin",
+  to_android: "for Android and cross-platform",
   intro_db:
     "I have knowledge of relational databases such as SQL Server and Postgres",
   intro_so:
@@ -63,9 +63,9 @@ const en = {
   project_3_name: "DIO Interface",
   project_3_description:
     "Web application created as a challenge for Inter bank's React bootcamp. Recreation of the Home, Login and Feed pages of the Digital Innovation One platform.",
-  project_4_name: "Pokedex",
+  project_4_name: "PokeData",
   project_4_description:
-    "Web application created as a challenge for the Inter bank bootcamp. It's a Pokedex created purely with HTML, CSS and Javascript.",
+    "Flutter app (Android and Web) with a full Pokédex, regions, favorites, Firebase auth, and deploy at pokedata.kaique.site.",
   project_5_name: "Alura Barbershop",
   project_5_description:
     "Web application created as a challenge for Alura's web development track. A barbershop with Home, Services and Contact pages.",
