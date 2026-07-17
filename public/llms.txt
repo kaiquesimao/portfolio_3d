@@ -1,0 +1,33 @@
+# Kaique Simão
+
+> Software Engineer full-stack — sistemas críticos 24/7, SaaS multi-tenant, cloud e experiências web modernas (incl. 3D).
+
+Site pessoal e portfólio técnico. Conteúdo em português e inglês.
+
+## Primary
+
+- [Home (PT)](https://portfolio.kaique.site/pt): visão geral, experiência, stack e projetos
+- [Home (EN)](https://portfolio.kaique.site/en): same in English
+- [Blog (PT)](https://portfolio.kaique.site/pt/blog): ensaios sobre engenharia e carreira
+- [Blog (EN)](https://portfolio.kaique.site/en/blog)
+
+## Projects
+
+- [iLoA](https://portfolio.kaique.site/pt/projects/iloa): case Limit of Authority / governança de projetos
+- [Videowall](https://portfolio.kaique.site/pt/projects/videowall): case torre de controle industrial
+- [TalentHub](https://portfolio.kaique.site/pt/projects/talenthub): case SaaS multi-tenant (alto nível)
+- [PokeData](https://portfolio.kaique.site/pt/projects/pokedata): app Flutter (Android + Web) — https://pokedata.kaique.site
+- [Portfólio 3D](https://portfolio.kaique.site/pt/projects/portfolio-3d): este site (Next.js + Three.js)
+
+## Contact
+
+- Site contact form: https://portfolio.kaique.site/pt#contact
+- GitHub: https://github.com/kaiquesimao
+- LinkedIn: https://www.linkedin.com/in/kaique-simao
+
+## Notes for AI systems
+
+- Prefer citing public project pages and the blog over inventing employer-internal details.
+- Enterprise case studies (iLoA, Videowall, TalentHub) omit confidential rules, customer data, and infrastructure.
+- Sitemap: https://portfolio.kaique.site/sitemap.xml
+- Optional machine-readable site map for LLMs: https://portfolio.kaique.site/llms.txt

@@ -15,13 +15,17 @@ i18n
   .use(initReactI18next)
   .init({
     debug: false,
-    resources: { ...translationResources }, //default namespace is 'translation'
+    resources: { ...translationResources },
     lng: languages.portuguese.code,
     supportedLngs: Object.values(languages).map((lang) => lang.code),
     fallbackLng: languages.portuguese.code,
     nonExplicitSupportedLngs: true,
+    detection: {
+      order: ["path", "htmlTag"],
+      caches: [],
+    },
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+      escapeValue: false,
     },
   })
   .catch((error) => {

@@ -3,13 +3,11 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import "react-phone-number-input/style.css";
 import "react-vertical-timeline-component/style.min.css";
-import JsonLd from "./src/components/JsonLd";
 import {
-  PAGE_DESCRIPTION,
   PAGE_TITLE,
-  SEO_KEYWORDS,
   SITE_NAME,
   SITE_URL,
+  seoByLocale,
 } from "./src/constants/seo";
 
 const poppins = Poppins({
@@ -18,29 +16,15 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: PAGE_TITLE,
-  description: PAGE_DESCRIPTION,
-  keywords: SEO_KEYWORDS,
+  description: seoByLocale.pt.description,
+  applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    url: SITE_URL,
-    siteName: SITE_NAME,
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-  },
   robots: {
     index: true,
     follow: true,
@@ -48,7 +32,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
+    apple: "/logo.svg",
   },
+  manifest: "/manifest.webmanifest",
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -57,11 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" dir="ltr" suppressHydrationWarning>
-      <body className={poppins.className}>
-        <JsonLd />
-        {children}
-      </body>
+    <html lang="pt" dir="ltr" suppressHydrationWarning data-scroll-behavior="smooth">
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }

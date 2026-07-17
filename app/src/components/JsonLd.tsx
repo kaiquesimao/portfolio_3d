@@ -1,31 +1,58 @@
 import {
-  PAGE_DESCRIPTION,
+  absoluteUrl,
+  Locale,
+  LOCALE_SCHEMA,
   PAGE_TITLE,
   SITE_NAME,
   SITE_URL,
   SOCIAL_PROFILES,
+  seoByLocale,
 } from "../constants/seo";
+import { translate } from "../constants/i18n-server";
+import { projects } from "../constants/projects";
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: SITE_NAME,
-  jobTitle: "Software Engineer",
-  url: SITE_URL,
-  sameAs: [...SOCIAL_PROFILES],
-  description: PAGE_DESCRIPTION,
+type JsonLdProps = {
+  locale: Locale;
 };
 
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: PAGE_TITLE,
-  url: SITE_URL,
-  description: PAGE_DESCRIPTION,
-  inLanguage: "pt-BR",
-};
+export default function JsonLd({ locale }: Readonly<JsonLdProps>) {
+  const description = seoByLocale[locale].description;
 
-export default function JsonLd() {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_NAME,
+    jobTitle: "Software Engineer",
+    url: absoluteUrl(locale),
+    sameAs: [...SOCIAL_PROFILES],
+    description,
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: PAGE_TITLE,
+    url: SITE_URL,
+    description,
+    inLanguage: LOCALE_SCHEMA[locale],
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name:
+      locale === "pt"
+        ? "Projetos de Kaique Simão"
+        : "Kaique Simão projects",
+    itemListElement: projects.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(locale, `/projects/${project.slug}`),
+      name: translate(locale, project.nameKey),
+      description: translate(locale, project.descriptionKey),
+    })),
+  };
+
   return (
     <>
       <script
@@ -35,6 +62,10 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
     </>
   );

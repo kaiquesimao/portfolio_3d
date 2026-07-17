@@ -1,14 +1,19 @@
+"use client";
+
+import Image from "next/image";
 import { technologies } from "../constants";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
+import MobileContext from "../contexts/MobileContext";
 
 const TechSection = memo(() => {
+  const isMobile = useContext(MobileContext);
   const [shouldRenderCanvas, setShouldRenderCanvas] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (shouldRenderCanvas) {
+    if (isMobile || shouldRenderCanvas) {
       return;
     }
 
@@ -39,25 +44,48 @@ const TechSection = memo(() => {
     return () => {
       observer.disconnect();
     };
-  }, [shouldRenderCanvas]);
+  }, [isMobile, shouldRenderCanvas]);
 
-  return (
-    <div ref={containerRef}>
-      {shouldRenderCanvas ? (
-        <BallCanvas technologies={technologies} />
-      ) : (
-        <div className={"flex flex-row flex-wrap justify-center gap-10"}>
-          {technologies.map((tech) => (
-            <div
-              key={tech.name}
-              aria-hidden={true}
-              className={"size-28 animate-pulse rounded-full bg-tertiary/60"}
-            />
-          ))}
+  const staticIcons = (
+    <div className={"flex flex-row flex-wrap justify-center gap-10"}>
+      {technologies.map((tech) => (
+        <div
+          key={tech.name}
+          className={"flex size-28 items-center justify-center rounded-full bg-tertiary/60 p-4"}
+        >
+          <Image
+            src={tech.icon}
+            alt={tech.name}
+            width={72}
+            height={72}
+            className="object-contain"
+            style={{ width: 72, height: 72 }}
+            loading="lazy"
+          />
         </div>
-      )}
+      ))}
     </div>
   );
+
+  let content = staticIcons;
+
+  if (!isMobile) {
+    content = shouldRenderCanvas ? (
+      <BallCanvas technologies={technologies} />
+    ) : (
+      <div className={"flex flex-row flex-wrap justify-center gap-10"}>
+        {technologies.map((tech) => (
+          <div
+            key={tech.name}
+            aria-hidden={true}
+            className={"size-28 animate-pulse rounded-full bg-tertiary/60"}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  return <div ref={containerRef}>{content}</div>;
 });
 
 TechSection.displayName = "TechSection";

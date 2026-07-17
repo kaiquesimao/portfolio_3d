@@ -5,7 +5,12 @@ import { useTranslation } from "react-i18next";
 
 const ComputerSection = dynamic(() => import("./ComputerSection"), {
   ssr: false,
-  loading: () => <div aria-hidden={true} className={"h-64 w-full sm:h-96"} />,
+  loading: () => (
+    <div
+      aria-hidden={true}
+      className={"h-64 w-full animate-pulse rounded-2xl bg-tertiary/40 sm:h-96"}
+    />
+  ),
 });
 
 const HeroSection = () => {

@@ -42,8 +42,9 @@ export interface ExperienceType {
 
 export interface IProjectCard {
   index: number;
-  name: string;
-  description: string;
+  slug: string;
+  nameKey: string;
+  descriptionKey: string;
   tags: { name: string; color: string }[];
   image: string;
   source_code_link?: string;

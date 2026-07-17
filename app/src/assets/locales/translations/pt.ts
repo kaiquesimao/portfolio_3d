@@ -1,7 +1,11 @@
 const pt = {
   page_title: "Kaique Simão | Software Engineer",
   country_img: "Imagem da bandeira do Brasil",
+  country_img_en: "Imagem da bandeira dos Estados Unidos",
   change_language: "Clique aqui para mudar o idioma",
+  menu_open: "Abrir menu",
+  menu_close: "Fechar menu",
+  blog: "Blog",
   about: "Sobre",
   work: "Experiência",
   projects: "Projetos",
@@ -54,19 +58,19 @@ const pt = {
     "Seleção de projetos públicos e cases empresariais. Os cases corporativos descrevem domínio e impacto sem expor detalhes internos nem demos públicas.",
   project_1_name: "Portfólio 3D",
   project_1_description:
-    "Portfólio interativo em Next.js e Three.js, com experiência 3D, i18n e apresentação da trajetória e stack técnica.",
+    "Este site: landing 3D em Next.js com Three.js, i18n PT/EN, páginas de projetos, SEO (OG, sitemap, JSON-LD) e deploy em Cloudflare Workers. Feito para impressionar e ainda ser indexável.",
   project_4_name: "PokeData",
   project_4_description:
-    "App Flutter (Android e Web) com Pokédex, regiões, favoritos, autenticação Firebase e publicação na Play Store.",
+    "App Flutter (Android + Web) com Pokédex, regiões, favoritos e Firebase Auth — modo convidado, Play Store e web Wasm em pokedata.kaique.site com CI/CD no Cloudflare Pages.",
   project_talenthub_name: "TalentHub",
   project_talenthub_description:
-    "Case empresarial: plataforma SaaS multi-tenant voltada a processos de talentos e operações internas, com foco em escalabilidade e experiência web moderna.",
+    "Case empresarial: SaaS multi-tenant para talentos e RH — isolamento por cliente, escalabilidade e UX web moderna como requisitos de produto. Ideal para conversar sobre arquitetura SaaS; detalhes e demos não são públicos.",
   project_videowall_name: "Videowall",
   project_videowall_description:
-    "Case empresarial (Innomotics): torre de controle com KPIs industriais e logística, alertas e Azure AD — Vue, Java/Spring e PostgreSQL.",
+    "Case empresarial (Innomotics): torre de controle industrial em videowall. Painéis de plantas e logística com status por severidade, alertas configuráveis e Kanban de ocorrências — do sinal à ação da equipe. Vue 3, Spring Boot, PostgreSQL e SSO Microsoft.",
   project_iloa_name: "iLoA",
   project_iloa_description:
-    "Case empresarial (Innomotics): aplicação web corporativa para gestão de limites de autoridade em projetos, com workflows de aprovação e stack Java/Spring, Vue e Azure.",
+    "Case empresarial (Innomotics): Limit of Authority para governança de projetos industriais. Unifica aprovações, compliance e questionários num fluxo digital com SSO — no lugar de processos fragmentados entre áreas. Vue 3, Spring Boot e Azure.",
   case_study_badge: "Case study",
   contact_success: "Obrigado pelo contato. Responderei em breve.",
   contact_error:
