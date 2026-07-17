@@ -48,22 +48,28 @@ const TechSection = memo(() => {
 
   const staticIcons = (
     <div className={"flex flex-row flex-wrap justify-center gap-10"}>
-      {technologies.map((tech) => (
-        <div
-          key={tech.name}
-          className={"flex size-28 items-center justify-center rounded-full bg-tertiary/60 p-4"}
-        >
-          <Image
-            src={tech.icon}
-            alt={tech.name}
-            width={72}
-            height={72}
-            className="object-contain"
-            style={{ width: 72, height: 72 }}
-            loading="lazy"
-          />
-        </div>
-      ))}
+      {technologies.map((tech) => {
+        const iconSrc = tech.icon.split("?")[0];
+
+        return (
+          <div
+            key={tech.name}
+            className={
+              "flex size-28 items-center justify-center overflow-hidden rounded-full bg-white/95 p-3"
+            }
+          >
+            <Image
+              src={iconSrc}
+              alt={tech.name}
+              width={72}
+              height={72}
+              className="object-contain"
+              style={{ width: 72, height: 72 }}
+              loading="lazy"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 
