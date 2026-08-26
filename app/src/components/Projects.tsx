@@ -8,7 +8,7 @@ import { styles } from "../styles.ts";
 import { projects } from "../constants";
 import ReactParallaxTilt from "react-parallax-tilt";
 import { SectionWrapper } from "../hoc";
-import { github } from "../assets";
+import { github, playstore } from "../assets";
 import { useTranslation } from "react-i18next";
 import { IProjectCard } from "../utils/types.ts";
 import {
@@ -28,6 +28,7 @@ const ProjectCard = ({
   webImg,
   source_code_link,
   demo_link,
+  store_link,
   isCaseStudy,
   locale,
 }: IProjectCard & { locale: Locale }) => {
@@ -35,7 +36,8 @@ const ProjectCard = ({
   const router = useRouter();
   const hasSource = Boolean(source_code_link);
   const hasDemo = Boolean(demo_link);
-  const hasLinks = hasSource || hasDemo;
+  const hasStore = Boolean(store_link);
+  const hasLinks = hasSource || hasDemo || hasStore;
   const projectHref = localizedPath(locale, `/projects/${slug}`);
   const detailsLabel =
     locale === "pt" ? "Ver detalhes do projeto" : "View project details";
@@ -123,6 +125,26 @@ const ProjectCard = ({
                         alt=""
                         width={40}
                         height={40}
+                        className="object-contain"
+                      />
+                    </a>
+                  </div>
+                ) : null}
+                {hasStore ? (
+                  <div className="black-gradient flex size-10 items-center justify-center rounded-full">
+                    <a
+                      href={store_link}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${t(nameKey)} Google Play`}
+                      className="flex size-full items-center justify-center"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <Image
+                        src={playstore}
+                        alt=""
+                        width={22}
+                        height={22}
                         className="object-contain"
                       />
                     </a>

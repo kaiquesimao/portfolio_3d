@@ -17,6 +17,7 @@ export type ProjectRecord = {
   webImg: string;
   source_code_link?: string;
   demo_link?: string;
+  store_link?: string;
   isCaseStudy?: boolean;
 };
 
@@ -68,14 +69,16 @@ export const projects: ProjectRecord[] = [
     descriptionKey: "project_4_description",
     tags: [
       { name: "Flutter", color: "blue-text-gradient" },
-      { name: "Dart", color: "blue-text-gradient" },
-      { name: "Firebase", color: "orange-text-gradient" },
       { name: "Riverpod", color: "green-text-gradient" },
+      { name: "Firebase", color: "orange-text-gradient" },
+      { name: "Drift", color: "pink-text-gradient" },
     ],
     image: pokedata,
     webImg: internet,
     source_code_link: "https://github.com/kaiquesimao/new_pokedex_app",
     demo_link: "https://pokedata.kaique.site",
+    store_link:
+      "https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex",
   },
   {
     slug: "portfolio-3d",

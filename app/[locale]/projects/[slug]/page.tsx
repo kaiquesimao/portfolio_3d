@@ -18,6 +18,10 @@ import {
   SITE_URL,
 } from "../../../src/constants/seo";
 import { styles } from "../../../src/styles";
+import {
+  LinkifiedText,
+  stripMarkdownLinks,
+} from "../../../src/utils/linkifyText";
 
 type ProjectPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -43,8 +47,9 @@ export async function generateMetadata({
 
   const caseStudyCopy = getCaseStudy(slug, localeParam);
   const title = `${translate(localeParam, project.nameKey)} | ${SITE_NAME}`;
-  const description =
-    caseStudyCopy?.summary ?? translate(localeParam, project.descriptionKey);
+  const description = stripMarkdownLinks(
+    caseStudyCopy?.summary ?? translate(localeParam, project.descriptionKey),
+  );
 
   return buildPageMetadata({
     locale: localeParam,
@@ -74,6 +79,7 @@ export default async function ProjectPage({
   const backLabel = locale === "pt" ? "Voltar ao portfólio" : "Back to portfolio";
   const viewDemo = locale === "pt" ? "Ver demo" : "View demo";
   const viewSource = locale === "pt" ? "Código-fonte" : "Source code";
+  const viewStore = locale === "pt" ? "Google Play" : "Google Play";
   const caseStudyLabel =
     locale === "pt" ? "Case study empresarial" : "Enterprise case study";
   const contextLabel = locale === "pt" ? "Contexto" : "Context";
@@ -86,7 +92,7 @@ export default async function ProjectPage({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name,
-    description: caseStudyCopy?.summary ?? description,
+    description: stripMarkdownLinks(caseStudyCopy?.summary ?? description),
     url: absoluteUrl(locale, `/projects/${slug}`),
     image: `${SITE_URL}${project.image}`,
     author: {
@@ -94,6 +100,11 @@ export default async function ProjectPage({
       name: SITE_NAME,
     },
     keywords: project.tags.map((tag) => tag.name).join(", "),
+    sameAs: [
+      project.demo_link,
+      project.store_link,
+      project.source_code_link,
+    ].filter((link): link is string => Boolean(link)),
   };
 
   return (
@@ -129,7 +140,7 @@ export default async function ProjectPage({
 
         <h1 className={`${styles.sectionHeadText} mt-2`}>{name}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-secondary sm:text-lg">
-          {caseStudyCopy?.summary ?? description}
+          <LinkifiedText text={caseStudyCopy?.summary ?? description} />
         </p>
 
         {caseStudyCopy ? (
@@ -137,7 +148,7 @@ export default async function ProjectPage({
             <section>
               <h2 className="text-lg font-semibold text-white">{contextLabel}</h2>
               <p className="mt-3 text-base leading-7 text-secondary">
-                {caseStudyCopy.context}
+                <LinkifiedText text={caseStudyCopy.context} />
               </p>
             </section>
 
@@ -147,7 +158,9 @@ export default async function ProjectPage({
               </h2>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7 text-secondary">
                 {caseStudyCopy.outcomes.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <LinkifiedText text={item} />
+                  </li>
                 ))}
               </ul>
             </section>
@@ -158,13 +171,15 @@ export default async function ProjectPage({
               </h2>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7 text-secondary">
                 {caseStudyCopy.engineering.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <LinkifiedText text={item} />
+                  </li>
                 ))}
               </ul>
             </section>
 
             <p className="rounded-xl border border-white/10 bg-tertiary/50 px-4 py-3 text-sm leading-6 text-secondary">
-              {caseStudyCopy.note}
+              <LinkifiedText text={caseStudyCopy.note} />
             </p>
           </div>
         ) : null}
@@ -186,6 +201,16 @@ export default async function ProjectPage({
               className="rounded-lg bg-[#915EFF] px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
               {viewDemo}
+            </a>
+          ) : null}
+          {project.store_link ? (
+            <a
+              href={project.store_link}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-white/50"
+            >
+              {viewStore}
             </a>
           ) : null}
           {project.source_code_link ? (

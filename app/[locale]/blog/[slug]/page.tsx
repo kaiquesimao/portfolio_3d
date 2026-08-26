@@ -11,6 +11,7 @@ import {
   SITE_NAME,
 } from "../../../src/constants/seo";
 import { styles } from "../../../src/styles";
+import { LinkifiedText } from "../../../src/utils/linkifyText";
 
 type BlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -92,7 +93,9 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
           {post.date}
         </time>
         <h1 className={`${styles.sectionHeadText} mt-2`}>{copy.title}</h1>
-        <p className="mt-4 text-base text-secondary">{copy.description}</p>
+        <p className="mt-4 text-base text-secondary">
+          <LinkifiedText text={copy.description} />
+        </p>
         <div className="mt-8 space-y-10 text-base leading-7 text-white-100">
           {copy.sections.map((section) => (
             <section
@@ -106,7 +109,7 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
               ) : null}
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="text-secondary">
-                  {paragraph}
+                  <LinkifiedText text={paragraph} />
                 </p>
               ))}
             </section>
