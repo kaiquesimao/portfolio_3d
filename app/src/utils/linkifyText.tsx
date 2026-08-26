@@ -1,15 +1,28 @@
 import type { MouseEvent, ReactNode } from "react";
 
-const TRAILING_PUNCTUATION = /[.,;:!?)\]}'"]+$/;
+const TRAILING_PUNCTUATION_CHARS = new Set([
+  ".",
+  ",",
+  ";",
+  ":",
+  "!",
+  "?",
+  ")",
+  "]",
+  "}",
+  "'",
+  '"',
+]);
 
 const BARE_HOST_HREFS: Record<string, string> = {
   "pokedata.kaique.site": "https://pokedata.kaique.site",
   "portfolio.kaique.site": "https://portfolio.kaique.site",
 };
 
-const MARKDOWN_LINK_PATTERN = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/gi;
-const BARE_LINK_PATTERN =
-  /https?:\/\/[^\s<>"'()[\]]+|pokedata\.kaique\.site|portfolio\.kaique\.site/gi;
+const MARKDOWN_LINK_PATTERN =
+  /\[([^\]\r\n]{1,200})\]\((https?:\/\/[^)\s]{1,2000})\)/gi;
+const BARE_URL_PATTERN = /https?:\/\/[^\s<>"'()[\]]{1,2000}/gi;
+const BARE_HOST_PATTERN = /pokedata\.kaique\.site|portfolio\.kaique\.site/gi;
 
 const DEFAULT_LINK_CLASS =
   "font-medium text-[#915EFF] underline decoration-[#915EFF]/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white/50";
@@ -29,7 +42,9 @@ function shortLabelForUrl(href: string): string {
       return host;
     }
     if (pathname && pathname !== "/") {
-      return `${host}${pathname.length > 24 ? `${pathname.slice(0, 24)}…` : pathname}`;
+      const truncatedPath =
+        pathname.length > 24 ? `${pathname.slice(0, 24)}…` : pathname;
+      return `${host}${truncatedPath}`;
     }
     return host;
   } catch {
@@ -40,8 +55,11 @@ function shortLabelForUrl(href: string): string {
 function normalizeBareMatch(
   raw: string,
 ): { href: string; label: string; consumed: number } | null {
-  const trailing = raw.match(TRAILING_PUNCTUATION)?.[0] ?? "";
-  const token = trailing ? raw.slice(0, -trailing.length) : raw;
+  let end = raw.length;
+  while (end > 0 && TRAILING_PUNCTUATION_CHARS.has(raw[end - 1]!)) {
+    end -= 1;
+  }
+  const token = raw.slice(0, end);
   if (!token) {
     return null;
   }
@@ -91,8 +109,28 @@ function collectLinkParts(text: string): LinkPart[] {
     occupied.push([start, end]);
   }
 
-  BARE_LINK_PATTERN.lastIndex = 0;
-  while ((match = BARE_LINK_PATTERN.exec(text)) !== null) {
+  BARE_URL_PATTERN.lastIndex = 0;
+  while ((match = BARE_URL_PATTERN.exec(text)) !== null) {
+    const start = match.index;
+    const normalized = normalizeBareMatch(match[0]);
+    if (!normalized) {
+      continue;
+    }
+    const end = start + normalized.consumed;
+    if (overlaps(start, end)) {
+      continue;
+    }
+    parts.push({
+      start,
+      end,
+      href: normalized.href,
+      label: normalized.label,
+    });
+    occupied.push([start, end]);
+  }
+
+  BARE_HOST_PATTERN.lastIndex = 0;
+  while ((match = BARE_HOST_PATTERN.exec(text)) !== null) {
     const start = match.index;
     const normalized = normalizeBareMatch(match[0]);
     if (!normalized) {
@@ -171,7 +209,10 @@ export function linkifyText(
 }
 
 export function stripMarkdownLinks(text: string): string {
-  return text.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/gi, "$1");
+  return text.replace(
+    /\[([^\]\r\n]{1,200})\]\((https?:\/\/[^)\s]{1,2000})\)/gi,
+    "$1",
+  );
 }
 
 type LinkifiedTextProps = {
@@ -186,7 +227,7 @@ export function LinkifiedText({
   className,
   linkClassName = DEFAULT_LINK_CLASS,
   stopPropagation = false,
-}: LinkifiedTextProps) {
+}: Readonly<LinkifiedTextProps>) {
   const content = linkifyText(text, {
     className: linkClassName,
     stopPropagation,

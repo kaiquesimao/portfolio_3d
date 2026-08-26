@@ -79,7 +79,7 @@ export default async function ProjectPage({
   const backLabel = locale === "pt" ? "Voltar ao portfólio" : "Back to portfolio";
   const viewDemo = locale === "pt" ? "Ver demo" : "View demo";
   const viewSource = locale === "pt" ? "Código-fonte" : "Source code";
-  const viewStore = locale === "pt" ? "Google Play" : "Google Play";
+  const viewStore = "Google Play";
   const caseStudyLabel =
     locale === "pt" ? "Case study empresarial" : "Enterprise case study";
   const contextLabel = locale === "pt" ? "Contexto" : "Context";
