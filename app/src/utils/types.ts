@@ -49,6 +49,7 @@ export interface IProjectCard {
   image: string;
   source_code_link?: string;
   demo_link?: string;
+  store_link?: string;
   webImg: string;
   isCaseStudy?: boolean;
 }

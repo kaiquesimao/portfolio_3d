@@ -74,6 +74,7 @@ export default async function ProjectPage({
   const backLabel = locale === "pt" ? "Voltar ao portfólio" : "Back to portfolio";
   const viewDemo = locale === "pt" ? "Ver demo" : "View demo";
   const viewSource = locale === "pt" ? "Código-fonte" : "Source code";
+  const viewStore = locale === "pt" ? "Google Play" : "Google Play";
   const caseStudyLabel =
     locale === "pt" ? "Case study empresarial" : "Enterprise case study";
   const contextLabel = locale === "pt" ? "Contexto" : "Context";
@@ -94,6 +95,11 @@ export default async function ProjectPage({
       name: SITE_NAME,
     },
     keywords: project.tags.map((tag) => tag.name).join(", "),
+    sameAs: [
+      project.demo_link,
+      project.store_link,
+      project.source_code_link,
+    ].filter((link): link is string => Boolean(link)),
   };
 
   return (
@@ -186,6 +192,16 @@ export default async function ProjectPage({
               className="rounded-lg bg-[#915EFF] px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
               {viewDemo}
+            </a>
+          ) : null}
+          {project.store_link ? (
+            <a
+              href={project.store_link}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-white/50"
+            >
+              {viewStore}
             </a>
           ) : null}
           {project.source_code_link ? (

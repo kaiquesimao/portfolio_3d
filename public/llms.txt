@@ -16,7 +16,7 @@ Site pessoal e portfólio técnico. Conteúdo em português e inglês.
 - [iLoA](https://portfolio.kaique.site/pt/projects/iloa): case Limit of Authority / governança de projetos
 - [Videowall](https://portfolio.kaique.site/pt/projects/videowall): case torre de controle industrial
 - [TalentHub](https://portfolio.kaique.site/pt/projects/talenthub): case SaaS multi-tenant (alto nível)
-- [PokeData](https://portfolio.kaique.site/pt/projects/pokedata): app Flutter (Android + Web) — https://pokedata.kaique.site
+- [PokeData](https://portfolio.kaique.site/pt/projects/pokedata): Pokédex Flutter (Android + Web) — demo https://pokedata.kaique.site · Play Store https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex
 - [Portfólio 3D](https://portfolio.kaique.site/pt/projects/portfolio-3d): este site (Next.js + Three.js)
 
 ## Contact
