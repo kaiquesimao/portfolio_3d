@@ -211,7 +211,7 @@ export const blogPosts: BlogPost[] = [
           {
             paragraphs: [
               "Projeto pessoal também revela engenharia. O PokeData nasceu como Pokédex, mas o desafio que me interessava não era “consumir uma API de Pokémon”: era fechar o ciclo de um produto mobile-first com backend, auth, persistência, loja e web em produção.",
-              "Código aberto, demo em pokedata.kaique.site e app na Play Store (https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex). Abaixo, o que doeu de verdade — e o que eu repetiria.",
+              "Código aberto no [GitHub](https://github.com/kaiquesimao/new_pokedex_app), demo em pokedata.kaique.site e app na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex). Abaixo, o que doeu de verdade — e o que eu repetiria.",
             ],
           },
           {
@@ -245,7 +245,7 @@ export const blogPosts: BlogPost[] = [
           {
             paragraphs: [
               "Side projects reveal engineering too. PokeData started as a Pokédex, but the challenge I cared about was not “call a Pokémon API”: it was closing the loop on a mobile-first product with backend, auth, persistence, store, and production web.",
-              "Open source, live at pokedata.kaique.site, and on the Play Store (https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex). Below is what actually hurt — and what I would repeat.",
+              "Open source on [GitHub](https://github.com/kaiquesimao/new_pokedex_app), live at pokedata.kaique.site, and on the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex). Below is what actually hurt — and what I would repeat.",
             ],
           },
           {

@@ -136,7 +136,7 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
   pokedata: {
     pt: {
       summary:
-        "Pokédex moderna feita por fãs (Flutter, Android + Web): explorar Pokémon e regiões, buscar e filtrar, abrir perfis com stats, fraquezas, evolução e gritos — favoritar com conta ou explorar como convidado. Publicada na Play Store e em pokedata.kaique.site.",
+        "Pokédex moderna feita por fãs (Flutter, Android + Web): explorar Pokémon e regiões, buscar e filtrar, abrir perfis com stats, fraquezas, evolução e gritos — favoritar com conta ou explorar como convidado. Publicada na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) e em pokedata.kaique.site.",
       context:
         "Muitos demos Flutter param no protótipo de API. O desafio foi fechar o ciclo de um produto mobile-first: PokéAPI com cache local, auth Firebase, favoritos sincronizados, i18n PT/EN, compliance de loja e pipeline até Play Store + web Wasm — sem tratar web como afterthought.",
       outcomes: [
@@ -154,11 +154,11 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
         "GitHub Actions: analyze/testes, deploy web com preview por PR e release AAB para tracks da Play Store",
       ],
       note:
-        "Projeto público e não oficial (PokéAPI). Código no GitHub, demo em pokedata.kaique.site e app em https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex.",
+        "Projeto público e não oficial (PokéAPI). Código no [GitHub](https://github.com/kaiquesimao/new_pokedex_app), demo em pokedata.kaique.site e app na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex).",
     },
     en: {
       summary:
-        "Modern fan-made Pokédex (Flutter, Android + Web): browse Pokémon and regions, search and filter, open rich profiles with stats, weaknesses, evolution, and cries — favorite with an account or explore as a guest. Shipped to the Play Store and pokedata.kaique.site.",
+        "Modern fan-made Pokédex (Flutter, Android + Web): browse Pokémon and regions, search and filter, open rich profiles with stats, weaknesses, evolution, and cries — favorite with an account or explore as a guest. Shipped to the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) and pokedata.kaique.site.",
       context:
         "Many Flutter demos stop at an API prototype. The challenge was closing the loop on a mobile-first product: PokéAPI with local cache, Firebase auth, synced favorites, PT/EN i18n, store compliance, and a pipeline to Play Store + Wasm web — without treating web as an afterthought.",
       outcomes: [
@@ -176,7 +176,7 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
         "GitHub Actions: analyze/tests, web deploy with per-PR previews, and signed AAB uploads to Play tracks",
       ],
       note:
-        "Public, unofficial fan project (PokéAPI). Source on GitHub, live at pokedata.kaique.site, and on Google Play: https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex.",
+        "Public, unofficial fan project (PokéAPI). Source on [GitHub](https://github.com/kaiquesimao/new_pokedex_app), live at pokedata.kaique.site, and on the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex).",
     },
   },
   "portfolio-3d": {
@@ -198,7 +198,7 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
         "OpenNext + Cloudflare Workers; CI com lint, type-check e preview/prod",
       ],
       note:
-        "Projeto público: você está nele. Código no GitHub e live em portfolio.kaique.site.",
+        "Projeto público: você está nele. Código no [GitHub](https://github.com/kaiquesimao/portfolio_3d) e live em portfolio.kaique.site.",
     },
     en: {
       summary:
@@ -218,7 +218,7 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
         "OpenNext + Cloudflare Workers; CI with lint, type-check, and preview/prod",
       ],
       note:
-        "Public project: you are on it. Source on GitHub and live at portfolio.kaique.site.",
+        "Public project: you are on it. Source on [GitHub](https://github.com/kaiquesimao/portfolio_3d) and live at portfolio.kaique.site.",
     },
   },
 };

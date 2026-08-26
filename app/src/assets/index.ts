@@ -4,6 +4,7 @@ const mobile = "/assets/mobile.png";
 const web = "/assets/web.png";
 const cloud = "/assets/cloud.svg";
 const github = "/assets/github.png";
+const playstore = "/assets/playstore.svg";
 const menu = "/assets/menu.svg";
 const close = "/assets/close.svg";
 
@@ -45,6 +46,7 @@ export {
   web,
   cloud,
   github,
+  playstore,
   menu,
   close,
   docker,
