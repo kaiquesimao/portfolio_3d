@@ -37,7 +37,7 @@ Package manager: **pnpm** (`packageManager` in `package.json`).
 | `/manifest.webmanifest` | PWA manifest |
 | `/api/contact` | Contact API (not indexed as a page) |
 
-**Project slugs:** `iloa`, `videowall`, `talenthub`, `pokedata`, `portfolio-3d`.
+**Project slugs:** `iloa`, `videowall`, `talenthub`, `ai-kanban`, `pokedata`, `portfolio-3d`.
 
 > **Cloudflare / OpenNext:** keep `middleware.ts` (Edge), not `proxy.ts`. The adapter does not yet support Next 16’s Node `proxy.ts` at build time.
 

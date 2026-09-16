@@ -133,6 +133,48 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
         "Product details, demos, and client-specific stack are not public in this case study.",
     },
   },
+  "ai-kanban": {
+    pt: {
+      summary:
+        "Kanban estilo Trello com chat de IA e MCP: o usuário autentica, gerencia o board e pede ao agente para criar/mover cards — enquanto o domínio Kanban e a orquestração LLM ficam em serviços FastAPI separados. Demo em https://ai-kanban-pearl.vercel.app.",
+      context:
+        "Muitos demos de “app com IA” misturam UI, regras de negócio e LLM no mesmo processo. O desafio aqui foi contar uma história de arquitetura clara para entrevista: fronteiras de serviço, JWT do usuário no agente (sem service-role), custo próximo de zero e um fluxo demo confiável.",
+      outcomes: [
+        "Login Supabase, board seed (To Do / Doing / Done), CRUD e drag-and-drop de cards na UI",
+        "Chat in-app que cria/move cards via tools; UI atualiza com SSE/stream e refetch",
+        "MCP local (Cursor) reutiliza as mesmas tools contra a kanban-api com o token do usuário",
+        "Deploy real: Next.js na Vercel, FastAPI×2 no Render, Postgres/Auth no Supabase",
+      ],
+      engineering: [
+        "Monorepo: apps/web (Next.js) + services/kanban-api e agent-api (Python/FastAPI) + mcp-server + package kanban-client compartilhado",
+        "O agente nunca fala com o banco: só chama a kanban-api encaminhando o JWT do usuário",
+        "Alembic no startup da API; Compose/Podman para stack local; CI com testes Python, lint e type-check do web",
+        "Trade-offs explícitos: LLM free-tier (Gemini), Render free com cold start, MCP local no v1, pub/sub in-process para SSE",
+      ],
+      note:
+        "Projeto de portfólio/entrevista. Demo pública em https://ai-kanban-pearl.vercel.app. Repositório no [GitHub](https://github.com/kaiquesimao/ai-kanban) (privado — acesso sob pedido).",
+    },
+    en: {
+      summary:
+        "Trello-like Kanban with AI chat and MCP: users sign in, manage a board, and ask the agent to create/move cards — while Kanban domain rules and LLM orchestration live in separate FastAPI services. Live at https://ai-kanban-pearl.vercel.app.",
+      context:
+        "Many “app with AI” demos mash UI, business rules, and the LLM into one process. The goal here was a clear interview architecture story: service boundaries, user JWT on the agent (no service-role), near-zero cost, and a reliable demo path.",
+      outcomes: [
+        "Supabase login, seeded board (To Do / Doing / Done), card CRUD and drag-and-drop in the UI",
+        "In-app chat that creates/moves cards via tools; UI updates with SSE/streaming and refetch",
+        "Local MCP (Cursor) reuses the same tools against kanban-api with the user token",
+        "Real deploy: Next.js on Vercel, FastAPI×2 on Render, Postgres/Auth on Supabase",
+      ],
+      engineering: [
+        "Monorepo: apps/web (Next.js) + services/kanban-api and agent-api (Python/FastAPI) + mcp-server + shared kanban-client package",
+        "The agent never talks to the database: it only calls kanban-api while forwarding the user JWT",
+        "Alembic on API startup; Compose/Podman for local stack; CI with Python tests plus web lint and type-check",
+        "Explicit trade-offs: free-tier LLM (Gemini), Render free cold starts, local MCP in v1, in-process pub/sub for SSE",
+      ],
+      note:
+        "Portfolio / interview project. Public demo at https://ai-kanban-pearl.vercel.app. Source on [GitHub](https://github.com/kaiquesimao/ai-kanban) (private — access on request).",
+    },
+  },
   pokedata: {
     pt: {
       summary:
