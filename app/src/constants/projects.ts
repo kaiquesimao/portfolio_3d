@@ -1,4 +1,5 @@
 import {
+  aiKanban,
   iloa,
   internet,
   pokedata,
@@ -62,6 +63,21 @@ export const projects: ProjectRecord[] = [
     image: talenthub,
     webImg: internet,
     isCaseStudy: true,
+  },
+  {
+    slug: "ai-kanban",
+    nameKey: "project_ai_kanban_name",
+    descriptionKey: "project_ai_kanban_description",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "FastAPI", color: "green-text-gradient" },
+      { name: "Next.js", color: "pink-text-gradient" },
+      { name: "AI / MCP", color: "orange-text-gradient" },
+    ],
+    image: aiKanban,
+    webImg: internet,
+    source_code_link: "https://github.com/kaiquesimao/ai-kanban",
+    demo_link: "https://ai-kanban-pearl.vercel.app",
   },
   {
     slug: "pokedata",

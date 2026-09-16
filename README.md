@@ -37,7 +37,7 @@ Gerenciador de pacotes: **pnpm** (`packageManager` no `package.json`).
 | `/manifest.webmanifest` | PWA manifest |
 | `/api/contact` | API de contato (não indexável) |
 
-**Slugs de projeto:** `iloa`, `videowall`, `talenthub`, `pokedata`, `portfolio-3d`.
+**Slugs de projeto:** `iloa`, `videowall`, `talenthub`, `ai-kanban`, `pokedata`, `portfolio-3d`.
 
 > **Cloudflare / OpenNext:** use `middleware.ts` (Edge), não `proxy.ts`. O adapter ainda não suporta o runtime Node do `proxy.ts` no build.
 

@@ -71,6 +71,9 @@ const en = {
   project_iloa_name: "iLoA",
   project_iloa_description:
     "Enterprise case study (Innomotics): Limit of Authority for industrial project governance. Unifies approvals, compliance, and questionnaires into one digital flow with SSO — instead of fragmented cross-team processes. Vue 3, Spring Boot, and Azure.",
+  project_ai_kanban_name: "AI Kanban",
+  project_ai_kanban_description:
+    "Kanban with AI chat and MCP tools: Next.js monorepo plus two FastAPI services (domain vs agent), Supabase auth, Postgres, deployed on Vercel/Render. Built as an interview demo with explicit service boundaries.",
   case_study_badge: "Case study",
   contact_success: "Thank you for reaching out. I'll get back to you shortly.",
   contact_error:

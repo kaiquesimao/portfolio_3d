@@ -34,6 +34,7 @@ const pokedata = "/assets/projects/pokedata.png";
 const talenthub = "/assets/projects/talenthub.png";
 const videowall = "/assets/projects/videowall.png";
 const iloa = "/assets/projects/iloa.png";
+const aiKanban = "/assets/projects/ai-kanban.png";
 const internet = "/assets/internet.png";
 
 const brasil = "/assets/locales/brasil.png";
@@ -74,6 +75,7 @@ export {
   talenthub,
   videowall,
   iloa,
+  aiKanban,
   internet,
   brasil,
   usa,
