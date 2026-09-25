@@ -87,7 +87,7 @@ export const projects: ProjectRecord[] = [
       { name: "Flutter", color: "blue-text-gradient" },
       { name: "Riverpod", color: "green-text-gradient" },
       { name: "Firebase", color: "orange-text-gradient" },
-      { name: "Drift", color: "pink-text-gradient" },
+      { name: "Workers/D1", color: "pink-text-gradient" },
     ],
     image: pokedata,
     webImg: internet,

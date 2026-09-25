@@ -206,7 +206,7 @@ export const blogPosts: BlogPost[] = [
       pt: {
         title: "Levar Flutter a sério: da ideia à Play Store e à web Wasm",
         description:
-          "O que aprendi publicando o PokeData de verdade — Android, Firebase, Cloudflare Pages, CI/CD e os trade-offs feios que tutorial não mostra.",
+          "O que aprendi publicando o PokeData de verdade — Android, Firebase, Cloudflare Pages/Workers, CI/CD e os trade-offs feios que tutorial não mostra.",
         sections: [
           {
             paragraphs: [
@@ -229,9 +229,16 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           {
+            heading: "Guess the Pokémon — e o free tier como constraint de design",
+            paragraphs: [
+              "A Pokédex sozinha ainda é “app de referência”. O Guess the Pokémon forçou um segundo produto dentro do mesmo codebase: modo local com catálogo embutido e modo competitivo com Cloudflare Worker + D1, token Firebase nas mutações, leaderboards e rate limits.",
+              "O Worker não chama PokéAPI em request time — o catálogo vai versionado no repo. Há monitor de uso contra os tetos diários de Workers/D1. Infra a US$ 0 não é slogan: é a regra que molda sessões, abuse caps e o fato de o competitivo ser opcional se a URL da API não estiver definida.",
+            ],
+          },
+          {
             heading: "Por que isso importa na minha narrativa profissional",
             paragraphs: [
-              "No trabalho eu vivo Java/Spring, Vue e Azure em sistemas industriais. No PokeData eu provei o outro braço: mobile híbrido, Firebase/GCP, Cloudflare e disciplina de release sem time de plataforma me segurando a mão.",
+              "No trabalho eu vivo Java/Spring, Vue e Azure em sistemas industriais. No PokeData eu provei o outro braço: mobile híbrido, Firebase/GCP, Cloudflare (Pages + Workers/D1) e disciplina de release sem time de plataforma me segurando a mão.",
               "Recrutador que lê só o cargo vê “full-stack industrial”. Quem abre o PokeData vê alguém que também entrega ponta a ponta quando o produto é meu — inclusive as partes sem glamour.",
             ],
           },
@@ -240,7 +247,7 @@ export const blogPosts: BlogPost[] = [
       en: {
         title: "Taking Flutter seriously: from idea to Play Store and Wasm web",
         description:
-          "What I learned shipping PokeData for real — Android, Firebase, Cloudflare Pages, CI/CD, and the ugly tradeoffs tutorials skip.",
+          "What I learned shipping PokeData for real — Android, Firebase, Cloudflare Pages/Workers, CI/CD, and the ugly tradeoffs tutorials skip.",
         sections: [
           {
             paragraphs: [
@@ -263,9 +270,16 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           {
+            heading: "Guess the Pokémon — and free tier as a design constraint",
+            paragraphs: [
+              "A Pokédex alone is still a “reference app”. Guess the Pokémon forced a second product in the same codebase: local mode with a bundled catalog, and competitive mode via Cloudflare Worker + D1, Firebase tokens on mutations, leaderboards, and rate limits.",
+              "The Worker does not call PokéAPI at request time — the catalog is checked into the repo. A usage monitor watches Workers/D1 daily ceilings. $0 infra is not a slogan: it shapes sessions, abuse caps, and the fact that competitive mode is optional if the API URL is unset.",
+            ],
+          },
+          {
             heading: "Why this belongs in my professional story",
             paragraphs: [
-              "At work I live in Java/Spring, Vue, and Azure on industrial systems. With PokeData I proved the other arm: hybrid mobile, Firebase/GCP, Cloudflare, and release discipline without a platform team holding my hand.",
+              "At work I live in Java/Spring, Vue, and Azure on industrial systems. With PokeData I proved the other arm: hybrid mobile, Firebase/GCP, Cloudflare (Pages + Workers/D1), and release discipline without a platform team holding my hand.",
               "A recruiter who only reads the job title sees “industrial full-stack”. Someone who opens PokeData sees a person who also ships end-to-end when the product is mine — including the unglamorous parts.",
             ],
           },
