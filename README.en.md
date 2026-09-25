@@ -74,7 +74,7 @@ Posts live in `app/src/content/blog.ts` (PT/EN), for example:
 
 - Mission-critical systems / SaaS in practice
 - 3D, SEO, and performance in this portfolio
-- Shipping Flutter to production (PokeData)
+- Shipping Flutter to production (PokeData — Pokédex + Guess the Pokémon)
 
 ---
 

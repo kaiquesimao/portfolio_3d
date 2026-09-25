@@ -178,44 +178,44 @@ const caseStudies: Record<string, Record<Locale, CaseStudyCopy>> = {
   pokedata: {
     pt: {
       summary:
-        "Pokédex moderna feita por fãs (Flutter, Android + Web): explorar Pokémon e regiões, buscar e filtrar, abrir perfis com stats, fraquezas, evolução e gritos — favoritar com conta ou explorar como convidado. Publicada na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) e em pokedata.kaique.site.",
+        "Pokédex moderna feita por fãs (Flutter, Android + Web): explorar Pokémon e regiões, buscar e filtrar, abrir perfis ricos — e jogar Guess the Pokémon (local ou competitivo com ranking). Favoritos e modo competitivo com conta; navegação completa como convidado. Publicada na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) e em pokedata.kaique.site.",
       context:
-        "Muitos demos Flutter param no protótipo de API. O desafio foi fechar o ciclo de um produto mobile-first: PokéAPI com cache local, auth Firebase, favoritos sincronizados, i18n PT/EN, compliance de loja e pipeline até Play Store + web Wasm — sem tratar web como afterthought.",
+        "Muitos demos Flutter param no protótipo de API. O desafio foi fechar o ciclo de um produto mobile-first a custo zero de infra: PokéAPI com cache local, auth Firebase, favoritos sincronizados, jogo com API própria (Workers + D1), i18n PT/EN, compliance de loja e pipeline até Play Store + web Wasm — sem tratar web como afterthought.",
       outcomes: [
-        "Lista completa estilo National Dex com busca rápida e filtros (tipo, geração, formas)",
-        "Regiões por jogo e perfis detalhados: altura/peso, habilidades, stats, fraquezas, evolução, texto de jogo e gritos",
-        "Favoritos no Cloud Firestore (conta) e modo convidado (“Explorar sem conta”) para consultas rápidas",
+        "Lista estilo National Dex com busca rápida e filtros por tipo e geração; regiões e perfis com stats, fraquezas, evolução, flavor text e gritos",
+        "Guess the Pokémon: modo local (catálogo embutido) e competitivo autenticado com leaderboards e publicação de score",
+        "Favoritos no Cloud Firestore (conta) e modo convidado para consultas rápidas; login só quando a feature exige",
         "Cache Drift offline-friendly e UI bilíngue PT/EN alinhada ao texto da PokéAPI",
-        "Distribuição real: Android na Play Store (com.kaiquesimao.pokedex) + web Wasm em domínio próprio",
+        "Distribuição real: Android na Play Store (com.kaiquesimao.pokedex) + web Wasm em domínio próprio, stack free-tier de propósito",
       ],
       engineering: [
         "Flutter + Riverpod 3, go_router e arquitetura por features (data / domain / presentation)",
-        "Dio → PokéAPI; Drift + connectivity_plus para cache local; JSON manual (sem codegen de serialização)",
-        "Firebase Auth (e-mail/senha; Google Sign-In no Android) + Firestore; dart_defines e secrets fora do git",
+        "Dio → PokéAPI; Drift para cache local; Firebase Auth (e-mail/senha; Google Sign-In no Android) + Firestore",
+        "API do jogo: Cloudflare Worker + D1, catálogo versionado no repo (sem PokéAPI em runtime), rate limits e verificação de token Firebase",
         "Web Wasm multi-thread com COOP/COEP no Cloudflare Pages; Google Auth só no mobile por trade-off consciente",
-        "GitHub Actions: analyze/testes, deploy web com preview por PR e release AAB para tracks da Play Store",
+        "GitHub Actions: analyze/testes, deploy web/Worker, upload de AAB e monitor de uso free-tier (Workers/D1)",
       ],
       note:
         "Projeto público e não oficial (PokéAPI). Código no [GitHub](https://github.com/kaiquesimao/new_pokedex_app), demo em pokedata.kaique.site e app na [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex).",
     },
     en: {
       summary:
-        "Modern fan-made Pokédex (Flutter, Android + Web): browse Pokémon and regions, search and filter, open rich profiles with stats, weaknesses, evolution, and cries — favorite with an account or explore as a guest. Shipped to the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) and pokedata.kaique.site.",
+        "Modern fan-made Pokédex (Flutter, Android + Web): browse Pokémon and regions, search and filter, open rich profiles — plus Guess the Pokémon (local or competitive with leaderboards). Favorites and competitive mode with an account; full browsing as a guest. Shipped to the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex) and pokedata.kaique.site.",
       context:
-        "Many Flutter demos stop at an API prototype. The challenge was closing the loop on a mobile-first product: PokéAPI with local cache, Firebase auth, synced favorites, PT/EN i18n, store compliance, and a pipeline to Play Store + Wasm web — without treating web as an afterthought.",
+        "Many Flutter demos stop at an API prototype. The challenge was closing the loop on a mobile-first product at $0 infra cost: PokéAPI with local cache, Firebase auth, synced favorites, a custom game API (Workers + D1), PT/EN i18n, store compliance, and a pipeline to Play Store + Wasm web — without treating web as an afterthought.",
       outcomes: [
-        "Full National Dex–style list with fast search and filters (type, generation, forms)",
-        "Regional Pokédexes and detailed profiles: height/weight, abilities, stats, weaknesses, evolution, flavor text, and cries",
-        "Favorites in Cloud Firestore (account) and guest mode (“Explore without an account”) for quick lookups",
+        "National Dex–style list with fast search and type/generation filters; regions and profiles with stats, weaknesses, evolution, flavor text, and cries",
+        "Guess the Pokémon: local mode (bundled catalog) and authenticated competitive mode with leaderboards and score publish",
+        "Favorites in Cloud Firestore (account) and guest mode for quick lookups; auth only when a feature needs it",
         "Offline-friendly Drift cache and bilingual PT/EN UI aligned with PokéAPI game text",
-        "Real distribution: Android on the Play Store (com.kaiquesimao.pokedex) + Wasm web on a custom domain",
+        "Real distribution: Android on the Play Store (com.kaiquesimao.pokedex) + Wasm web on a custom domain, free-tier stack by design",
       ],
       engineering: [
         "Flutter + Riverpod 3, go_router, and feature-based architecture (data / domain / presentation)",
-        "Dio → PokéAPI; Drift + connectivity_plus for local cache; manual JSON (no serialization codegen)",
-        "Firebase Auth (email/password; Google Sign-In on Android) + Firestore; dart_defines and secrets kept out of git",
+        "Dio → PokéAPI; Drift for local cache; Firebase Auth (email/password; Google Sign-In on Android) + Firestore",
+        "Game API: Cloudflare Worker + D1, checked-in catalog (no PokéAPI at request time), rate limits, and Firebase token verification",
         "Multi-thread Wasm web with COOP/COEP on Cloudflare Pages; Google Auth mobile-only by conscious tradeoff",
-        "GitHub Actions: analyze/tests, web deploy with per-PR previews, and signed AAB uploads to Play tracks",
+        "GitHub Actions: analyze/tests, web/Worker deploy, AAB upload, and free-tier usage monitor (Workers/D1)",
       ],
       note:
         "Public, unofficial fan project (PokéAPI). Source on [GitHub](https://github.com/kaiquesimao/new_pokedex_app), live at pokedata.kaique.site, and on the [Play Store](https://play.google.com/store/apps/details?id=com.kaiquesimao.pokedex).",

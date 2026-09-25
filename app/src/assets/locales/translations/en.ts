@@ -61,7 +61,7 @@ const en = {
     "This site: a 3D Next.js landing with Three.js, PT/EN i18n, project pages, SEO (OG, sitemap, JSON-LD), and Cloudflare Workers deploy. Built to impress and still be indexable.",
   project_4_name: "PokeData",
   project_4_description:
-    "Fan-made Flutter Pokédex (Android + Web): search and filters, regions, rich details with stats, evolution, and cries, Firebase favorites, guest mode, and offline cache — on the Play Store and at pokedata.kaique.site.",
+    "Fan-made Flutter Pokédex (Android + Web): search and filters, regions, rich details, Firebase favorites, guest mode, offline cache, and Guess the Pokémon (local + competitive with Workers/D1) — on the Play Store and at pokedata.kaique.site.",
   project_talenthub_name: "TalentHub",
   project_talenthub_description:
     "Enterprise case study: multi-tenant SaaS for talent and HR — tenant isolation, scalability, and modern web UX as product requirements. Great talking point for SaaS architecture; details and demos are not public.",

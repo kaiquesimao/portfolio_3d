@@ -74,7 +74,7 @@ Posts em `app/src/content/blog.ts` (PT/EN), por exemplo:
 
 - Sistemas críticos / SaaS na prática
 - 3D, SEO e performance neste portfólio
-- Flutter em produção (PokeData)
+- Flutter em produção (PokeData — Pokédex + Guess the Pokémon)
 
 ---
 
